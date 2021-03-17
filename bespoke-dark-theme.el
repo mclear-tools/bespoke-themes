@@ -18,15 +18,17 @@
   (bespoke-subtle   "#434C5E")
   (bespoke-faded    "#677691")
   (bespoke-accent1  "#A3BE8C")
-  (bespoke-accent2  "#EBCB8B"))
+  (bespoke-accent2  "#EBCB8B")
+  (bespoke-accent3  "#3b4052"))
 
 
 ;;; Customize faces
 
 ;;;; Dark faces (Modeline/Window Divs)
-
- ;;Modeline
  ((default (:foreground bespoke-light :background bespoke-dark))
+
+  ;;Modeline
+  (bespoke-header-line)
   (header-line (:foreground "#ECEFF4"
                 :background "#3B4252"
                 :box '(:line-width 5 :color "#3B4252" :height 150)
@@ -45,6 +47,15 @@
   (window-divider (:foreground bespoke-dark))
   (window-divider-first-pixel (:foreground bespoke-dark))
   (window-divider-last-pixel (:foreground bespoke-dark))
+
+
+;;;; Semantic
+  (shadow                                        (:foreground bespoke-faded))
+  (success                                       (:foreground bespoke-salient))
+  (warning                                       (:foreground bespoke-popout))
+  (error                                         (:foreground bespoke-critical))
+  (match                                         (:foreground bespoke-popout))
+
 ;;;; Miscellaneous Faces
   (buffer-menu-buffer                            (:foreground bespoke-strong))
   (minibuffer-prompt                             (:foreground bespoke-strong))
@@ -55,8 +66,9 @@
   (isearch-fail                                  (:foreground bespoke-faded))
   (highlight                                     (:background bespoke-subtle))
   (lazy-highlight                                (:foreground bespoke-accent2))
-  (trailing-whitespace                           (:foreground bespoke-subtle))
-  (show-paren-match                              (:foreground bespoke-accent1))
+  (trailing-whitespace                           (:foreground bespoke-faded))
+  (show-paren-match                              (:foreground bespoke-light
+                                                  :background bespoke-accent1))
   (show-paren-mismatch                           (:foreground bespoke-critical
                                                   :background bespoke-popout))
   (tooltip nil                                   :height 0.85)
@@ -100,14 +112,15 @@
 
 
 ;;;; Outline
-  (outline-1            (:inherit 'variable-pitch :foreground bespoke-popout))
+  (outline-minor-0      (:background bespoke-accent3))
+  (outline-1            (:inherit 'variable-pitch :foreground bespoke-popout ))
   (outline-2            (:inherit 'variable-pitch :foreground bespoke-salient))
-  (outline-3            (:inherit 'variable-pitch :foreground bespoke-popout))
+  (outline-3            (:inherit 'variable-pitch :foreground bespoke-popout ))
   (outline-4            (:inherit 'variable-pitch :foreground bespoke-salient))
-  (outline-5            (:inherit 'variable-pitch :foreground bespoke-popout))
+  (outline-5            (:inherit 'variable-pitch :foreground bespoke-popout ))
   (outline-6            (:inherit 'variable-pitch :foreground bespoke-salient))
-  (outline-7            (:inherit 'variable-pitch :foreground bespoke-faded))
-  (outline-8            (:inherit 'variable-pitch :foreground bespoke-subtle))
+  (outline-7            (:inherit 'variable-pitch :foreground bespoke-faded  ))
+  (outline-8            (:inherit 'variable-pitch :foreground bespoke-subtle ))
 
 ;;;; Interface
   (widget-field                                 (:foreground bespoke-subtle))
@@ -148,6 +161,7 @@
   (diff-refine-changed                          (:foreground bespoke-popout))
   (diff-refine-removed                          (:foreground bespoke-faded))
   (diff-refine-removed                          (:inherit 'default :strike-through t))
+  (magit-section-highlight                      (:background bespoke-subtle))
 
 ;;;; Term
   (term-bold                                    (:foreground bespoke-strong))
@@ -316,7 +330,9 @@
   (company-tooltip-annotation-selection       (:foreground bespoke-faded))
 
 ;;;; Selectrum
-  (selectrum-current-candidate               (:slant 'italic :weight 'bold))
+  (selectrum-current-candidate                (:slant 'italic
+                                               :weight 'bold
+                                               :background bespoke-subtle))
 
 ;;;; Mu4e
   (mu4e-attach-number-face                      (:foreground bespoke-strong))

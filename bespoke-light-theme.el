@@ -18,14 +18,15 @@
   (bespoke-subtle     "#ECEFF1")
   (bespoke-faded      "#677691")
   (bespoke-accent1    "#FFAB91")
-  (bespoke-accent2    "#D8DEE9"))
+  (bespoke-accent2    "#D8DEE9")
+  (bespoke-accent3    "#C5E5CA"))
 
 
 ;;; Customize faces
  ((default (:foreground "#37474F" :background "#FFFEF9"))
 
 ;;;; Light Faces (Modeline/Window Divs)
-
+  (bespoke-header-line)
   (header-line (:background "#D8DEE9"
                 :foreground bespoke-strong :weight 'normal
                 :box '(:line-width 6  :color "#D8DEE9" :height 150)
@@ -51,6 +52,13 @@
   (window-divider-first-pixel (:foreground bespoke-light))
   (window-divider-last-pixel (:foreground bespoke-light))
 
+;;;; Semantic
+  (shadow                                        (:foreground bespoke-faded))
+  (success                                       (:foreground bespoke-salient))
+  (warning                                       (:foreground bespoke-popout))
+  (error                                         (:foreground bespoke-critical))
+  (match                                         (:foreground bespoke-popout))
+
 ;;;; Miscellaneous Faces
   (buffer-menu-buffer                            (:foreground bespoke-strong))
   (minibuffer-prompt                             (:foreground bespoke-strong))
@@ -62,7 +70,8 @@
   (highlight                                     (:background bespoke-subtle))
   (lazy-highlight                                (:foreground bespoke-accent2))
   (trailing-whitespace                           (:foreground bespoke-subtle))
-  (show-paren-match                              (:foreground bespoke-accent1))
+  (show-paren-match                              (:foreground bespoke-dark
+                                                  :background bespoke-accent3))
   (show-paren-mismatch                           (:foreground bespoke-critical
                                                   :background bespoke-popout))
   (tooltip nil                                   :height 0.85)
@@ -106,6 +115,7 @@
 
 
 ;;;; Outline
+  (outline-minor-0      (:background bespoke-subtle))
   (outline-1            (:inherit 'variable-pitch :foreground bespoke-popout))
   (outline-2            (:inherit 'variable-pitch :foreground bespoke-salient))
   (outline-3            (:inherit 'variable-pitch :foreground bespoke-popout))
@@ -154,6 +164,7 @@
   (diff-refine-changed                          (:foreground bespoke-popout))
   (diff-refine-removed                          (:foreground bespoke-faded))
   (diff-refine-removed                          (:inherit 'default :strike-through t))
+  (magit-section-highlight                      (:background bespoke-subtle))
 
 ;;;; Term
   (term-bold                                    (:foreground bespoke-strong))
@@ -322,8 +333,9 @@
   (company-tooltip-annotation-selection       (:foreground bespoke-faded))
 
 ;;;; Selectrum
-  (selectrum-current-candidate               (:slant 'italic :weight 'bold))
-
+  (selectrum-current-candidate                (:slant 'italic
+                                               :weight 'bold
+                                               :background bespoke-subtle))
 ;;;; Mu4e
   (mu4e-attach-number-face                      (:foreground bespoke-strong))
   (mu4e-cited-1-face                            (:foreground bespoke-faded))
