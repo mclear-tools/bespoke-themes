@@ -14,7 +14,7 @@
   (bespoke-critical "red3")
   (bespoke-popout   "#D08770")
   (bespoke-salient  "#81A1C1")
-  (bespoke-strong   "#ECEFF4")
+  (bespoke-strong   "#ECEFF4" (:weight 'bold))
   (bespoke-subtle   "#434C5E")
   (bespoke-faded    "#677691")
   (bespoke-accent1  "#A3BE8C")
@@ -29,7 +29,7 @@
 
   ;;Modeline
   (bespoke-header-line)
-  (header-line (:foreground "#ECEFF4"
+  (header-line (:foreground bespoke-light
                 :background "#3B4252"
                 :box '(:line-width 5 :color "#3B4252" :height 150)
                 :overline nil
@@ -56,12 +56,12 @@
   (error                                         (:foreground bespoke-critical))
   (match                                         (:foreground bespoke-popout))
 
-;;;; Miscellaneous Faces
+;;;; Basic Faces
   (buffer-menu-buffer                            (:foreground bespoke-strong))
   (minibuffer-prompt                             (:foreground bespoke-strong))
   (link                                          (:foreground bespoke-salient))
   (region                                        (:background bespoke-popout))
-  (fringe                                        (:foreground bespoke-faded))
+  (fringe                                        (:foreground bespoke-faded :weight 'light))
   (isearch                                       (:foreground bespoke-strong))
   (isearch-fail                                  (:foreground bespoke-faded))
   (highlight                                     (:background bespoke-subtle))
@@ -319,14 +319,14 @@
 
 ;;;; Company
   (company-scrollbar-fg                       (:foreground bespoke-faded))
-  (company-scrollbar-bg                       (:inherit    'default))
+  (company-scrollbar-bg                       (:foreground bespoke-faded))
   (company-preview                            (:foreground bespoke-faded :weight 'bold))
-  (company-preview-common                     (:inherit     'default))
-  (company-tooltip-selection                  (:foreground bespoke-faded))
+  (company-preview-common                     (:foreground bespoke-faded))
+  (company-tooltip-selection                  (:foreground bespoke-salient))
   (company-tooltip                            (:background bespoke-subtle))
-  (company-tooltip-common                     (:inherit 'default))
+  (company-tooltip-common                     (:background bespoke-subtle))
   (company-tooltip-common-selection           (:foreground bespoke-faded))
-  (company-tooltip-annotation                 (:inherit 'default))
+  (company-tooltip-annotation                 (:foreground bespoke-faded))
   (company-tooltip-annotation-selection       (:foreground bespoke-faded))
 
 ;;;; Selectrum
@@ -373,7 +373,13 @@
   (mu4e-view-body-face                           (:inherit 'default))
   (mu4e-warning-face                             (:foreground bespoke-faded))
 
+;;;; Help(ful)
+
+  (helpful-heading                               (:inherit 'variable-pitch :foreground bespoke-popout))
+
+
   ))
+
 
 
 
