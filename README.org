@@ -1,1 +1,12 @@
-Custom light and dark themes for Emacs (intended for GUI only).  
+Custom medium contrast light and dark themes for Emacs (intended for GUI only). Inspired by
+[[https://github.com/rougier][Nicolas Rougier's]] work on [[https://github.com/rougier/elegant-emacs][elegant-emacs]] and [[https://github.com/rougier/nano-emacs][nano-emacs]] and colors from [[https://github.com/bbatsov/solarized-emacs][solarized]] and
+[[https://github.com/arcticicestudio/nord-emacs][nord]].  
+
+*** Screenshots:
+
+#+BEGIN_HTML
+<div>
+<img src="./screenshots/light-example.png"/>
+<img src="./screenshots/dark-example.png" />
+</div>
+#+END_HTML
