@@ -1,6 +1,7 @@
-Custom medium contrast light and dark themes for Emacs (intended for GUI only). Inspired by
-[[https://github.com/rougier][Nicolas Rougier's]] work on [[https://github.com/rougier/elegant-emacs][elegant-emacs]] and [[https://github.com/rougier/nano-emacs][nano-emacs]] and colors from [[https://github.com/bbatsov/solarized-emacs][solarized]] and
-[[https://github.com/arcticicestudio/nord-emacs][nord]].  
+Custom medium contrast light and dark themes for Emacs (intended for GUI only).
+Written using [[https://github.com/jasonm23/autothemer][autothemer]]. Inspired by (and to some extent shamlessly stolen from)
+[[https://github.com/rougier][Nicolas Rougier's]] work on [[https://github.com/rougier/elegant-emacs][elegant-emacs]] and [[https://github.com/rougier/nano-emacs][nano-emacs]], with some ideas and colors
+borrowed from [[https://github.com/bbatsov/solarized-emacs][solarized]] and [[https://github.com/arcticicestudio/nord-emacs][nord]].
 
 *** Screenshots:
 
