@@ -28,12 +28,11 @@
   (bespoke-header-line)
   (header-line (:background "#E3E7EF"
                 :foreground bespoke-dark
-                :box '(:line-width 6  :color "#E3E7EF" :height 150)
+                :box '(:line-width 6 :color "#E3E7EF" :height 150)
                 :overline nil
                 :underline nil
+                ;; :inherit 'variable-pitch
                 :height 150))
-
-  (setq mini-frame-internal-border-color "#D8DEE9")
 
   (mode-line   (:height 10
                 :underline bespoke-accent2
@@ -182,7 +181,7 @@
   (org-agenda-date                              (:foreground bespoke-salient))
   (org-agenda-date-today                        (:inherit 'variable-pitch
                                                  :height 1.25 :foreground bespoke-popout))
-  (org-super-agenda-header                      (:foreground bespoke-accent1))
+  (org-super-agenda-header                      (:inherit 'variable-pitch :foreground bespoke-accent1))
   (org-agenda-date-weekend                      (:foregruond bespoke-faded))
   (org-agenda-diary                             (:foregruond bespoke-faded))
   (org-agenda-dimmed-todo-face                  (:foregruond bespoke-faded))
@@ -209,16 +208,17 @@
   (org-date                                   (:foreground bespoke-faded))
   (org-date-selected                          (:foreground bespoke-faded))
   (org-default                                (:foreground bespoke-faded))
-  (org-document-info                          (:foreground bespoke-faded))
-  (org-document-info-keyword                  (:foreground bespoke-faded))
+  (org-document-info                          (:foreground bespoke-faded :weight 'light))
+  (org-document-info-keyword                  (:foreground bespoke-faded :weight 'light))
   (org-document-title                         (:inherit 'variable-pitch
                                                :height 1.25
                                                :foreground bespoke-salient))
   (org-done                                   (:foreground bespoke-faded))
-  (org-drawer                                 (:foreground bespoke-faded))
+  (org-drawer                                 (:foreground bespoke-faded :weight 'light))
   (org-ellipsis                               (:foreground bespoke-faded))
   (org-footnote                               (:foreground bespoke-faded))
   (org-formula                                (:foreground bespoke-faded))
+  (org-habit-alert-face                       (:inherit 'default))
   (org-headline-done                          (:foreground bespoke-faded))
   ;;  (set-face 'org-hide                                     bespoke-faded)
   ;;  (set-face 'org-indent                                   bespoke-faded)
@@ -242,17 +242,17 @@
   (org-link                                   (:foreground bespoke-salient))
   (org-list-dt                                (:foreground bespoke-faded))
   (org-macro                                  (:foreground bespoke-faded))
-  (org-meta-line                              (:foreground bespoke-faded))
+  (org-meta-line                              (:foreground bespoke-faded :weight 'light))
   (org-mode-line-clock                        (:foreground bespoke-faded))
   (org-mode-line-clock-overrun                (:foreground bespoke-faded))
   (org-priority                               (:foreground bespoke-faded))
-  (org-property-value                         (:foreground bespoke-faded))
+  (org-property-value                         (:foreground bespoke-faded :weight 'light))
   (org-quote                                  (:foreground bespoke-salient))
   (org-scheduled                              (:foreground bespoke-salient))
   (org-scheduled-previously                   (:foreground bespoke-salient))
   (org-scheduled-today                        (:foreground bespoke-salient))
   (org-sexp-date                              (:foreground bespoke-faded))
-  (org-special-keyword                        (:foreground bespoke-faded))
+  (org-special-keyword                        (:foreground bespoke-faded :weight 'light))
   (org-table                                  (:inherit    'default))
   (org-tag                                    (:foreground bespoke-faded))
   (org-tag-group                              (:foreground bespoke-faded))
@@ -375,7 +375,10 @@
 
   (helpful-heading                               (:inherit 'variable-pitch :foreground bespoke-popout))
 
+;;; End Custom Faces
   ))
+
+;;; Other Custom Variables
 
 
 ;;; End theme
