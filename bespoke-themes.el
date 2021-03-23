@@ -1,26 +1,12 @@
-
+;;; Version Requirements
 (unless (>= emacs-major-version 24)
   (error "Requires Emacs 24 or later"))
 
-;;;###autoload
-(and load-file-name
-     (boundp 'custom-theme-load-path)
-     (add-to-list 'custom-theme-load-path
-                  (file-name-as-directory
-                   (file-name-directory load-file-name))))
-
-;; Load dark theme for terminal
+;;; Load dark theme for terminal
 (when (not (display-graphic-p))
   (load-theme 'bespoke-dark t))
 
-(defun bespoke-header-line ()
-  "Replace header line with mode line"
-  (interactive)
-  (setq-default header-line-format mode-line-format)
-  (setq-default mode-line-format'(""))
-  (setq x-underline-at-descent-line t))
-
-;; Visual bell for mode line
+;;; Visual bell for mode line
 ;; See https://github.com/hlissner/emacs-doom-themes for the idea
 
 (require 'face-remap)
@@ -48,6 +34,62 @@
   (setq ring-bell-function #'bespoke-themes-visual-bell-fn
         visible-bell t))
 
+;;; Function to (re)load header line
+;;;###autoload
+(defun bespoke-header-line ()
+  "Replace header line with mode line"
+  (interactive)
+  (progn
+    (window-divider-mode 1)
+    (setq-default header-line-format mode-line-format)
+    (setq-default mode-line-format'(""))
+    (setq x-underline-at-descent-line t)))
+
+;; ;;Modeline
+;; (defvar set-bespoke-header-line)
+
+;; (defun set-bespoke-dark-header ()
+;;   "set dark header line"
+;;   (bespoke-header-line)
+;;   (set-face-attribute 'header-line nil
+;;                       :foreground "#FFFEF9"
+;;                       :background "#3b4252"
+;;                       :box `(:line-width 5 :color "#3b4252" :height 150)
+;;                       :overline nil
+;;                       :underline nil
+;;                       :height 150)
+;;   (setq mini-frame-internal-border-color "#3B4252")
+;;   (set-face-attribute 'mode-line nil
+;;                       :height 10
+;;                       :underline "#677691"
+;;                       :overline nil
+;;                       :box nil))
+
+;; (defun set-bespoke-light-header ()
+;;   (bespoke-header-line)
+;;   (set-face-attribute 'header-line nil
+;;                       :background "#E3E7EF"
+;;                       :foreground "#2E3440"
+;;                       :box '(:line-width 6  :color "#E3E7EF" :height 150)
+;;                       :overline nil
+;;                       :underline nil
+;;                       :height 150)
+;;   (setq mini-frame-internal-border-color "#D8DEE9")
+;;   (set-face-attribute 'mode-line nil
+;;                       :height 10
+;;                       :underline "#D8DEE9"
+;;                       :overline nil
+;;                       :box nil))
+
+;;; Provide path to file
+
+;;;###autoload
+(and load-file-name
+     (boundp 'custom-theme-load-path)
+     (add-to-list 'custom-theme-load-path
+                  (file-name-as-directory
+                   (file-name-directory load-file-name))))
 
 
+;;; End Theme
 (provide 'bespoke-themes)
