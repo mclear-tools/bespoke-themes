@@ -376,24 +376,65 @@
 
   (helpful-heading                               (:inherit 'variable-pitch :foreground bespoke-popout))
 
+
 ;;;; Dired (plus)
-  ;; (diredp-compressed-file-name       (:foreground bespoke-faded))
-  ;; (diredp-compressed-file-suffix     (:foreground bespoke-faded))
-  ;; (diredp-date-time                  (:foreground bespoke-faded))
-  ;; (diredp-deletion                   (:foreground bespoke-critical))
-  ;; (diredp-dir-heading                (:background bespoke-popout))
-  ;; (diredp-dir-name                   (:inherit 'variable-pitch :foreground bespoke-popout))
-  ;; (diredp-dir-priv                   (:foreground bespoke-faded))
-  ;; (diredp-exec-priv                  (:foreground "#990A1b"))
-  ;; (diredp-file-name                  (:foreground bespoke-salient))
-  ;; (diredp-file-suffix                (:foreground bespoke-faded))
-  ;; (diredp-flag-mark-line             (:foreground "#dc322f"))
-  ;; (diredp-no-priv                    (:foreground bespoke-faded))
-  ;; (diredp-number                     (:foreground bespoke-faded))
-  ;; (diredp-rare-priv                  (:background bespoke-faded))
-  ;; (diredp-read-priv                  (:foreground bespoke-faded))
-  ;; (diredp-tagged-autofile-name       (:foreground bespoke-faded))
-  ;; (diredp-write-priv                 (:foreground bespoke-critical))
+  (diredp-write-priv
+   (:foreground bespoke-critical))
+  (diredp-tagged-autofile-name
+   (:foreground bespoke-dark))
+  (diredp-symlink
+   (:foreground bespoke-popout))
+  (diredp-read-priv
+   (:foreground bespoke-popout))
+  (diredp-rare-priv
+   (:foreground bespoke-popout :background bespoke-critical))
+  (diredp-other-priv
+   (:background bespoke-accent3))
+  (diredp-omit-file-name
+   (:strike-through bespoke-faded :inherit 'diredp-ignored-file-name))
+  (diredp-number
+   (:foreground bespoke-salient))
+  (diredp-no-priv
+   (:foreground bespoke-critical))
+  (diredp-mode-line-flagged
+   (:foreground bespoke-critical))
+  (diredp-mode-line-marked
+   (:foreground bespoke-salient))
+  (diredp-link-priv
+   (:foreground bespoke-popout))
+  (diredp-ignored-file-name
+   (:foreground bespoke-faded))
+  (diredp-flag-mark-line
+   (:foreground bespoke-popout))
+  (diredp-flag-mark
+   (:foreground bespoke-popout :background bespoke-salient))
+  (diredp-file-suffix
+   (:foreground bespoke-faded))
+  (diredp-file-name
+   (:foreground bespoke-light))
+  (diredp-executable-tag
+   (:foreground bespoke-critical))
+  (diredp-exec-priv
+   (:foreground bespoke-critical))
+  (diredp-dir-priv
+   (:foreground bespoke-faded))
+  (diredp-dir-name
+   (:foreground bespoke-faded))
+  (diredp-dir-heading
+   (:inherit 'variable-pitch :foreground bespoke-popout :background bespoke-subtle))
+  (diredp-deletion-file-name
+   (:foreground bespoke-critical))
+  (diredp-deletion
+   (:foreground bespoke-popout :background bespoke-critical))
+  (diredp-date-time
+   (:foreground bespoke-faded))
+  (diredp-compressed-file-suffix
+   (:foreground bespoke-faded))
+  (diredp-compressed-file-name
+   (:foreground bespoke-dark))
+  (diredp-autofile-name
+   (:background bespoke-subtle))
+
 
 
 ;;; End Custom Faces
