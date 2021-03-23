@@ -19,7 +19,9 @@
   (bespoke-faded    "#677691")
   (bespoke-accent1  "#A3BE8C")
   (bespoke-accent2  "#EBCB8B")
-  (bespoke-accent3  "#3b4052"))
+  (bespoke-accent3  "#FFAB91"))
+
+ ;; (bespoke-accent3  "#3b4052"))
 
 
 ;;; Customize faces
@@ -29,14 +31,14 @@
 
   ;;Modeline
   (header-line (:foreground bespoke-light
-                :background "#3B4252"
-                :box '(:line-width 5 :color "#3B4252" :height 150)
+                :background "#3b4052"
+                :box '(:line-width 5 :color "#3b4052" :height 150)
                 :overline nil
                 :underline nil
                 :height 150))
 
   (mode-line   (:height 10
-                :underline bespoke-faded
+                :underline bespoke-subtle
                 :overline nil
                 :box nil))
 
@@ -58,7 +60,7 @@
   (buffer-menu-buffer                            (:foreground bespoke-strong))
   (minibuffer-prompt                             (:foreground bespoke-strong))
   (link                                          (:foreground bespoke-salient))
-  (region                                        (:background bespoke-popout))
+  (region                                        (:background bespoke-faded))
   (fringe                                        (:foreground bespoke-faded :weight 'light))
   (isearch                                       (:foreground bespoke-strong))
   (isearch-fail                                  (:foreground bespoke-faded))
@@ -110,7 +112,7 @@
 
 
 ;;;; Outline
-  (outline-minor-0      (:background bespoke-accent3))
+  (outline-minor-0      (:background bespoke-subtle))
   (outline-1            (:inherit 'variable-pitch :foreground bespoke-popout ))
   (outline-2            (:inherit 'variable-pitch :foreground bespoke-salient))
   (outline-3            (:inherit 'variable-pitch :foreground bespoke-popout ))
@@ -155,10 +157,9 @@
   (diff-removed                                 (:foreground bespoke-faded))
   (diff-changed                                 (:foreground bespoke-popout))
   (diff-added                                   (:foreground bespoke-salient))
-  (diff-refine-added                            (:foreground bespoke-salient :weight 'bold))
+  (diff-refine-added                            (:foreground bespoke-strong))
   (diff-refine-changed                          (:foreground bespoke-popout))
-  (diff-refine-removed                          (:foreground bespoke-faded))
-  (diff-refine-removed                          (:inherit 'default :strike-through t))
+  (diff-refine-removed                          (:foreground bespoke-faded :strike-through t))
   (magit-section-highlight                      (:background bespoke-subtle))
 
 ;;;; Term
@@ -375,6 +376,13 @@
 ;;;; Help(ful)
 
   (helpful-heading                               (:inherit 'variable-pitch :foreground bespoke-popout))
+
+;;;; Orderless
+
+  (orderless-match-face-0 (:weight 'bold :foreground bespoke-popout))
+  (orderless-match-face-1 (:weight 'bold :foreground bespoke-salient))
+  (orderless-match-face-2 (:weight 'bold :foreground bespoke-accent1))
+  (orderless-match-face-3 (:weight 'bold :foreground bespoke-accent2))
 
 
 ;;;; Dired (plus)

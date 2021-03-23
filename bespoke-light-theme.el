@@ -22,10 +22,11 @@
   (bespoke-accent3    "#C5E5CA"))
 
 ;;; Customize faces
- ((default (:foreground "#37474F" :background "#FFFEF9"))
 
 ;;;; Light Faces (Modeline/Window Divs)
-  (bespoke-header-line)
+ ((default (:foreground "#37474F" :background "#FFFEF9"))
+
+  ;; Mode line
   (header-line (:background "#E3E7EF"
                 :foreground bespoke-dark
                 :box '(:line-width 6 :color "#E3E7EF" :height 150)
@@ -38,9 +39,6 @@
                 :underline bespoke-accent2
                 :overline nil
                 :box nil))
-
-
-;;;; Windows
 
   ;; divide windows more attractively
   (window-divider (:foreground bespoke-light))
@@ -58,7 +56,7 @@
   (buffer-menu-buffer                            (:foreground bespoke-strong))
   (minibuffer-prompt                             (:foreground bespoke-strong))
   (link                                          (:foreground bespoke-salient))
-  (region                                        (:background bespoke-popout))
+  (region                                        (:background bespoke-accent2))
   (fringe                                        (:foreground bespoke-faded :weight 'light))
   (isearch                                       (:foreground bespoke-strong))
   (isearch-fail                                  (:foreground bespoke-faded))
@@ -155,10 +153,9 @@
   (diff-removed                                 (:foreground bespoke-faded))
   (diff-changed                                 (:foreground bespoke-popout))
   (diff-added                                   (:foreground bespoke-salient))
-  (diff-refine-added                            (:foreground bespoke-salient :weight 'bold))
+  (diff-refine-added                            (:foreground bespoke-strong))
   (diff-refine-changed                          (:foreground bespoke-popout))
-  (diff-refine-removed                          (:foreground bespoke-faded))
-  (diff-refine-removed                          (:inherit 'default :strike-through t))
+  (diff-refine-removed                          (:foreground bespoke-faded :strike-through t))
   (magit-section-highlight                      (:background bespoke-subtle))
 
 ;;;; Term
@@ -375,6 +372,14 @@
 
   (helpful-heading                               (:inherit 'variable-pitch :foreground bespoke-popout))
 
+;;;; Orderless
+
+  (orderless-match-face-0 (:weight 'bold :foreground bespoke-popout))
+  (orderless-match-face-1 (:weight 'bold :foreground bespoke-salient))
+  (orderless-match-face-2 (:weight 'bold :foreground bespoke-accent1))
+  (orderless-match-face-3 (:weight 'bold :foreground bespoke-accent2))
+
+
 ;;;; Dired (Plus)
   (diredp-write-priv
    (:foreground bespoke-critical))
@@ -437,7 +442,6 @@
   ))
 
 ;;; Other Custom Variables
-
 
 ;;; End theme
 (provide-theme 'bespoke-light)
