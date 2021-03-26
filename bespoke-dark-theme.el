@@ -17,9 +17,11 @@
   (bespoke-strong   "#ECEFF4" (:weight 'bold))
   (bespoke-subtle   "#434C5E")
   (bespoke-faded    "#677691")
-  (bespoke-accent1  "#A3BE8C")
-  (bespoke-accent2  "#EBCB8B")
-  (bespoke-accent3  "#FFAB91"))
+  (bespoke-accent1  "#BF616A")
+  (bespoke-accent2  "#5E81AC")
+  (bespoke-accent3  "#A3BE8C")
+  (bespoke-accent4  "#FFAB91")
+  (bespoke-accent5  "#EBCB8B"))
 
  ;; (bespoke-accent3  "#3b4052"))
 
@@ -42,12 +44,10 @@
                 :overline nil
                 :box nil))
 
-
   ;; divide windows more attractively
   (window-divider (:foreground bespoke-dark))
   (window-divider-first-pixel (:foreground bespoke-dark))
   (window-divider-last-pixel (:foreground bespoke-dark))
-
 
 ;;;; Semantic
   (shadow                                        (:foreground bespoke-faded))
@@ -113,14 +113,14 @@
 
 ;;;; Outline
   (outline-minor-0      (:background bespoke-subtle))
-  (outline-1            (:inherit 'variable-pitch :foreground bespoke-popout ))
-  (outline-2            (:inherit 'variable-pitch :foreground bespoke-salient))
-  (outline-3            (:inherit 'variable-pitch :foreground bespoke-popout ))
-  (outline-4            (:inherit 'variable-pitch :foreground bespoke-salient))
-  (outline-5            (:inherit 'variable-pitch :foreground bespoke-popout ))
-  (outline-6            (:inherit 'variable-pitch :foreground bespoke-salient))
-  (outline-7            (:inherit 'variable-pitch :foreground bespoke-faded  ))
-  (outline-8            (:inherit 'variable-pitch :foreground bespoke-subtle ))
+  (outline-1            (:inherit 'variable-pitch :foreground bespoke-accent4 ))
+  (outline-2            (:inherit 'variable-pitch :foreground bespoke-accent3))
+  (outline-4            (:inherit 'variable-pitch :foreground bespoke-accent4 ))
+  (outline-4            (:inherit 'variable-pitch :foreground bespoke-accent3))
+  (outline-5            (:inherit 'variable-pitch :foreground bespoke-accent4 ))
+  (outline-6            (:inherit 'variable-pitch :foreground bespoke-accent3))
+  (outline-7            (:inherit 'variable-pitch :foreground bespoke-accent4))
+  (outline-8            (:inherit 'variable-pitch :foreground bespoke-accent3))
 
 ;;;; Interface
   (widget-field                                 (:foreground bespoke-subtle))
@@ -181,12 +181,12 @@
   (org-agenda-current-time                      (:foreground bespoke-faded))
   (org-agenda-date                              (:foreground bespoke-salient))
   (org-agenda-date-today                        (:inherit 'variable-pitch
-                                                 :height 1.25 :foreground bespoke-popout))
+                                                 :height 1.25 :foreground bespoke-accent1))
   (org-super-agenda-header                      (:inherit 'variable-pitch :foreground bespoke-accent1))
   (org-agenda-date-weekend                      (:foregruond bespoke-faded))
   (org-agenda-diary                             (:foregruond bespoke-faded))
   (org-agenda-dimmed-todo-face                  (:foregruond bespoke-faded))
-  (org-agenda-done                              (:foregruond bespoke-faded))
+  (org-agenda-done                              (:foregruond bespoke-faded :strike-through t))
   (org-agenda-filter-category                   (:foregruond bespoke-faded))
   (org-agenda-filter-effort                     (:foregruond bespoke-faded))
   (org-agenda-filter-regexp                     (:foregruond bespoke-faded))
@@ -214,7 +214,7 @@
   (org-document-title                         (:inherit 'variable-pitch
                                                :height 1.25
                                                :foreground bespoke-salient))
-  (org-done                                   (:foreground bespoke-faded))
+  (org-done                                   (:foreground bespoke-faded :strike-through t))
   (org-drawer                                 (:foreground bespoke-faded :weight 'light))
   (org-ellipsis                               (:foreground bespoke-faded))
   (org-footnote                               (:foreground bespoke-faded))
@@ -241,7 +241,7 @@
   (org-level-8                                (:inherit 'variable-pitch
                                                :foreground "#5E81AC"))
   (org-link                                   (:foreground bespoke-salient))
-  (org-list-dt                                (:foreground bespoke-faded))
+  (org-list-dt                                (:foreground bespoke-accent1))
   (org-macro                                  (:foreground bespoke-faded))
   (org-meta-line                              (:foreground bespoke-faded :weight 'light))
   (org-mode-line-clock                        (:foreground bespoke-faded))
@@ -259,9 +259,9 @@
   (org-tag-group                              (:foreground bespoke-faded))
   (org-target                                 (:foreground bespoke-faded))
   (org-time-grid                              (:foreground bespoke-faded))
-  (org-todo                                   (:foreground bespoke-popout))
-  (org-upcoming-deadline                      (:foreground bespoke-strong :weight 'bold))
-  (org-upcoming-distant-deadline              (:foreground bespoke-strong))
+  (org-todo                                   (:foreground bespoke-critical))
+  (org-upcoming-deadline                      (:foreground bespoke-strong))
+  (org-upcoming-distant-deadline              (:foreground bespoke-light))
   (org-verbatim                               (:foreground bespoke-faded))
   (org-verse                                  (:foreground bespoke-faded))
   (org-warning                                (:foreground bespoke-popout))
@@ -333,6 +333,35 @@
   (selectrum-current-candidate                (:slant 'italic
                                                :weight 'bold
                                                :background bespoke-subtle))
+  (selectrum-prescient-secondary-highlight
+   (:weight 'bold :foreground bespoke-accent1))
+  (selectrum-prescient-primary-highlight
+   (:weight 'bold :foreground bespoke-salient))
+  (selectrum-completion-docsig
+   (:slant 'italic :inherit 'selectrum-completion-annotation))
+  (selectrum-completion-annotation
+   (:inherit 'completions-annotations))
+  ;; (selectrum-secondary-highlight
+  ;;  (:weight 'bold :foreground bespoke-faded))
+  ;; (selectrum-primary-highlight
+  ;;  (:weight 'bold :foreground bespoke-accent1))
+  (selectrum-group-separator
+   (:strike-through t :inherit 'shadow))
+  (selectrum-group-title
+   (:slant 'italic :inherit 'shadow))
+  (selectrum-quick-keys-match
+   (:inherit 'isearch))
+  (selectrum-quick-keys-highlight
+   (:foreground bespoke-popout))
+
+;;;; Orderless
+
+  (orderless-match-face-0 (:weight 'bold :foreground bespoke-accent1))
+  (orderless-match-face-1 (:weight 'bold :foreground bespoke-accent2))
+  (orderless-match-face-2 (:weight 'bold :foreground bespoke-accent4))
+  (orderless-match-face-3 (:weight 'bold :foreground bespoke-accent3))
+
+
 
 ;;;; Mu4e
   (mu4e-attach-number-face                      (:foreground bespoke-strong))
@@ -375,15 +404,7 @@
 
 ;;;; Help(ful)
 
-  (helpful-heading                               (:inherit 'variable-pitch :foreground bespoke-popout))
-
-;;;; Orderless
-
-  (orderless-match-face-0 (:weight 'bold :foreground bespoke-popout))
-  (orderless-match-face-1 (:weight 'bold :foreground bespoke-salient))
-  (orderless-match-face-2 (:weight 'bold :foreground bespoke-accent1))
-  (orderless-match-face-3 (:weight 'bold :foreground bespoke-accent2))
-
+  (helpful-heading                               (:inherit 'variable-pitch :foreground bespoke-accent1 :height 1.25))
 
 ;;;; Dired (plus)
   (diredp-write-priv
@@ -429,7 +450,7 @@
   (diredp-dir-name
    (:foreground bespoke-faded))
   (diredp-dir-heading
-   (:inherit 'variable-pitch :foreground bespoke-popout :background bespoke-subtle))
+   (:inherit 'variable-pitch :foreground bespoke-accent1 :background bespoke-subtle))
   (diredp-deletion-file-name
    (:foreground bespoke-critical))
   (diredp-deletion
