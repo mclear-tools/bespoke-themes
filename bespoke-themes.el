@@ -2,6 +2,21 @@
 (unless (>= emacs-major-version 24)
   (error "Requires Emacs 24 or later"))
 
+
+;;; Define Extra Faces
+(defface bespoke-header-default-face nil
+  "Default face for ther header line."
+  :group 'bespoke)
+
+(defface bespoke-header-mod-face nil
+  "Header line face for modified buffers."
+  :group 'bespoke)
+
+(defface bespoke-header-ro-face nil
+  "Header line face for read-only buffers."
+  :group 'bespoke)
+
+
 ;;; Load dark theme for terminal
 (when (not (display-graphic-p))
   (load-theme 'bespoke-dark t))

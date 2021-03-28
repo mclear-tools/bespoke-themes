@@ -1,5 +1,4 @@
-;; Bespoke color theme
-
+;; Bespoke light color theme
 (require 'autothemer)
 
 (autothemer-deftheme
@@ -10,6 +9,7 @@
 ;;; Define light color palette
   (bespoke-light        "#FFFEF9")
   (bespoke-dark         "#2E3440")
+  (bespoke-white        "#FFFFFF")
 
   (bespoke-critical     "red3")
   (bespoke-popout       "#ff6347")
@@ -42,6 +42,23 @@
                 :underline bespoke-header
                 :overline nil
                 :box nil))
+
+
+  (bespoke-header-default-face (:foreground bespoke-white
+                                :background bespoke-faded
+                                :box (:line-width 1
+                                      :color bespoke-header
+                                      :style nil)))
+  (bespoke-header-mod-face (:foreground bespoke-white
+                            :background bespoke-accent1
+                            :box (:line-width 1
+                                  :color bespoke-header
+                                  :style nil)))
+  (bespoke-header-ro-face (:foreground bespoke-white
+                           :background bespoke-popout
+                           :box (:line-width 1
+                                 :color bespoke-header
+                                 :style nil)))
 
   ;; divide windows more attractively
   (window-divider (:foreground bespoke-light))
@@ -467,6 +484,8 @@
   ))
 
 ;;; Other Custom Variables
+
+
 
 ;;; End theme
 (provide-theme 'bespoke-light)

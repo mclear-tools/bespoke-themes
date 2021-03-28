@@ -10,6 +10,7 @@
 ;;; Define dark color palette
   (bespoke-light    "#FFFEF9")
   (bespoke-dark     "#2E3440")
+  (bespoke-black    "#000000")
 
   (bespoke-critical "red3")
   (bespoke-popout   "#D08770")
@@ -21,9 +22,8 @@
   (bespoke-accent2  "#5E81AC")
   (bespoke-accent3  "#A3BE8C")
   (bespoke-accent4  "#FFAB91")
-  (bespoke-accent5  "#EBCB8B"))
-
- ;; (bespoke-accent3  "#3b4052"))
+  (bespoke-accent5  "#EBCB8B")
+  (bespoke-header   "#3b4052"))
 
 
 ;;; Customize faces
@@ -33,8 +33,8 @@
 
   ;;Modeline
   (header-line (:foreground bespoke-light
-                :background "#3b4052"
-                :box '(:line-width 5 :color "#3b4052" :height 150)
+                :background bespoke-header
+                :box (:line-width 5 :color bespoke-header :height 150)
                 :overline nil
                 :underline nil
                 :height 150))
@@ -43,6 +43,24 @@
                 :underline bespoke-subtle
                 :overline nil
                 :box nil))
+
+  (bespoke-header-default-face (:foreground bespoke-black
+                                :background bespoke-faded
+                                :box (:line-width 1
+                                      :color bespoke-header
+                                      :style nil)))
+
+  (bespoke-header-mod-face (:foreground bespoke-black
+                            :background bespoke-accent1
+                            :box (:line-width 1
+                                  :color bespoke-header
+                                  :style nil)))
+
+  (bespoke-header-ro-face (:foreground bespoke-black
+                           :background bespoke-popout
+                           :box (:line-width 1
+                                 :color bespoke-header
+                                 :style nil)))
 
   ;; divide windows more attractively
   (window-divider (:foreground bespoke-dark))
@@ -463,7 +481,6 @@
    (:foreground bespoke-dark))
   (diredp-autofile-name
    (:background bespoke-subtle))
-
 
 
 ;;; End Custom Faces
