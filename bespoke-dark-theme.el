@@ -32,17 +32,74 @@
  ((default (:foreground bespoke-light :background bespoke-dark))
 
   ;;Modeline
-  (header-line (:foreground bespoke-light
-                :background bespoke-header
-                :box (:line-width 5 :color bespoke-header :height 150)
-                :overline nil
-                :underline nil
-                :height 150))
+  ;; If the header line is enabled
+  ;; (when set-bespoke-header-line
+  ;;   (header-line (:inherit 'bespoke-header-line-dark-face))
+  ;;   (mode-line (:inherit 'bespoke-footer-dark-face)))
 
-  (mode-line   (:height 10
-                :underline bespoke-subtle
-                :overline nil
-                :box nil))
+  ;; (when ,set-bespoke-header-line
+  ;;   (header-line (:foreground ,bespoke-light
+  ;;                 :background ,bespoke-header
+  ;;                 ;; :box (:line-width 6 :color bespoke-header :height 150)
+  ;;                 :overline nil
+  ;;                 :underline nil
+  ;;                 :height 150))
+
+  ;;   (mode-line   (:height 10
+  ;;                 :underline ,bespoke-subtle
+  ;;                 :overline nil
+  ;;                 :box nil)))
+
+  ;; (unless set-bespoke-header-line
+  ;;   (mode-line (:foreground "#677691"
+  ;;               :background "#3b4052"
+  ;;               ;; :foreground ,bespoke-light
+  ;;               ;; :background ,bespoke-header
+  ;;               ;; :box (:line-width 6 :color bespoke-header :height 150)
+  ;;               :overline nil
+  ;;               :underline nil
+  ;;               :height 150)))
+
+
+  ;; (header-line (:foreground bespoke-light
+  ;;               :background bespoke-header
+  ;;               :box (:line-width 6 :color bespoke-header :height 150)
+  ;;               :overline nil
+  ;;               :underline nil
+  ;;               :height 150))
+
+  ;; (mode-line   (:height 10
+  ;;               :underline bespoke-subtle
+  ;;               :overline nil
+  ;;               :box nil))
+
+  ;; (unless set-bespoke-header-line
+  ;;   (set-face-attribute 'mode-line nil
+  ;;                       :box (:line-width 6 :color "red" :height 150)))
+
+  (bespoke-header-line-dark-face (:foreground bespoke-light
+                                  :background bespoke-header
+                                  :box (:line-width 6 :color bespoke-header :height 150)
+                                  :overline nil
+                                  :underline nil
+                                  :height 150))
+  (bespoke-footer-dark-face (:height 10
+                             :underline bespoke-subtle
+                             :overline nil
+                             :box nil))
+
+  (bespoke-mode-line-dark-face (:foreground bespoke-light
+                                :background bespoke-header
+                                :box (:line-width 6 :color bespoke-header :height 150)
+                                :overline nil
+                                :underline nil
+                                :height 150))
+
+
+  ;;   (mode-line   (:height 10
+  ;;                 :underline ,bespoke-subtle
+  ;;                 :overline nil
+  ;;                 :box nil)))
 
   (bespoke-header-default-face (:foreground bespoke-black
                                 :background bespoke-faded
@@ -485,6 +542,46 @@
 
 ;;; End Custom Faces
   ))
+
+;;; Dark header or mode line
+
+(defun set-bespoke-dark-header ()
+  ;; dark header
+  (set-face-attribute 'header-line nil
+                      :foreground "#FFFEF9"
+                      :background "#3b4052"
+                      :box `(:line-width 6 :color "#3b4052" :height 150)
+                      :overline nil
+                      :underline nil
+                      :height 150)
+  (set-face-attribute 'mode-line nil
+                      :height 10
+                      :underline "#434C5E"
+                      :overline nil
+                      :box nil))
+
+(defun set-bespoke-dark-modeline ()
+  ;; else default
+  (set-face-attribute 'mode-line nil
+                      :foreground "#FFFEF9"
+                      :background "#3b4052"
+                      :box `(:line-width 6 :color "#3b4052" :height 150)
+                      :overline nil
+                      :underline nil
+                      :height 150)
+  (set-face-attribute 'mode-line-inactive nil
+                      :foreground "#677691"
+                      :background "#3b4052"
+                      :box `(:line-width 6 :color "#3b4052" :height 150)
+                      :overline nil
+                      :underline nil
+                      :height 150))
+
+;; Set header or footer line
+(if set-bespoke-header-line
+    (set-bespoke-dark-header)
+  (set-bespoke-dark-modeline))
+
 
 ;;; End theme
 (provide-theme 'bespoke-dark)

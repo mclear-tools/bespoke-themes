@@ -30,18 +30,19 @@
  ((default (:foreground "#37474F" :background "#FFFEF9"))
 
   ;; Mode line
-  (header-line (:background bespoke-header
-                :foreground bespoke-dark
-                :box (:line-width 6 :color bespoke-header :height 150)
-                :overline nil
-                :underline nil
-                ;; :inherit 'variable-pitch
-                :height 150))
 
-  (mode-line   (:height 10
-                :underline bespoke-header
-                :overline nil
-                :box nil))
+  ;; (header-line (:background bespoke-header
+  ;;               :foreground bespoke-dark
+  ;;               :box (:line-width 6 :color bespoke-header :height 150)
+  ;;               :overline nil
+  ;;               :underline nil
+  ;;               ;; :inherit 'variable-pitch
+  ;;               :height 150))
+
+  ;; (mode-line (:height 10
+  ;;             :underline bespoke-header
+  ;;             :overline nil
+  ;;             :box nil))
 
 
   (bespoke-header-default-face (:foreground bespoke-white
@@ -483,9 +484,45 @@
 ;;; End Custom Faces
   ))
 
-;;; Other Custom Variables
+;;; Light header line
+
+(defun set-bespoke-light-header ()
+  ;; dark header
+  (set-face-attribute 'header-line nil
+                      :foreground "#2E3440"
+                      :background "#E3E7EF"
+                      :box `(:line-width 6 :color "#E3E7EF" :height 150)
+                      :overline nil
+                      :underline nil
+                      :height 150)
+  (set-face-attribute 'mode-line nil
+                      :height 10
+                      :underline "#E3E7EF"
+                      :overline nil
+                      :box nil))
+
+(defun set-bespoke-light-modeline ()
+  ;; else default
+  (set-face-attribute 'mode-line nil
+                      :foreground "#2E3440"
+                      :background "#E3E7EF"
+                      :box `(:line-width 6 :color "#E3E7EF" :height 150)
+                      :overline nil
+                      :underline nil
+                      :height 150)
+  (set-face-attribute 'mode-line-inactive nil
+                      :foreground "#949FB2"
+                      :background "#E3E7EF"
+                      :box `(:line-width 6 :color "#E3E7EF" :height 150)
+                      :overline nil
+                      :underline nil
+                      :height 150))
 
 
+;; Set header or footer line
+(if set-bespoke-header-line
+    (set-bespoke-light-header)
+  (set-bespoke-light-modeline))
 
 ;;; End theme
 (provide-theme 'bespoke-light)
