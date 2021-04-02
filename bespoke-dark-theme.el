@@ -86,9 +86,9 @@
   (lazy-highlight                                (:foreground bespoke-accent2))
   (trailing-whitespace                           (:foreground bespoke-faded))
   (show-paren-match                              (:foreground bespoke-light
-                                                  :background bespoke-accent1))
-  (show-paren-mismatch                           (:foreground bespoke-critical
-                                                  :background bespoke-popout))
+                                                  :background bespoke-accent3))
+  (show-paren-mismatch                           (:foreground bespoke-popout
+                                                  :background bespoke-critical))
   (tooltip nil                                   :height 0.85)
 
 ;;;; Font Lock
