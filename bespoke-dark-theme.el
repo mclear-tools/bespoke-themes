@@ -523,7 +523,7 @@
   (diredp-dir-priv
    (:foreground bespoke-faded))
   (diredp-dir-name
-   (:foreground bespoke-faded))
+   (:foreground bespoke-accent2))
   (diredp-dir-heading
    (:inherit 'variable-pitch :foreground bespoke-accent1 :background bespoke-subtle))
   (diredp-deletion-file-name
