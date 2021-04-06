@@ -1,4 +1,36 @@
-;;; Define Extra Faces
+;;; bespoke-header-line.el --- A minimal custom header line
+;; Copyright (C) 2020 Colin McLear
+;; -------------------------------------------------------------------
+;; Authors: Colin McLear
+;; -------------------------------------------------------------------
+;; URL: https://github.com/mclear-tools/bespoke-themes
+;; -------------------------------------------------------------------
+;; Version: 1
+;; Package-Requires: ((emacs "25.1"))
+;; -------------------------------------------------------------------
+;; This file is not part of GNU Emacs.
+;;
+;; This program is free software: you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License as
+;; published by the Free Software Foundation, either version 3 of the
+;; License, or (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this program. If not, see <http://www.gnu.org/licenses/>
+;; -------------------------------------------------------------------
+;; Commentary:
+;; A custom header line (or mode line if variable set to nil)
+;; for the discerning yakshaver
+;; -------------------------------------------------------------------
+;; Code:
+
+
+;;; Define extra faces
 (defface bespoke-header-default-face nil
   "Default face for ther header line."
   :group 'bespoke)
@@ -8,30 +40,6 @@
   :group 'bespoke)
 
 (defface bespoke-header-ro-face nil
-  "Header line face for read-only buffers."
-  :group 'bespoke)
-
-(defface bespoke-header-line-dark-face nil
-  "Header line face for read-only buffers."
-  :group 'bespoke)
-
-(defface bespoke-header-line-light-face nil
-  "Header line face for read-only buffers."
-  :group 'bespoke)
-
-(defface bespoke-footer-dark-face nil
-  "Header line face for read-only buffers."
-  :group 'bespoke)
-
-(defface bespoke-footer-light-face nil
-  "Header line face for read-only buffers."
-  :group 'bespoke)
-
-(defface bespoke-mode-line-dark-face nil
-  "Header line face for read-only buffers."
-  :group 'bespoke)
-
-(defface bespoke-mode-line-light-face nil
   "Header line face for read-only buffers."
   :group 'bespoke)
 
@@ -64,39 +72,10 @@
   (setq ring-bell-function #'bespoke-themes-visual-bell-fn
         visible-bell t))
 
-;;; Focus & Mode line
-;; Ensure modeline is inactive when Emacs is unfocused (and active otherwise)
-;; See https://github.com/seagle0128/doom-modeline/blob/00bc89b8ded4c452ccf65edce5dce6f9a1e41611/doom-modeline-core.el#L845
-;; FIXME
-
-(defvar bespoke-modeline-remap-face-cookie nil)
-(defun bespoke-modeline-focus ()
-  "Focus mode-line."
-  (when bespoke-modeline-remap-face-cookie
-    (require 'face-remap)
-    (face-remap-remove-relative bespoke-modeline-remap-face-cookie)))
-(defun bespoke-modeline-unfocus ()
-  "Unfocus mode-line."
-  (setq bespoke-modeline-remap-face-cookie
-        (face-remap-add-relative 'mode-line 'mode-line-inactive)))
-
-(with-no-warnings
-  (if (boundp 'after-focus-change-function)
-      (progn
-        (defun bespoke-modeline-focus-change (&rest _)
-          (if (frame-focus-state)
-              (bespoke-modeline-focus)
-            (bespoke-modeline-unfocus)))
-        (advice-add #'handle-switch-frame :after #'bespoke-modeline-focus-change)
-        (add-function :after after-focus-change-function #'bespoke-modeline-focus-change))
-    (progn
-      (add-hook 'focus-in-hook #'bespoke-modeline-focus)
-      (add-hook 'focus-out-hook #'bespoke-modeline-unfocus))))
-
-;;; Set Variable
+;;; Set variable
 (defvar set-bespoke-header-line t "Use bespoke header line theme")
 
-;;; Clean Mode Line
+;;; Clean mode line
 ;; https://www.masteringemacs.org/article/hiding-replacing-modeline-strings
 ;; NOTE: this is only for minor and major modes
 (defvar mode-line-cleaner-alist
@@ -143,6 +122,7 @@ want to use in the modeline *in lieu of* the original.")
         (concat "" (substring-no-properties vc-mode
                                              (+ (if (eq backend 'Hg) 2 3) 2)) " "))  nil))
 
+;;;; Shorten Dir
 ;; From https://amitp.blogspot.com/2011/08/emacs-custom-mode-line.html
 ;; ---------------------------------------------------------------------
 (defun shorten-directory (dir max-length)
@@ -159,13 +139,15 @@ want to use in the modeline *in lieu of* the original.")
     output))
 
 
+;;;; Mode line left/right
 ;; Organize mode-line left and right
 (defun mode-line-render (left right)
   "Organize mode line entries to left and right"
   (let* ((available-width (- (window-width) (length left) )))
     (format (format "%%s %%%ds" available-width) left right)))
 
-;; Inactive Header line
+
+;;;; Inactive Header line
 ;; https://emacs.stackexchange.com/a/3522/11934
 (defun bespoke-update-header ()
   (mapc
@@ -185,6 +167,7 @@ want to use in the modeline *in lieu of* the original.")
              (setq header-line-format `(:propertize ,original-format face ,inactive-face)))))))
    (window-list)))
 (add-hook 'buffer-list-update-hook #'bespoke-update-header)
+
 
 
 ;;; Bespoke Mode line
@@ -271,7 +254,8 @@ want to use in the modeline *in lieu of* the original.")
   (interactive)
   (define-key mode-line-major-mode-keymap [header-line]
     (lookup-key mode-line-major-mode-keymap [mode-line]))
-  (setq-default header-line-format bespoke--mode-line))
+  (setq-default header-line-format bespoke--mode-line)
+  (setq-default mode-line-format '("")))
 
 
 ;;; Function to (re)load header line
@@ -281,7 +265,7 @@ want to use in the modeline *in lieu of* the original.")
   (interactive)
   (progn
     (window-divider-mode 1)
-    (setq-default header-line-format mode-line-format)
+    (setq-default header-line-format bespoke--mode-line)
     (setq-default mode-line-format'(""))
     (setq x-underline-at-descent-line t)))
 
@@ -294,4 +278,5 @@ want to use in the modeline *in lieu of* the original.")
     (setq-default header-line-format nil)
     (setq-default mode-line-format bespoke--mode-line)))
 
+;;; End Bespoke header line
 (provide 'bespoke-header-line)
