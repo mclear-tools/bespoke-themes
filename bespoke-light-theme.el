@@ -41,30 +41,30 @@
       (bespoke-white        "#FFFFFF")
       (bespoke-header       "#E3E7EF")
 
-      (bespoke-critical     "red3")
-      ;; (bespoke-popout       "#ff6347")
-      (bespoke-popout       "#c42475")
-      (bespoke-salient      "#5e65b6")
+      (bespoke-critical     "#cc1f24")
+      (bespoke-popout       "#93004d")
+      (bespoke-salient      "#44528c")
       (bespoke-strong       "#000000")
       (bespoke-subtle       "#ECEFF1")
       (bespoke-faded        "#949FB2")
 
-      (bespoke-accent1      "#BF616A")
-      (bespoke-accent2      "#5E81AC")
-      (bespoke-accent3      "#11948b")
+      (bespoke-accent1      "#a9444e")
+      (bespoke-accent2      "#49688e")
+      (bespoke-accent3      "#11328f")
       (bespoke-accent4      "#ed6e3e")
-      (bespoke-accent5      "#D8DEE9"))
+      (bespoke-accent5      "#D8DEE9")
+      (bespoke-accent6      "#10716f"))
 
 ;;; Customize faces
   (custom-theme-set-faces
    'bespoke-light
-   `(default ((,class :foreground "#37474F" :background "#FFFEF9")))
+   `(default ((,class :foreground ,bespoke-dark :background ,bespoke-light)))
 
-;;;; Header Line
+;;;; Mode line/Header line
 
    `(header-line ((,class :background ,bespoke-header
                           :foreground ,bespoke-dark
-                          :box (:line-width 6 :color ,bespoke-header :height 150)
+                          :box (:line-width 4 :color ,bespoke-header :height 150)
                           :overline nil
                           :underline nil
                           :height 150)))
@@ -74,9 +74,24 @@
                         :overline nil
                         :box nil)))
 
+   ;; `(mode-line ((,class :background ,bespoke-header
+   ;;                      :foreground ,bespoke-dark
+   ;;                      :box (:line-width 4 :color ,bespoke-header :height 150)
+   ;;                      :overline nil
+   ;;                      :underline nil
+   ;;                      :height 150)))
+
+
  ;;; Mode line indicators
+   `(bespoke-header-inactive-face ((,class :background ,bespoke-header
+                                           :foreground ,bespoke-faded
+                                           :box (:line-width 7 :color ,bespoke-header :height 150)
+                                           :overline nil
+                                           :underline nil
+                                           :height 150)))
+
    `(bespoke-header-default-face ((,class :foreground ,bespoke-white
-                                          :background ,bespoke-faded
+                                          :background ,bespoke-accent2
                                           :box (:line-width 1
                                                 :color ,bespoke-header
                                                 :style nil))))
@@ -100,6 +115,10 @@
    `(window-divider-last-pixel  ((,class :foreground ,bespoke-light)))
 
 ;;;; Semantic
+   `(italic                                        ((,class (:slant italic))))
+   `(bold                                          ((,class (:weight bold))))
+   `(bold-italic                                   ((,class (:weight bold :slant italic))))
+   `(underline                                     ((,class (:underline t))))
    `(shadow                                        ((,class :foreground ,bespoke-faded)))
    `(success                                       ((,class :foreground ,bespoke-salient)))
    `(warning                                       ((,class :foreground ,bespoke-popout)))
@@ -117,14 +136,14 @@
    `(highlight                                     ((,class :background ,bespoke-subtle)))
    `(lazy-highlight                                ((,class :foreground ,bespoke-accent2)))
    `(trailing-whitespace                           ((,class :foreground ,bespoke-faded)))
-   `(show-paren-match                              ((,class :foreground ,bespoke-light :background ,bespoke-accent3)))
+   `(show-paren-match                              ((,class :foreground ,bespoke-light :background ,bespoke-accent6)))
    `(show-paren-mismatch                            ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
    `(tooltip nil                                    ((,class :height 0.85)))
 
 ;;;; Font Lock
    `(font-lock-comment-face                        ((,class :foreground ,bespoke-faded)))
    `(font-lock-doc-face                            ((,class :foreground ,bespoke-faded)))
-   `(font-lock-string-face                         ((,class :foreground ,bespoke-popout)))
+   `(font-lock-string-face                         ((,class :foreground ,bespoke-accent6)))
    `(font-lock-constant-face                       ((,class :foreground ,bespoke-salient)))
    `(font-lock-warning-face                        ((,class :foreground ,bespoke-popout)))
    `(font-lock-function-name-face                  ((,class :foreground ,bespoke-strong)))
@@ -160,14 +179,14 @@
 
 ;;;; Outline
    `(outline-minor-0      ((,class :background ,bespoke-subtle)))
-   `(outline-1            ((,class :inherit variable-pitch :foreground ,bespoke-accent4)))
-   `(outline-2            ((,class :inherit variable-pitch :foreground ,bespoke-accent3)))
-   `(outline-4            ((,class :inherit variable-pitch :foreground ,bespoke-accent4)))
-   `(outline-4            ((,class :inherit variable-pitch :foreground ,bespoke-accent3)))
-   `(outline-5            ((,class :inherit variable-pitch :foreground ,bespoke-accent4)))
-   `(outline-6            ((,class :inherit variable-pitch :foreground ,bespoke-accent3)))
-   `(outline-7            ((,class :inherit variable-pitch :foreground ,bespoke-accent4)))
-   `(outline-8            ((,class :inherit variable-pitch :foreground ,bespoke-accent3)))
+   `(outline-1            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(outline-2            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
+   `(outline-4            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(outline-4            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
+   `(outline-5            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(outline-6            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
+   `(outline-7            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(outline-8            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
 
 ;;;; Interface
    `(widget-field                                 ((,class :foreground ,bespoke-subtle)))
@@ -256,7 +275,7 @@
    `(org-default                                ((,class :foreground ,bespoke-faded)))
    `(org-document-info                          ((,class :foreground ,bespoke-faded :weight light)))
    `(org-document-info-keyword                  ((,class :foreground ,bespoke-faded :weight light)))
-   `(org-document-title                         ((,class :inherit variable-pitch :height 1.25 :foreground ,bespoke-salient)))
+   `(org-document-title                         ((,class :inherit variable-pitch :height 1.25 :foreground ,bespoke-accent3)))
    `(org-done                                   ((,class :foreground ,bespoke-faded :strike-through t)))
    `(org-drawer                                 ((,class :foreground ,bespoke-faded :weight light)))
    `(org-ellipsis                               ((,class :foreground ,bespoke-faded)))
@@ -265,14 +284,14 @@
    `(org-habit-alert-face                       ((,class :inherit default)))
    `(org-headline-done                          ((,class :foreground ,bespoke-faded)))
    `(org-latex-and-related                      ((,class :foreground ,bespoke-faded)))
-   `(org-level-1                                ((,class :inherit variable-pitch :foreground "#BF616A")))
-   `(org-level-2                                ((,class :inherit variable-pitch :foreground "#5E81AC" )))
-   `(org-level-3                                ((,class :inherit variable-pitch :foreground "#BF616A" )))
-   `(org-level-4                                ((,class :inherit variable-pitch :foreground "#5E81AC")))
-   `(org-level-5                                ((,class :inherit variable-pitch :foreground "#BF616A")))
-   `(org-level-6                                ((,class :inherit variable-pitch :foreground "#5E81AC")))
-   `(org-level-7                                ((,class :inherit variable-pitch :foreground "#BF616A")))
-   `(org-level-8                                ((,class :inherit variable-pitch :foreground "#5E81AC")))
+   `(org-level-1                                ((,class :inherit 'outline-1)))
+   `(org-level-2                                ((,class :inherit 'outline-2)))
+   `(org-level-3                                ((,class :inherit 'outline-1)))
+   `(org-level-4                                ((,class :inherit 'outline-2)))
+   `(org-level-5                                ((,class :inherit 'outline-1)))
+   `(org-level-6                                ((,class :inherit 'outline-2)))
+   `(org-level-7                                ((,class :inherit 'outline-1)))
+   `(org-level-8                                ((,class :inherit 'outline-2)))
    `(org-link                                   ((,class :foreground ,bespoke-salient)))
    `(org-list-dt                                ((,class :foreground ,bespoke-accent1)))
    `(org-macro                                  ((,class :foreground ,bespoke-faded)))
@@ -309,12 +328,12 @@
    `(markdown-gfm-checkbox-face                 ((,class :inherit    default)))
    `(markdown-header-delimiter-face             ((,class :foreground ,bespoke-faded)))
    `(markdown-header-face                       ((,class :inherit variable-pitch)))
-   `(markdown-header-face-1                     ((,class :inherit variable-pitch :foreground ,bespoke-popout)))
-   `(markdown-header-face-2                     ((,class :inherit variable-pitch :foreground ,bespoke-salient)))
-   `(markdown-header-face-3                     ((,class :inherit variable-pitch :foreground ,bespoke-faded)))
-   `(markdown-header-face-4                     ((,class :inherit variable-pitch :foreground ,bespoke-salient)))
-   `(markdown-header-face-5                     ((,class :inherit variable-pitch :foreground ,bespoke-faded)))
-   `(markdown-header-face-6                     ((,class :inherit variable-pitch :foreground ,bespoke-salient)))
+   `(markdown-header-face-1                     ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(markdown-header-face-2                     ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
+   `(markdown-header-face-3                     ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(markdown-header-face-4                     ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
+   `(markdown-header-face-5                     ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(markdown-header-face-6                     ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
    `(markdown-header-rule-face                  ((,class :inherit default)))
    `(markdown-highlight-face                    ((,class :inherit default)))
    `(markdown-hr-face                           ((,class :inherit default)))
@@ -446,6 +465,11 @@
    `(diredp-compressed-file-name                 ((,class :foreground ,bespoke-dark)))
    `(diredp-autofile-name                        ((,class :background ,bespoke-subtle)))
 
+;;;; Imenu List
+   `(imenu-list-entry-face-0                     ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
+   `(imenu-list-entry-face-1                     ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
+   `(imenu-list-entry-face-2                     ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
+   `(imenu-list-entry-face-3                     ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
 
 
    ))
