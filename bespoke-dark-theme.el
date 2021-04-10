@@ -35,23 +35,23 @@
 ;;; Define dark color palette
 (let ((class '((class color) (min-colors 89)))
 
-      (bespoke-light    "#FFFEF9")
-      (bespoke-dark     "#2E3440")
+      (bespoke-light    "#eceff4")
+      (bespoke-dark     "#2e3440")
       (bespoke-black    "#000000")
       (bespoke-header   "#3b4052")
 
-      (bespoke-critical "red3")
-      (bespoke-popout   "#D08770")
-      (bespoke-salient  "#81A1C1")
-      (bespoke-strong   "#ECEFF4")
-      (bespoke-subtle   "#434C5E")
-      (bespoke-faded    "#677691")
+      (bespoke-critical "#ec423a")
+      (bespoke-popout   "#d0744d")
+      (bespoke-salient  "#81a1c1")
+      (bespoke-strong   "#ffffff")
+      (bespoke-faded    "#5c6a82")
+      (bespoke-subtle   "#3c4454")
 
-      (bespoke-accent1  "#BF616A")
-      (bespoke-accent2  "#5E81AC")
-      (bespoke-accent3  "#A3BE8C")
-      (bespoke-accent4  "#FFAB91")
-      (bespoke-accent5  "#EBCB8B"))
+      (bespoke-accent1  "#c7737b")
+      (bespoke-accent2  "#649bce")
+      (bespoke-accent3  "#a3be8c")
+      (bespoke-accent4  "#ffab91")
+      (bespoke-accent5  "#ebcb8b"))
 
 ;;; Custom Faces
   (custom-theme-set-faces
@@ -61,7 +61,7 @@
 ;;;; Header line
    `(header-line ((,class :foreground ,bespoke-light
                           :background ,bespoke-header
-                          :box (:line-width 6 :color ,bespoke-header :height 150)
+                          :box (:line-width 4 :color ,bespoke-header :height 150)
                           :overline nil
                           :underline nil
                           :height 150)))
@@ -71,8 +71,16 @@
                          :box nil)))
 
    ;;; Mode line indicators
+
+   `(bespoke-header-inactive-face ((,class :background ,bespoke-header
+                                           :foreground ,bespoke-faded
+                                           :box (:line-width 7 :color ,bespoke-header :height 150)
+                                           :overline nil
+                                           :underline nil
+                                           :height 150)))
+
    `(bespoke-header-default-face ((,class :foreground ,bespoke-black
-                                          :background ,bespoke-faded
+                                          :background ,bespoke-accent2
                                           :box (:line-width 1 :color ,bespoke-header :style nil))))
 
    `(bespoke-header-mod-face ((,class :foreground ,bespoke-black
@@ -80,7 +88,7 @@
                                       :box (:line-width 1 :color ,bespoke-header :style nil))))
 
    `(bespoke-header-ro-face ((,class :foreground ,bespoke-black
-                                     :background ,bespoke-popout
+                                     :background ,bespoke-accent4
                                      :box (:line-width 1 :color ,bespoke-header :style nil))))
 
 ;;;; Window Divs
@@ -90,6 +98,10 @@
    `(window-divider-last-pixel  ((,class :foreground ,bespoke-dark)))
 
 ;;;; Semantic
+   `(italic                                        ((,class (:slant italic))))
+   `(bold                                          ((,class (:weight bold))))
+   `(bold-italic                                   ((,class (:weight bold :slant italic))))
+   `(underline                                     ((,class (:underline t))))
    `(shadow                                        ((,class :foreground ,bespoke-faded)))
    `(success                                       ((,class :foreground ,bespoke-salient)))
    `(warning                                       ((,class :foreground ,bespoke-popout)))
@@ -150,14 +162,15 @@
 
 ;;;; Outline
    `(outline-minor-0      ((,class :background ,bespoke-subtle)))
-   `(outline-1            ((,class :inherit variable-pitch :foreground ,bespoke-accent4)))
-   `(outline-2            ((,class :inherit variable-pitch :foreground ,bespoke-accent3)))
-   `(outline-4            ((,class :inherit variable-pitch :foreground ,bespoke-accent4)))
-   `(outline-4            ((,class :inherit variable-pitch :foreground ,bespoke-accent3)))
-   `(outline-5            ((,class :inherit variable-pitch :foreground ,bespoke-accent4)))
-   `(outline-6            ((,class :inherit variable-pitch :foreground ,bespoke-accent3)))
-   `(outline-7            ((,class :inherit variable-pitch :foreground ,bespoke-accent4)))
-   `(outline-8            ((,class :inherit variable-pitch :foreground ,bespoke-accent3)))
+   `(outline-1            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(outline-2            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
+   `(outline-4            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(outline-4            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
+   `(outline-5            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(outline-6            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
+   `(outline-7            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(outline-8            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
+
 
 ;;;; Interface
    `(widget-field                                 ((,class :background ,bespoke-subtle)))
@@ -255,14 +268,14 @@
    `(org-habit-alert-face                       ((,class :inherit default)))
    `(org-headline-done                          ((,class :foreground ,bespoke-faded)))
    `(org-latex-and-related                      ((,class :foreground ,bespoke-faded)))
-   `(org-level-1                                ((,class :inherit variable-pitch :foreground "#BF616A")))
-   `(org-level-2                                ((,class :inherit variable-pitch :foreground "#5E81AC" )))
-   `(org-level-3                                ((,class :inherit variable-pitch :foreground "#BF616A" )))
-   `(org-level-4                                ((,class :inherit variable-pitch :foreground "#5E81AC")))
-   `(org-level-5                                ((,class :inherit variable-pitch :foreground "#BF616A")))
-   `(org-level-6                                ((,class :inherit variable-pitch :foreground "#5E81AC")))
-   `(org-level-7                                ((,class :inherit variable-pitch :foreground "#BF616A")))
-   `(org-level-8                                ((,class :inherit variable-pitch :foreground "#5E81AC")))
+   `(org-level-1                                ((,class :inherit 'outline-1)))
+   `(org-level-2                                ((,class :inherit 'outline-2)))
+   `(org-level-3                                ((,class :inherit 'outline-1)))
+   `(org-level-4                                ((,class :inherit 'outline-2)))
+   `(org-level-5                                ((,class :inherit 'outline-1)))
+   `(org-level-6                                ((,class :inherit 'outline-2)))
+   `(org-level-7                                ((,class :inherit 'outline-1)))
+   `(org-level-8                                ((,class :inherit 'outline-2)))
    `(org-link                                   ((,class :foreground ,bespoke-salient)))
    `(org-list-dt                                ((,class :foreground ,bespoke-accent1)))
    `(org-macro                                  ((,class :foreground ,bespoke-faded)))
@@ -436,11 +449,17 @@
    `(diredp-compressed-file-name                 ((,class :foreground ,bespoke-dark)))
    `(diredp-autofile-name                        ((,class :background ,bespoke-subtle)))
 
+;;;; Imenu List
+   `(imenu-list-entry-face-0 ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
+   `(imenu-list-entry-face-1 ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
+   `(imenu-list-entry-face-2 ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
+   `(imenu-list-entry-face-3 ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
 
 
    ))
 
 ;;; End theme
+
 (provide-theme 'bespoke-dark)
 
 ;; Local Variables:
