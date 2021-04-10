@@ -80,7 +80,7 @@
                                            :height 150)))
 
    `(bespoke-header-default-face ((,class :foreground ,bespoke-black
-                                          :background ,bespoke-accent2
+                                          :background ,bespoke-salient
                                           :box (:line-width 1 :color ,bespoke-header :style nil))))
 
    `(bespoke-header-mod-face ((,class :foreground ,bespoke-black
