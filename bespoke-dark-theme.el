@@ -44,7 +44,7 @@
       (bespoke-popout   "#d0744d")
       (bespoke-salient  "#81a1c1")
       (bespoke-strong   "#ffffff")
-      (bespoke-faded    "#5c6a82")
+      (bespoke-faded    "#677691")
       (bespoke-subtle   "#3c4454")
 
       (bespoke-accent1  "#c7737b")
@@ -327,7 +327,7 @@
    `(markdown-html-tag-delimiter-face           ((,class :inherit default)))
    `(markdown-html-tag-name-face                ((,class :inherit default)))
    `(markdown-inline-code-face                  ((,class :foreground ,bespoke-popout)))
-   `(markdown-italic-face                       ((,class :foreground ,bespoke-faded :slant italic)))
+   `(markdown-italic-face                       ((,class :foreground ,bespoke-strong :slant italic)))
    `(markdown-language-info-face                ((,class :inherit   default)))
    `(markdown-language-keyword-face             ((,class :inherit   default)))
    `(markdown-line-break-face                   ((,class :inherit   default)))
