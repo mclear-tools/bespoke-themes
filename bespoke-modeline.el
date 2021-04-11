@@ -222,12 +222,10 @@ want to use in the modeline *in lieu of* the original.")
 ;;;; Mode line status
 ;; ---------------------------------------------------------------------
 (defun bespoke-modeline-status ()
-  "Return buffer status: read-only (⊗), modified (⦿) or read-write (🞅)"
-
+  "Return buffer status: read-only (⨂), modified (⨀) or read-write (◯)"
   (let ((read-only   buffer-read-only)
         (modified    (and buffer-file-name (buffer-modified-p))))
     (cond (modified  "⨀") (read-only "⨂") (t "◯"))))
-
 
 ;;;; Default display
 (defun bespoke-modeline-default-mode ()
