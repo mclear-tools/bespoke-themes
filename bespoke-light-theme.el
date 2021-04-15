@@ -23,15 +23,15 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>
 ;; -------------------------------------------------------------------
-;; Commentary:
+;;; Commentary:
 ;; This theme offers a bespoke light theme for the discerning yakshaver
 ;; -------------------------------------------------------------------
-;; Code:
-
+;;; Code:
+(require 'bespoke-themes)
 
 ;;; Theme definition
 (deftheme bespoke-light
-  "A custom light theme for yakshaving")
+  "A custom light theme for yakshaving.")
 
 ;;; Define light color palette
 (let ((class '((class color) (min-colors 89)))
@@ -62,6 +62,7 @@
 
 ;;;; Mode line/Header line
 
+   ;;; Always have header-line colors set, as they are used to define bespoke-modeline colors
    `(header-line ((,class :background ,bespoke-header
                           :foreground ,bespoke-dark
                           :box (:line-width 4 :color ,bespoke-header :height 150)
@@ -69,18 +70,28 @@
                           :underline nil
                           :height 150)))
 
-   `(mode-line ((,class :height 10
-                        :underline ,bespoke-header
-                        :overline nil
-                        :box nil)))
+   ;;; Conditionally load header and mode line colors
+   (when set-bespoke-header-line
+     `(mode-line ((,class :height 10
+                          :underline ,bespoke-header
+                          :overline nil
+                          :box nil))))
 
-   ;; `(mode-line ((,class :background ,bespoke-header
-   ;;                      :foreground ,bespoke-dark
-   ;;                      :box (:line-width 4 :color ,bespoke-header :height 150)
-   ;;                      :overline nil
-   ;;                      :underline nil
-   ;;                      :height 150)))
+   (when (not set-bespoke-header-line)
+     `(mode-line ((,class :background ,bespoke-header
+                          :foreground ,bespoke-dark
+                          :box (:line-width 4 :color ,bespoke-header :height 150)
+                          :overline nil
+                          :underline nil
+                          :height 150))))
 
+   (when (not set-bespoke-header-line)
+     `(mode-line-inactive ((,class :background ,bespoke-header
+                                   :foreground ,bespoke-faded
+                                   :box (:line-width 4 :color ,bespoke-header :height 150)
+                                   :overline nil
+                                   :underline nil
+                                   :height 150))))
 
  ;;; Mode line indicators
    `(bespoke-header-inactive-face ((,class :background ,bespoke-header
@@ -93,19 +104,19 @@
    `(bespoke-header-default-face ((,class :foreground ,bespoke-white
                                           :background ,bespoke-salient
                                           :box (:line-width 1
-                                                :color ,bespoke-header
+                                                :color ,bespoke-salient
                                                 :style nil))))
 
    `(bespoke-header-mod-face ((,class :foreground ,bespoke-white
                                       :background ,bespoke-accent1
                                       :box (:line-width 1
-                                            :color ,bespoke-header
+                                            :color ,bespoke-accent1
                                             :style nil))))
 
    `(bespoke-header-ro-face ((,class :foreground ,bespoke-white
                                      :background ,bespoke-accent4
                                      :box (:line-width 1
-                                           :color ,bespoke-header
+                                           :color ,bespoke-accent4
                                            :style nil))))
 
 ;;;; Window Divs
@@ -474,11 +485,13 @@
 
    ))
 
-
-
-;;; End theme
+;;; Provide theme
 
 (provide-theme 'bespoke-light)
+
+(provide 'bespoke-light-theme)
+
+;;; bespoke-light-theme.el ends here
 
 ;; Local Variables:
 ;; eval: (when (fboundp 'rainbow-mode) (rainbow-mode 1))

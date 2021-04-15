@@ -23,14 +23,15 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>
 ;; -------------------------------------------------------------------
-;; Commentary:
+;;; Commentary:
 ;; This theme offers a bespoke dark theme for the discerning yakshaver
 ;; -------------------------------------------------------------------
-;; Code:
+;;; Code:
+(require 'bespoke-themes)
 
 ;;; Theme definition
 (deftheme bespoke-dark
-  "A custom dark theme for yakshaving")
+  "A custom dark theme for yakshaving.")
 
 ;;; Define dark color palette
 (let ((class '((class color) (min-colors 89)))
@@ -59,37 +60,70 @@
    `(default ((,class :foreground ,bespoke-light :background ,bespoke-dark)))
 
 ;;;; Header line
+
    `(header-line ((,class :foreground ,bespoke-light
                           :background ,bespoke-header
-                          :box (:line-width 4 :color ,bespoke-header :height 150)
+                          :box (:line-width 4 :color ,bespoke-header :style nil)
                           :overline nil
-                          :underline nil
-                          :height 150)))
-   `(mode-line  ((,class :height 10
-                         :underline ,bespoke-subtle
-                         :overline nil
-                         :box nil)))
+                          :underline nil)))
+
+   (when set-bespoke-header-line
+     `(mode-line  ((,class :height 0.1
+                           :underline ,bespoke-subtle
+                           :overline nil
+                           :box nil))))
+
+   (when set-bespoke-header-line
+     `(mode-line-inactive  ((,class :height 0.1
+                                    :underline ,bespoke-subtle
+                                    :overline nil
+                                    :box nil))))
+
+   (when (not set-bespoke-header-line)
+     `(mode-line ((,class :foreground ,bespoke-light
+                          :background ,bespoke-header
+                          :box (:line-width 4 :color ,bespoke-header)
+                          :overline nil
+                          :underline nil))))
+
+   ;; (when (not set-bespoke-header-line)
+   ;;   `(mode-line-inactive ((,class :foreground ,bespoke-subtle
+   ;;                                 :background ,bespoke-header
+   ;;                                 :box (:line-width 4 :color ,bespoke-header :height 150)
+   ;;                                 :overline nil
+   ;;                                 :underline nil
+   ;;                                 :height 150))))
+
+   ;; `(header-line ((,class :foreground ,bespoke-light
+   ;;                        :background ,bespoke-header
+   ;;                        :box (:line-width 4 :color ,bespoke-header :height 150)
+   ;;                        :overline nil
+   ;;                        :underline nil
+   ;;                        :height 150)))
+   ;; `(mode-line  ((,class :height 10
+   ;;                       :underline ,bespoke-subtle
+   ;;                       :overline nil
+   ;;                       :box nil)))
 
    ;;; Mode line indicators
 
    `(bespoke-header-inactive-face ((,class :background ,bespoke-header
                                            :foreground ,bespoke-faded
-                                           :box (:line-width 7 :color ,bespoke-header :height 150)
-                                           :overline nil
-                                           :underline nil
-                                           :height 150)))
+                                           :box (:line-width 6 :color ,bespoke-header)
+                                           :overline ,bespoke-header
+                                           :underline ,bespoke-header)))
 
    `(bespoke-header-default-face ((,class :foreground ,bespoke-black
                                           :background ,bespoke-salient
-                                          :box (:line-width 1 :color ,bespoke-header :style nil))))
+                                          :box (:line-width 1 :color ,bespoke-salient :style nil))))
 
    `(bespoke-header-mod-face ((,class :foreground ,bespoke-black
                                       :background ,bespoke-accent1
-                                      :box (:line-width 1 :color ,bespoke-header :style nil))))
+                                      :box (:line-width 1 :color ,bespoke-accent1 :style nil))))
 
    `(bespoke-header-ro-face ((,class :foreground ,bespoke-black
                                      :background ,bespoke-accent4
-                                     :box (:line-width 1 :color ,bespoke-header :style nil))))
+                                     :box (:line-width 1 :color ,bespoke-accent4 :style nil))))
 
 ;;;; Window Divs
    ;; divide windows more attractively
@@ -458,10 +492,14 @@
 
    ))
 
-;;; End theme
+;;; Provide theme
 
 (provide-theme 'bespoke-dark)
+
+(provide 'bespoke-dark-theme)
+
 
 ;; Local Variables:
 ;; eval: (when (fboundp 'rainbow-mode) (rainbow-mode 1))
 ;; End:
+;;; bespoke-dark-theme.el ends here
