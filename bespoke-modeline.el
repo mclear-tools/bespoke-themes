@@ -1,5 +1,4 @@
-;; -*- lexical-binding: t -*-
-;;; bespoke-modeline.el
+;;; bespoke-modeline.el -- custom mode line for bespoke theme  ;; -*- lexical-binding: t -*-
 ;; Copyright (C) 2020 Colin McLear
 ;; -------------------------------------------------------------------
 ;; Authors: Colin McLear
@@ -37,7 +36,10 @@
 ;; -------------------------------------------------------------------
 (require 'subr-x)
 ;;; Set variable
-(defvar set-bespoke-header-line t "Use bespoke header line theme")
+(defcustom set-bespoke-header-line t
+  "If t then use bespoke header line; if nil use bespoke mode line."
+  :group 'bespoke-themes
+  :type 'boolean)
 
 ;;; Define extra faces
 (defface bespoke-header-default-face nil
@@ -53,6 +55,10 @@
   :group 'bespoke)
 
 (defface bespoke-header-inactive-face nil
+  "Header line face for read-only buffers."
+  :group 'bespoke)
+
+(defface bespoke-header-inactive-face-status nil
   "Header line face for read-only buffers."
   :group 'bespoke)
 
@@ -85,7 +91,7 @@
         visible-bell t))
 
 
-;;;; Inactive Header line
+;;; Inactive Header line
 ;; https://emacs.stackexchange.com/a/3522/11934
 (defun bespoke-update-header ()
   (mapc
@@ -102,9 +108,30 @@
            ;; check if this window is selected, set faces accordingly
            (if (eq window (selected-window))
                (setq header-line-format original-format)
-             (setq header-line-format `(:propertize ,original-format face ,inactive-face)))))))
+             (setq header-line-format `(:propertize ,original-format face ,inactive-face))
+             )))))
    (window-list)))
-(add-hook 'buffer-list-update-hook #'bespoke-update-header)
+
+(defun bespoke-update-modeline ()
+  (mapc
+   (lambda (window)
+     (with-current-buffer (window-buffer window)
+       ;; don't mess with buffers that don't have a header line
+       (when mode-line-format
+         (let ((original-format (get 'mode-line-format 'original))
+               (inactive-face 'bespoke-header-inactive-face)) ; change this to your favorite inactive header line face
+           ;; if we didn't save original format yet, do it now
+           (when (not original-format)
+             (put 'mode-line-format 'original mode-line-format)
+             (setq original-format mode-line-format))
+           ;; check if this window is selected, set faces accordingly
+           (if (eq window (selected-window))
+               (setq mode-line-format original-format)
+             (setq mode-line-format `(:propertize ,original-format face ,inactive-face))
+             )))))
+   (window-list)))
+
+
 
 
 ;;; Clean mode line
@@ -236,8 +263,7 @@ want to use in the modeline *in lieu of* the original.")
     (bespoke-modeline-compose (bespoke-modeline-status)
                               buffer-name
                               (concat "(" mode-name
-                                      (if branch (concat " "
-                                                         (propertize branch 'face 'italic)))
+                                      (when branch (concat " " branch))
                                       ")")
                               (concat
                                ;; Narrowed buffer
@@ -376,13 +402,13 @@ want to use in the modeline *in lieu of* the original.")
 			                (number-to-string (pdf-cache-number-of-pages)))
 			              "???"))))
     (bespoke-modeline-compose
-     "🞅"
+     (bespoke-modeline-status)
      buffer-name
      (concat "(" mode-name
 	         (if branch (concat ", "
 				                (propertize branch 'face 'italic)))
 	         ")" )
-     page-number)))
+     (concat page-number " "))))
 
 ;;;; MenuMode
 ;; ---------------------------------------------------------------------
@@ -511,12 +537,8 @@ want to use in the modeline *in lieu of* the original.")
 
 
 ;;; Set Mode line
-;;;; Mode line header function
-;; ---------------------------------------------------------------------
-(defun bespoke-modeline ()
-  "Install a header line whose content depends on the major mode"
-  (interactive)
-  (setq-default header-line-format
+;;;; Set content for mode/header line
+  (setq-default bespoke--mode-line
                 '((:eval
                    (cond ((bespoke-modeline-prog-mode-p)            (bespoke-modeline-default-mode))
                          ((bespoke-modeline-deft-mode-p)            (bespoke-modeline-deft-mode))
@@ -541,13 +563,27 @@ want to use in the modeline *in lieu of* the original.")
                          ;; ((bespoke-modeline-mu4e-headers-mode-p)    (bespoke-modeline-mu4e-headers-mode))
                          ;; ((bespoke-modeline-mu4e-view-mode-p)       (bespoke-modeline-mu4e-view-mode))
                          ;; ((bespoke-modeline-bespoke-help-mode-p)       (bespoke-modeline-bespoke-help-mode))
-                         (t                                      (bespoke-modeline-default-mode)))))))
+                         (t                                      (bespoke-modeline-default-mode))))))
+
+;;;; Mode line header function
+;; ---------------------------------------------------------------------
+
+(defun bespoke/header-line ()
+  "Install a header line whose content depends on the major mode"
+  (interactive)
+  (setq-default header-line-format bespoke--mode-line)
+  (setq-default mode-line-format (list "%-")))
+
+(defun bespoke/mode-line ()
+  "Install mode line whose content depends on the major mode"
+  (interactive)
+  (setq-default header-line-format nil)
+  (setq-default mode-line-format bespoke--mode-line))
 
 ;;;; Update Window Display
 ;; ---------------------------------------------------------------------
 (defun bespoke-modeline-update-windows ()
-  "Modify the mode line depending on the presence of a window below."
-
+  "Modify the mode line depending on the presence of a window below. Use this only with the mode line set to header line."
   (dolist (window (window-list))
     (with-selected-window window
       (if (or (one-window-p t)
@@ -562,15 +598,20 @@ want to use in the modeline *in lieu of* the original.")
       ;;	      (face-remap-add-relative 'header-line '(:overline "#777777"))
       ;;	    (face-remap-add-relative 'header-line '(:overline nil)))
       )))
-(add-hook 'window-configuration-change-hook 'bespoke-modeline-update-windows)
 
-;;;; Call Mode line
-(setq eshell-status-in-modeline nil)
-(setq-default mode-line-format (list "%-"))
-;; (setq-default mode-line-format "")
-(bespoke-modeline)
+;;;; Load Mode or Header line
+(if set-bespoke-header-line
+    (progn
+      (setq eshell-status-in-modeline nil)
+      (bespoke/header-line)
+      (add-hook 'window-configuration-change-hook 'bespoke-modeline-update-windows)
+      (add-hook 'buffer-list-update-hook #'bespoke-update-header))
+  (progn
+    (setq eshell-status-in-modeline nil)
+    (bespoke/mode-line)
+    (add-hook 'buffer-list-update-hook #'bespoke-update-modeline)))
 
-
-
-;;; End Bespoke Modeline
+;;; Provide Bespoke Modeline
 (provide 'bespoke-modeline)
+
+;;; End bespoke-modeline.el

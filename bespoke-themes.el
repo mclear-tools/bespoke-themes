@@ -43,7 +43,6 @@
 
 ;;; Modeline
 
-;; (require 'bespoke-header-line)
 (require 'bespoke-modeline)
 
 ;;; Provide path to file
@@ -54,5 +53,7 @@
                (file-name-as-directory (file-name-directory load-file-name))))
 
 
-;;; End Theme
+;;; Provide Theme
 (provide 'bespoke-themes)
+
+;;; End bespoke-themes.el
