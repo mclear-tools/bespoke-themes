@@ -37,7 +37,8 @@
 (let ((class '((class color) (min-colors 89)))
 
       (bespoke-light    "#eceff4")
-      (bespoke-dark     "#2e3440")
+      ;; (bespoke-dark     "#2e3440")
+      (bespoke-dark     "#292e39")
       (bespoke-black    "#000000")
       (bespoke-header   "#3b4052")
 
@@ -46,7 +47,7 @@
       (bespoke-salient  "#81a1c1")
       (bespoke-strong   "#ffffff")
       (bespoke-faded    "#677691")
-      (bespoke-subtle   "#3c4454")
+      (bespoke-subtle   "#39404f")
 
       (bespoke-accent1  "#c7737b")
       (bespoke-accent2  "#649bce")
