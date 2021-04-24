@@ -37,12 +37,7 @@
   (error "Requires Emacs 25 or later"))
 
 
-;;; Load dark theme for terminal
-(when (not (display-graphic-p))
-  (load-theme 'bespoke-dark t))
-
 ;;; Modeline
-
 (require 'bespoke-modeline)
 
 ;;; Provide path to file
@@ -51,7 +46,6 @@
 (when (and (boundp 'custom-theme-load-path) load-file-name)
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
-
 
 ;;; Provide Theme
 (provide 'bespoke-themes)
