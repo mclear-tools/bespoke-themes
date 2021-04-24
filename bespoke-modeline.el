@@ -174,6 +174,89 @@ want to use in the modeline *in lieu of* the original.")
 (add-hook 'after-change-major-mode-hook 'clean-mode-line)
 
 
+;;; Terminal friendly alternative mode line
+;; Organize mode line
+(defun mode-line-render (left right)
+  "Organize mode line entries to left and right"
+  (let* ((available-width (- (window-width) (length left) )))
+    (format (format "%%s %%%ds" available-width) left right)))
+;; Alternative value of mode-line in case we want to use in terminal
+(setq-default bespoke--terminal-mode-line
+              '((:eval
+                 (mode-line-render
+                  (format-mode-line (list
+                                     ;; Buffer status
+                                     (cond ((and buffer-file-name (buffer-modified-p))
+                                            (propertize " ** " 'face `(:inherit bespoke-header-mod-face :height 1.10)))
+                                           (buffer-read-only
+                                            (propertize " RO " 'face `(:inherit bespoke-header-ro-face :height 1.10)))
+                                           (t
+                                            (propertize " RW " 'face `(:inherit bespoke-header-default-face :height 1.10))))
+
+                                     ;; Filename (NOTE: not using %b since that leads to redundant info when using uniquify
+                                     (if buffer-file-name
+                                         (concat " " (file-name-nondirectory (buffer-file-name)))
+                                       " %b")
+
+                                     ;; Parent directory
+                                     (when buffer-file-name
+                                       (propertize (concat " " (file-name-nondirectory (directory-file-name default-directory)) "/") 'face `(:inherit fringe)))
+
+                                     ;; Evil tags
+                                     (propertize evil-mode-line-tag 'face `(:inherit fringe))
+
+                                     ;; Narrowed buffer
+                                     (if (buffer-narrowed-p)
+                                         (propertize " ⇥"  'face `(:inherit fringe)))
+
+                                     ;; Modes
+                                     (propertize " %m " 'face `(:inherit fringe)
+                                                 'help-echo "Mode(s) menu"
+                                                 'mouse-face 'mode-line-highlight
+                                                 'local-map   mode-line-major-mode-keymap)))
+                  (format-mode-line (list
+                                     ;; Show project name
+                                     (when buffer-file-name
+                                       (when (bound-and-true-p projectile-mode)
+                                         (let ((project-name (projectile-project-name)))
+                                           (unless (string= "-" project-name)
+                                             (propertize (format "%s " project-name) 'face `(:slant italic :inherit fringe))))))
+
+                                     ;; When buffer-file is tracked in vc add spacer between project & branch
+                                     (when vc-mode
+                                       (when (vc-registered (buffer-file-name))
+                                         (propertize "• " 'face `(:inherit fringe))))
+                                     ;; "⦁ • "
+                                     ;; Show branch name
+                                     ;; NOTE: I can't seem to get line/col to display properly without putting them into the conditional
+                                     (if vc-mode
+                                         (list
+                                          (propertize (vc-project-branch) 'face `(:inherit fringe))
+                                          "%l:%c  ")
+                                       "%l:%c  ")))))))
+
+;; (setq-default bespoke--terminal-mode-line
+;;               '((:eval
+;;                  (mode-line-render
+;;                   (format-mode-line (list
+;;                                      evil-mode-line-tag
+;;                                      "|"
+;;                                      ;; (shorten-directory default-directory 32)
+;;                                      " %b "
+;;                                      (if (buffer-narrowed-p)
+;;                                          ("⇥"))
+;;                                      " %m "
+;;                                      (cond ((and buffer-file-name (buffer-modified-p))
+;;                                             (propertize "(**)" 'face `(:foreground "#f08290")))
+;;                                            (buffer-read-only "(RO)" ))
+;;                                      ))
+;;                   (format-mode-line (list
+;;                                      (vc-project-branch)
+;;                                      " %l:%c:%o"
+;;                                      ;;https://emacs.stackexchange.com/a/10637/11934
+;;                                      "  ")
+;;                                     )))))
+
 ;;; Mode line functions
 ;;;; Branch display
 ;; -------------------------------------------------------------------
@@ -506,7 +589,7 @@ want to use in the modeline *in lieu of* the original.")
     (bespoke-modeline-compose (bespoke-modeline-status)
                               "Agenda"
                               ""
-                              (concat (propertize "⏲" 'face 'default 'display `(raise ,space-up)) (format-time-string "%H:%M ")))))
+                              (concat (propertize "🕑" 'face 'default 'display `(raise ,space-up)) (format-time-string "%H:%M ")))))
 
 ;;;; Org Clock
 ;; ---------------------------------------------------------------------
@@ -580,6 +663,12 @@ want to use in the modeline *in lieu of* the original.")
   (setq-default header-line-format nil)
   (setq-default mode-line-format bespoke--mode-line))
 
+(defun bespoke/terminal-mode-line ()
+  "Install a terminal-friendly mode-line"
+  (interactive)
+  (setq-default header-line-format nil)
+  (setq-default mode-line-format bespoke--terminal-mode-line))
+
 ;;;; Update Window Display
 ;; ---------------------------------------------------------------------
 (defun bespoke-modeline-update-windows ()
@@ -608,7 +697,9 @@ want to use in the modeline *in lieu of* the original.")
       (add-hook 'buffer-list-update-hook #'bespoke-update-header))
   (progn
     (setq eshell-status-in-modeline nil)
-    (bespoke/mode-line)
+    (if (not (display-graphic-p))
+        (bespoke/terminal-mode-line)
+      (bespoke/mode-line))
     (add-hook 'buffer-list-update-hook #'bespoke-update-modeline)))
 
 ;;; Provide Bespoke Modeline
