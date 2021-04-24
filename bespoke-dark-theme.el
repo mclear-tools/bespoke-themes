@@ -109,7 +109,7 @@
 
    `(bespoke-header-inactive-face ((,class :background ,bespoke-header
                                            :foreground ,bespoke-faded
-                                           :box (:line-width 6 :color ,bespoke-header)
+                                           :box (:line-width 7 :color ,bespoke-header)
                                            :overline ,bespoke-header
                                            :underline ,bespoke-header)))
 

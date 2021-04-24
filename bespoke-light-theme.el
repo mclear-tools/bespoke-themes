@@ -63,43 +63,38 @@
 ;;;; Mode line/Header line
 
    ;;; Always have header-line colors set, as they are used to define bespoke-modeline colors
-   `(header-line ((,class :background ,bespoke-header
-                          :foreground ,bespoke-dark
-                          :box (:line-width 4 :color ,bespoke-header :height 150)
+   `(header-line ((,class :foreground ,bespoke-dark
+                          :background ,bespoke-header
+                          :box (:line-width 4 :color ,bespoke-header :style nil)
                           :overline nil
-                          :underline nil
-                          :height 150)))
+                          :underline nil)))
 
    ;;; Conditionally load header and mode line colors
    (when set-bespoke-header-line
-     `(mode-line ((,class :height 10
+     `(mode-line ((,class :height 0.1
                           :underline ,bespoke-header
                           :overline nil
                           :box nil))))
 
-   (when (not set-bespoke-header-line)
-     `(mode-line ((,class :background ,bespoke-header
-                          :foreground ,bespoke-dark
-                          :box (:line-width 4 :color ,bespoke-header :height 150)
-                          :overline nil
-                          :underline nil
-                          :height 150))))
+   (when set-bespoke-header-line
+     `(mode-line-inactive  ((,class :height 0.1
+                                    :underline ,bespoke-subtle
+                                    :overline nil
+                                    :box nil))))
 
    (when (not set-bespoke-header-line)
-     `(mode-line-inactive ((,class :background ,bespoke-header
-                                   :foreground ,bespoke-faded
-                                   :box (:line-width 4 :color ,bespoke-header :height 150)
-                                   :overline nil
-                                   :underline nil
-                                   :height 150))))
+     `(mode-line ((,class :foreground ,bespoke-dark
+                          :background ,bespoke-header
+                          :box (:line-width 4 :color ,bespoke-header)
+                          :overline nil
+                          :underline nil))))
 
  ;;; Mode line indicators
    `(bespoke-header-inactive-face ((,class :background ,bespoke-header
                                            :foreground ,bespoke-faded
-                                           :box (:line-width 7 :color ,bespoke-header :height 150)
+                                           :box (:line-width 7 :color ,bespoke-header)
                                            :overline nil
-                                           :underline nil
-                                           :height 150)))
+                                           :underline nil)))
 
    `(bespoke-header-default-face ((,class :foreground ,bespoke-white
                                           :background ,bespoke-salient
