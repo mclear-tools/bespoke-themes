@@ -36,35 +36,37 @@
 ;;; Define dark color palette
 (let ((class '((class color) (min-colors 89)))
 
-      (bespoke-light    "#eceff4")
-      ;; (bespoke-dark     "#2e3440")
-      (bespoke-dark     "#292e39")
-      (bespoke-black    "#000000")
-      (bespoke-header   "#3b4052")
+      (bespoke-black      "#000000")
 
-      (bespoke-critical "#ec423a")
-      (bespoke-popout   "#d0744d")
+      (bespoke-dark       "#292e39")
+      (bespoke-subtle     "#333a47")
+      (bespoke-modeline   "#3C4353")
+      (bespoke-highlight  "#596377")
+
+      (bespoke-faded    "#7c89a2")
       (bespoke-salient  "#81a1c1")
-      (bespoke-strong   "#ffffff")
-      (bespoke-faded    "#677691")
-      (bespoke-subtle   "#39404f")
+      (bespoke-popout   "#e9b85d")
+      (bespoke-critical "#f46715")
 
-      (bespoke-accent1  "#c7737b")
-      (bespoke-accent2  "#649bce")
-      (bespoke-accent3  "#a3be8c")
-      (bespoke-accent4  "#ffab91")
-      (bespoke-accent5  "#ebcb8b"))
+      (bespoke-accent1  "#88c0d0")
+      (bespoke-accent2  "#8eb89d")
+      (bespoke-accent4  "#B48EAD")
+      (bespoke-accent3  "#bf616a")
+      (bespoke-accent5  "#d08770")
+
+      (bespoke-light    "#eceff4")
+      (bespoke-strong   "#ffffff"))
 
 ;;; Custom Faces
   (custom-theme-set-faces
    'bespoke-dark
    `(default ((,class :foreground ,bespoke-light :background ,bespoke-dark)))
 
-;;;; Header line
+;;;; Mode line/Header line
 
    `(header-line ((,class :foreground ,bespoke-light
-                          :background ,bespoke-header
-                          :box (:line-width 4 :color ,bespoke-header :style nil)
+                          :background ,bespoke-modeline
+                          :box (:line-width 4 :color ,bespoke-modeline :style nil)
                           :overline nil
                           :underline nil)))
 
@@ -82,8 +84,8 @@
 
    (when (not set-bespoke-header-line)
      `(mode-line ((,class :foreground ,bespoke-light
-                          :background ,bespoke-header
-                          :box (:line-width 4 :color ,bespoke-header)
+                          :background ,bespoke-modeline
+                          :box (:line-width 4 :color ,bespoke-modeline)
                           :overline nil
                           :underline nil))))
 
@@ -108,23 +110,23 @@
 
    ;;; Mode line indicators
 
-   `(bespoke-header-inactive-face ((,class :background ,bespoke-header
+   `(bespoke-header-inactive-face ((,class :background ,bespoke-modeline
                                            :foreground ,bespoke-faded
-                                           :box (:line-width 7 :color ,bespoke-header)
-                                           :overline ,bespoke-header
-                                           :underline ,bespoke-header)))
+                                           :box (:line-width 7 :color ,bespoke-modeline)
+                                           :overline nil
+                                           :underline nil)))
 
    `(bespoke-header-default-face ((,class :foreground ,bespoke-black
                                           :background ,bespoke-salient
                                           :box (:line-width 1 :color ,bespoke-salient :style nil))))
 
    `(bespoke-header-mod-face ((,class :foreground ,bespoke-black
-                                      :background ,bespoke-accent1
-                                      :box (:line-width 1 :color ,bespoke-accent1 :style nil))))
+                                      :background ,bespoke-accent3
+                                      :box (:line-width 1 :color ,bespoke-accent3 :style nil))))
 
    `(bespoke-header-ro-face ((,class :foreground ,bespoke-black
-                                     :background ,bespoke-accent4
-                                     :box (:line-width 1 :color ,bespoke-accent4 :style nil))))
+                                     :background ,bespoke-accent5
+                                     :box (:line-width 1 :color ,bespoke-accent5 :style nil))))
 
 ;;;; Window Divs
    ;; divide windows more attractively
@@ -145,13 +147,13 @@
 
 ;;;; Basic Faces
    `(buffer-menu-buffer                            ((,class :foreground ,bespoke-strong)))
-   `(minibuffer-prompt                             ((,class :foreground ,bespoke-strong)))
+   `(minibuffer-prompt                             ((,class :foreground ,bespoke-accent2)))
    `(link                                          ((,class :foreground ,bespoke-salient)))
-   `(region                                        ((,class :background ,bespoke-faded)))
+   `(region                                        ((,class :background ,bespoke-highlight)))
    `(fringe                                        ((,class :foreground ,bespoke-faded :weight light)))
    `(isearch                                       ((,class :foreground ,bespoke-strong)))
    `(isearch-fail                                  ((,class :foreground ,bespoke-faded)))
-   `(highlight                                     ((,class :background ,bespoke-subtle)))
+   `(highlight                                     ((,class :background ,bespoke-highlight)))
    `(lazy-highlight                                ((,class :foreground ,bespoke-accent2)))
    `(trailing-whitespace                           ((,class :foreground ,bespoke-faded)))
    `(show-paren-match                              ((,class :foreground ,bespoke-light :background ,bespoke-accent2)))
@@ -161,14 +163,17 @@
 ;;;; Font Lock
    `(font-lock-comment-face                        ((,class :foreground ,bespoke-faded)))
    `(font-lock-doc-face                            ((,class :foreground ,bespoke-faded)))
-   `(font-lock-string-face                         ((,class :foreground ,bespoke-faded)))
-   `(font-lock-constant-face                       ((,class :foreground ,bespoke-accent5)))
-   `(font-lock-warning-face                        ((,class :foreground ,bespoke-popout)))
-   `(font-lock-function-name-face                  ((,class :foreground ,bespoke-accent2)))
-   `(font-lock-variable-name-face                  ((,class :foreground ,bespoke-strong)))
-   `(font-lock-builtin-face                        ((,class :foreground ,bespoke-accent3)))
+   `(font-lock-string-face                         ((,class :foreground ,bespoke-strong)))
+   `(font-lock-constant-face                       ((,class :foreground ,bespoke-accent2)))
+   `(font-lock-builtin-face                        ((,class :foreground ,bespoke-accent2)))
+   `(font-lock-function-name-face                  ((,class :foreground ,bespoke-accent1)))
+   `(font-lock-variable-name-face                  ((,class :foreground ,bespoke-accent4)))
    `(font-lock-type-face                           ((,class :foreground ,bespoke-salient)))
-   `(font-lock-keyword-face                        ((,class :foreground ,bespoke-salient)))
+   `(font-lock-keyword-face                        ((,class :foreground ,bespoke-accent5)))
+   `(font-lock-reference-face                      ((,class :foreground ,bespoke-accent5)))
+   `(font-lock-warning-face                        ((,class :foreground ,bespoke-critical)))
+   `(font-lock-regexp-grouping-backslash           ((,class :foreground ,bespoke-critical)))
+   `(font-lock-regexp-grouping-construct           ((,class :foreground ,bespoke-critical)))
 
 ;;;; Documentation
    `(info-menu-header                              ((,class :foreground ,bespoke-strong)))
@@ -197,14 +202,14 @@
 
 ;;;; Outline
    `(outline-minor-0      ((,class :background ,bespoke-subtle)))
-   `(outline-1            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
-   `(outline-2            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
-   `(outline-4            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
-   `(outline-4            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
-   `(outline-5            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
-   `(outline-6            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
-   `(outline-7            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
-   `(outline-8            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
+   `(outline-1            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
+   `(outline-2            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(outline-3            ((,class :inherit outline-1)))
+   `(outline-4            ((,class :inherit outline-2)))
+   `(outline-5            ((,class :inherit outline-1)))
+   `(outline-6            ((,class :inherit outline-2)))
+   `(outline-7            ((,class :inherit outline-1)))
+   `(outline-8            ((,class :inherit outline-2)))
 
 
 ;;;; Interface
@@ -226,8 +231,8 @@
    `(custom-link                                  ((,class :foreground ,bespoke-salient)))
 
 ;;;; Flyspell
-   `(flyspell-duplicate                           ((,class :foreground ,bespoke-popout)))
-   `(flyspell-incorrect                           ((,class :foreground ,bespoke-popout)))
+   `(flyspell-duplicate                           ((,class :foreground ,bespoke-accent5)))
+   `(flyspell-incorrect                           ((,class :foreground ,bespoke-critical)))
 
 ;;;; Ido
    `(ido-first-match                              ((,class :foreground ,bespoke-salient)))
@@ -330,7 +335,7 @@
    `(org-tag-group                              ((,class :foreground ,bespoke-faded)))
    `(org-target                                 ((,class :foreground ,bespoke-faded)))
    `(org-time-grid                              ((,class :foreground ,bespoke-faded)))
-   `(org-todo                                   ((,class :foreground ,bespoke-critical)))
+   `(org-todo                                   ((,class :foreground ,bespoke-accent4)))
    `(org-upcoming-deadline                      ((,class :foreground ,bespoke-strong)))
    `(org-upcoming-distant-deadline              ((,class :foreground ,bespoke-light)))
    `(org-verbatim                               ((,class :foreground ,bespoke-faded)))
@@ -347,12 +352,12 @@
    `(markdown-gfm-checkbox-face                 ((,class :inherit    default)))
    `(markdown-header-delimiter-face             ((,class :foreground ,bespoke-faded)))
    `(markdown-header-face                       ((,class :inherit variable-pitch)))
-   `(markdown-header-face-1                     ((,class :inherit variable-pitch :foreground ,bespoke-popout)))
-   `(markdown-header-face-2                     ((,class :inherit variable-pitch :foreground ,bespoke-salient)))
-   `(markdown-header-face-3                     ((,class :inherit variable-pitch :foreground ,bespoke-faded)))
-   `(markdown-header-face-4                     ((,class :inherit variable-pitch :foreground ,bespoke-salient)))
-   `(markdown-header-face-5                     ((,class :inherit variable-pitch :foreground ,bespoke-faded)))
-   `(markdown-header-face-6                     ((,class :inherit variable-pitch :foreground ,bespoke-salient)))
+   `(markdown-header-face-1                     ((,class :inherit outline-1)))
+   `(markdown-header-face-2                     ((,class :inherit outline-2)))
+   `(markdown-header-face-3                     ((,class :inherit outline-1)))
+   `(markdown-header-face-4                     ((,class :inherit outline-2)))
+   `(markdown-header-face-5                     ((,class :inherit outline-1)))
+   `(markdown-header-face-6                     ((,class :inherit outline-2)))
    `(markdown-header-rule-face                  ((,class :inherit default)))
    `(markdown-highlight-face                    ((,class :inherit default)))
    `(markdown-hr-face                           ((,class :inherit default)))
@@ -406,7 +411,7 @@
 
 ;;;; Orderless
 
-   `(orderless-match-face-0                     ((,class :weight bold :foreground ,bespoke-accent5)))
+   `(orderless-match-face-0                     ((,class :weight bold :foreground ,bespoke-accent4)))
    `(orderless-match-face-1                     ((,class :weight bold :foreground ,bespoke-accent3)))
    `(orderless-match-face-2                     ((,class :weight bold :foreground ,bespoke-accent1)))
    `(orderless-match-face-3                     ((,class :weight bold :foreground ,bespoke-accent2)))
@@ -490,6 +495,10 @@
    `(imenu-list-entry-face-2 ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
    `(imenu-list-entry-face-3 ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
 
+;;;; Posframe
+
+   `(which-key-posframe                           ((,class (:background ,bespoke-subtle))))
+   `(which-key-posframe-border                    ((,class (:background ,bespoke-subtle))))
 
    ))
 
