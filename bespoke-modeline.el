@@ -131,6 +131,9 @@
              )))))
    (window-list)))
 
+(defun bespoke-ml-update-all ()
+  (force-mode-line-update t))
+(add-hook 'buffer-list-update-hook 'bespoke-ml-update-all)
 
 
 
