@@ -1,21 +1,27 @@
-Custom medium contrast light and dark themes for Emacs (intended for GUI only). This
-started as a fork of [[https://github.com/rougier][Nicolas Rougier's]] work on [[https://github.com/rougier/elegant-emacs][elegant-emacs]] and [[https://github.com/rougier/nano-emacs][nano-emacs]], but has
-evolved with some ideas and colors borrowed from [[https://github.com/bbatsov/solarized-emacs][solarized]] and [[https://github.com/arcticicestudio/nord-emacs][nord]]. The mode line
-may be set as a header line (as in nano-emacs) or as the normal footer line. Also
-included is a useful footer line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. Faces
-are basic but fairly comprehensive.
+Custom medium contrast light and dark themes for Emacs (intended for GUI only, though
+basic support in terminal has been added). This started as a fork of [[https://github.com/rougier][Nicolas
+Rougier's]] work on [[https://github.com/rougier/elegant-emacs][elegant-emacs]] and [[https://github.com/rougier/nano-emacs][nano-emacs]], but has evolved with some ideas and
+colors borrowed from [[https://github.com/bbatsov/solarized-emacs][solarized]] and [[https://github.com/arcticicestudio/nord-emacs][nord]]. The mode line may be set as a header line
+(as in nano-emacs) or as the normal footer line. Also included is a useful footer
+line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. Faces are basic but fairly
+comprehensive.
 
 *** Settings
 #+begin_src emacs-lisp
 (use-package bespoke-themes
   :straight (:host github :repo "mclear-tools/bespoke-themes")
   :init
-  ;; add to load path
+  ;; Add to load path
   (add-to-list 'custom-theme-load-path (concat custom-theme-directory "bespoke-themes/"))
-  ;; set header line
-  (setq set-bespoke-header-line t)
+    (if (not (display-graphic-p))
+      ;; No header line in terminal
+      (setq set-bespoke-header-line nil)
+      ;; Set header line in GUI
+      (setq set-bespoke-header-line t))
   :config
-  ;; use mode line visual bell
+  ;; Load dark theme
+  (load-theme 'bespoke-dark t)
+  ;; Use mode line visual bell
   (bespoke-themes-visual-bell-config))
 #+end_src
 
