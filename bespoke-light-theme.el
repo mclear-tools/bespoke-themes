@@ -141,7 +141,7 @@
    `(fringe                                        ((,class :foreground ,bespoke-faded :weight light)))
    `(isearch                                       ((,class :foreground ,bespoke-strong)))
    `(isearch-fail                                  ((,class :foreground ,bespoke-faded)))
-   `(highlight                                     ((,class :background ,bespoke-subtle)))
+   `(highlight                                     ((,class :background ,bespoke-highlight)))
    `(lazy-highlight                                ((,class :foreground ,bespoke-accent2)))
    `(trailing-whitespace                           ((,class :foreground ,bespoke-faded)))
    `(show-paren-match                              ((,class :foreground ,bespoke-light :background ,bespoke-accent2)))
