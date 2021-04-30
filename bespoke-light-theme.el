@@ -67,7 +67,7 @@
    ;;; Always have header-line colors set, as they are used to define bespoke-modeline colors
    `(header-line ((,class :foreground ,bespoke-dark
                           :background ,bespoke-modeline
-                          :box (:line-width 4 :color ,bespoke-modeline :style nil)
+                          :box (:line-width 5 :color ,bespoke-modeline :style nil)
                           :overline nil
                           :underline nil)))
 
@@ -94,9 +94,7 @@
  ;;; Mode line indicators
    `(bespoke-header-inactive-face ((,class :background ,bespoke-modeline
                                            :foreground ,bespoke-faded
-                                           :box (:line-width 5 :color ,bespoke-modeline)
-                                           :overline nil
-                                           :underline nil)))
+                                           :box (:line-width 5 :color ,bespoke-modeline :style nil))))
 
    `(bespoke-header-default-face ((,class :foreground ,bespoke-white
                                           :background ,bespoke-salient

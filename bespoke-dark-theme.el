@@ -66,7 +66,7 @@
 
    `(header-line ((,class :foreground ,bespoke-light
                           :background ,bespoke-modeline
-                          :box (:line-width 4 :color ,bespoke-modeline :style nil)
+                          :box (:line-width 5 :color ,bespoke-modeline :style nil)
                           :overline nil
                           :underline nil)))
 
@@ -112,9 +112,7 @@
 
    `(bespoke-header-inactive-face ((,class :background ,bespoke-modeline
                                            :foreground ,bespoke-faded
-                                           :box (:line-width 5 :color ,bespoke-modeline)
-                                           :overline nil
-                                           :underline nil)))
+                                           :box (:line-width 5 :color ,bespoke-modeline :style nil))))
 
    `(bespoke-header-default-face ((,class :foreground ,bespoke-black
                                           :background ,bespoke-salient
