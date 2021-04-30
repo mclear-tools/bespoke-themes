@@ -112,7 +112,7 @@
 
    `(bespoke-header-inactive-face ((,class :background ,bespoke-modeline
                                            :foreground ,bespoke-faded
-                                           :box (:line-width 6 :color ,bespoke-modeline)
+                                           :box (:line-width 5 :color ,bespoke-modeline)
                                            :overline nil
                                            :underline nil)))
 
