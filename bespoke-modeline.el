@@ -592,7 +592,7 @@ want to use in the modeline *in lieu of* the original.")
     (bespoke-modeline-compose (bespoke-modeline-status)
                               "Agenda"
                               ""
-                              (concat (propertize "🕑" 'face 'default 'display `(raise ,space-up)) (format-time-string "%H:%M ")))))
+                              (format-time-string "%l:%M %p "))))
 
 ;;;; Org Clock
 ;; ---------------------------------------------------------------------
