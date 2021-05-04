@@ -28,34 +28,14 @@
 ;; -------------------------------------------------------------------
 ;;; Code:
 (require 'bespoke-themes)
+(bespoke-theme-set-dark)
 
 ;;; Theme definition
 (deftheme bespoke-dark
   "A custom dark theme for yakshaving.")
 
-;;; Define dark color palette
-(let ((class '((class color) (min-colors 89)))
-
-      (bespoke-black      "#000000")
-
-      (bespoke-dark       "#292e39")
-      (bespoke-subtle     "#333a47")
-      (bespoke-modeline   "#3C4353")
-      (bespoke-highlight  "#596377")
-
-      (bespoke-faded    "#7c89a2")
-      (bespoke-salient  "#81a1c1")
-      (bespoke-popout   "#e9b85d")
-      (bespoke-critical "#f46715")
-
-      (bespoke-accent1  "#88c0d0")
-      (bespoke-accent2  "#8eb89d")
-      (bespoke-accent4  "#B48EAD")
-      (bespoke-accent3  "#bf616a")
-      (bespoke-accent5  "#d08770")
-
-      (bespoke-light    "#eceff4")
-      (bespoke-strong   "#ffffff"))
+;;; Define class
+(let ((class '((class color) (min-colors 89))))
 
 ;;; Custom Faces
   (custom-theme-set-faces
@@ -119,12 +99,12 @@
                                           :box (:line-width 1 :color ,bespoke-salient :style nil))))
 
    `(bespoke-header-mod-face ((,class :foreground ,bespoke-black
-                                      :background ,bespoke-accent3
-                                      :box (:line-width 1 :color ,bespoke-accent3 :style nil))))
+                                      :background ,bespoke-red
+                                      :box (:line-width 1 :color ,bespoke-red :style nil))))
 
    `(bespoke-header-ro-face ((,class :foreground ,bespoke-black
-                                     :background ,bespoke-accent5
-                                     :box (:line-width 1 :color ,bespoke-accent5 :style nil))))
+                                     :background ,bespoke-brown
+                                     :box (:line-width 1 :color ,bespoke-brown :style nil))))
 
 ;;;; Window Divs
    ;; divide windows more attractively
@@ -145,16 +125,16 @@
 
 ;;;; Basic Faces
    `(buffer-menu-buffer                            ((,class :foreground ,bespoke-strong)))
-   `(minibuffer-prompt                             ((,class :foreground ,bespoke-accent2)))
+   `(minibuffer-prompt                             ((,class :foreground ,bespoke-green)))
    `(link                                          ((,class :foreground ,bespoke-salient)))
    `(region                                        ((,class :background ,bespoke-highlight)))
    `(fringe                                        ((,class :foreground ,bespoke-faded :weight light)))
    `(isearch                                       ((,class :foreground ,bespoke-strong)))
    `(isearch-fail                                  ((,class :foreground ,bespoke-faded)))
    `(highlight                                     ((,class :background ,bespoke-highlight)))
-   `(lazy-highlight                                ((,class :foreground ,bespoke-accent2)))
+   `(lazy-highlight                                ((,class :foreground ,bespoke-green)))
    `(trailing-whitespace                           ((,class :foreground ,bespoke-faded)))
-   `(show-paren-match                              ((,class :foreground ,bespoke-light :background ,bespoke-accent2)))
+   `(show-paren-match                              ((,class :foreground ,bespoke-light :background ,bespoke-green)))
    `(show-paren-mismatch                           ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
    `(tooltip nil                                   ((,class :height 0.85)))
 
@@ -162,20 +142,20 @@
    `(font-lock-comment-face                        ((,class :foreground ,bespoke-faded)))
    `(font-lock-doc-face                            ((,class :foreground ,bespoke-faded)))
    `(font-lock-string-face                         ((,class :foreground ,bespoke-strong)))
-   `(font-lock-constant-face                       ((,class :foreground ,bespoke-accent2)))
-   `(font-lock-builtin-face                        ((,class :foreground ,bespoke-accent2)))
-   `(font-lock-function-name-face                  ((,class :foreground ,bespoke-accent1)))
-   `(font-lock-variable-name-face                  ((,class :foreground ,bespoke-accent4)))
+   `(font-lock-constant-face                       ((,class :foreground ,bespoke-green)))
+   `(font-lock-builtin-face                        ((,class :foreground ,bespoke-green)))
+   `(font-lock-function-name-face                  ((,class :foreground ,bespoke-brown)))
+   `(font-lock-variable-name-face                  ((,class :foreground ,bespoke-yellow)))
    `(font-lock-type-face                           ((,class :foreground ,bespoke-salient)))
-   `(font-lock-keyword-face                        ((,class :foreground ,bespoke-accent5)))
-   `(font-lock-reference-face                      ((,class :foreground ,bespoke-accent5)))
+   `(font-lock-keyword-face                        ((,class :foreground ,bespoke-blue)))
+   `(font-lock-reference-face                      ((,class :foreground ,bespoke-blue)))
    `(font-lock-warning-face                        ((,class :foreground ,bespoke-critical)))
    `(font-lock-regexp-grouping-backslash           ((,class :foreground ,bespoke-critical)))
    `(font-lock-regexp-grouping-construct           ((,class :foreground ,bespoke-critical)))
 
 ;;;; Documentation
    `(info-menu-header                              ((,class :foreground ,bespoke-strong)))
-   `(info-header-node                              ((,class :foreground ,bespoke-accent2)))
+   `(info-header-node                              ((,class :foreground ,bespoke-green)))
    `(Info-quoted                                   ((,class :foreground ,bespoke-faded)))
    `(info-title-1                                  ((,class :foreground ,bespoke-strong)))
    `(info-title-2                                  ((,class :foreground ,bespoke-strong)))
@@ -200,8 +180,8 @@
 
 ;;;; Outline
    `(outline-minor-0      ((,class :background ,bespoke-subtle)))
-   `(outline-1            ((,class :inherit variable-pitch :foreground ,bespoke-accent2)))
-   `(outline-2            ((,class :inherit variable-pitch :foreground ,bespoke-accent1)))
+   `(outline-1            ((,class :inherit variable-pitch :foreground ,bespoke-green)))
+   `(outline-2            ((,class :inherit variable-pitch :foreground ,bespoke-blue)))
    `(outline-3            ((,class :inherit outline-1)))
    `(outline-4            ((,class :inherit outline-2)))
    `(outline-5            ((,class :inherit outline-1)))
@@ -229,7 +209,7 @@
    `(custom-link                                  ((,class :foreground ,bespoke-salient)))
 
 ;;;; Flyspell
-   `(flyspell-duplicate                           ((,class :foreground ,bespoke-accent5)))
+   `(flyspell-duplicate                           ((,class :foreground ,bespoke-red)))
    `(flyspell-incorrect                           ((,class :foreground ,bespoke-critical)))
 
 ;;;; Ido
@@ -267,8 +247,8 @@
    `(org-agenda-column-dateline                   ((,class :foreground ,bespoke-faded)))
    `(org-agenda-current-time                      ((,class :foreground ,bespoke-faded)))
    `(org-agenda-date                              ((,class :foreground ,bespoke-salient)))
-   `(org-agenda-date-today                        ((,class :inherit    variable-pitch :height 1.25 :foreground ,bespoke-accent1)))
-   `(org-super-agenda-header                      ((,class :inherit    variable-pitch :foreground ,bespoke-accent1)))
+   `(org-agenda-date-today                        ((,class :inherit    variable-pitch :height 1.25 :foreground ,bespoke-blue)))
+   `(org-super-agenda-header                      ((,class :inherit    variable-pitch :foreground ,bespoke-blue)))
    `(org-agenda-date-weekend                      ((,class :foreground ,bespoke-faded)))
    `(org-agenda-diary                             ((,class :foreground ,bespoke-faded)))
    `(org-agenda-dimmed-todo-face                  ((,class :foreground ,bespoke-faded)))
@@ -315,7 +295,7 @@
    `(org-level-7                                ((,class :inherit 'outline-1)))
    `(org-level-8                                ((,class :inherit 'outline-2)))
    `(org-link                                   ((,class :foreground ,bespoke-salient)))
-   `(org-list-dt                                ((,class :foreground ,bespoke-accent1)))
+   `(org-list-dt                                ((,class :foreground ,bespoke-blue)))
    `(org-macro                                  ((,class :foreground ,bespoke-faded)))
    `(org-meta-line                              ((,class :foreground ,bespoke-faded :weight light)))
    `(org-mode-line-clock                        ((,class :foreground ,bespoke-faded)))
@@ -333,7 +313,7 @@
    `(org-tag-group                              ((,class :foreground ,bespoke-faded)))
    `(org-target                                 ((,class :foreground ,bespoke-faded)))
    `(org-time-grid                              ((,class :foreground ,bespoke-faded)))
-   `(org-todo                                   ((,class :foreground ,bespoke-accent4)))
+   `(org-todo                                   ((,class :foreground ,bespoke-yellow)))
    `(org-upcoming-deadline                      ((,class :foreground ,bespoke-strong)))
    `(org-upcoming-distant-deadline              ((,class :foreground ,bespoke-light)))
    `(org-verbatim                               ((,class :foreground ,bespoke-faded)))
@@ -397,8 +377,8 @@
    `(company-tooltip-annotation-selection       ((,class :foreground ,bespoke-faded)))
 
 ;;;; Selectrum
-   `(selectrum-current-candidate                ((,class :slant  italic :weight bold :background ,bespoke-subtle)))
-   `(selectrum-prescient-secondary-highlight    ((,class :weight bold :foreground ,bespoke-accent1)))
+   `(selectrum-current-candidate                ((,class :slant  italic :weight bold :background ,bespoke-highlight)))
+   `(selectrum-prescient-secondary-highlight    ((,class :weight bold :foreground ,bespoke-blue)))
    `(selectrum-prescient-primary-highlight      ((,class :weight bold :foreground ,bespoke-salient)))
    `(selectrum-completion-docsig                ((,class :slant  italic :inherit selectrum-completion-annotation)))
    `(selectrum-completion-annotation            ((,class :inherit completions-annotations)))
@@ -409,10 +389,10 @@
 
 ;;;; Orderless
 
-   `(orderless-match-face-0                     ((,class :weight bold :foreground ,bespoke-accent4)))
-   `(orderless-match-face-1                     ((,class :weight bold :foreground ,bespoke-accent3)))
-   `(orderless-match-face-2                     ((,class :weight bold :foreground ,bespoke-accent1)))
-   `(orderless-match-face-3                     ((,class :weight bold :foreground ,bespoke-accent2)))
+   `(orderless-match-face-0                     ((,class :weight bold :foreground ,bespoke-yellow)))
+   `(orderless-match-face-1                     ((,class :weight bold :foreground ,bespoke-red)))
+   `(orderless-match-face-2                     ((,class :weight bold :foreground ,bespoke-blue)))
+   `(orderless-match-face-3                     ((,class :weight bold :foreground ,bespoke-green)))
 
 ;;;; Mu4e
    `(mu4e-attach-number-face                    ((,class :foreground ,bespoke-strong)))
@@ -455,7 +435,7 @@
 
 ;;;; Help(ful)
 
-   `(helpful-heading                            ((,class :inherit variable-pitch :foreground ,bespoke-accent1 :height 1.25)))
+   `(helpful-heading                            ((,class :inherit variable-pitch :foreground ,bespoke-blue :height 1.25)))
 
 ;;;; Dired (plus)
    `(diredp-write-priv                           ((,class :foreground ,bespoke-critical)))
@@ -463,7 +443,7 @@
    `(diredp-symlink                              ((,class :foreground ,bespoke-popout)))
    `(diredp-read-priv                            ((,class :foreground ,bespoke-popout)))
    `(diredp-rare-priv                            ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
-   `(diredp-other-priv                           ((,class :background ,bespoke-accent3)))
+   `(diredp-other-priv                           ((,class :background ,bespoke-red)))
    `(diredp-omit-file-name                       ((,class :strike-through ,bespoke-faded :inherit diredp-ignored-file-name)))
    `(diredp-number                               ((,class :foreground ,bespoke-salient)))
    `(diredp-no-priv                              ((,class :foreground ,bespoke-critical)))
@@ -478,8 +458,8 @@
    `(diredp-executable-tag                       ((,class :foreground ,bespoke-critical)))
    `(diredp-exec-priv                            ((,class :foreground ,bespoke-critical)))
    `(diredp-dir-priv                             ((,class :foreground ,bespoke-faded)))
-   `(diredp-dir-name                             ((,class :foreground ,bespoke-accent2)))
-   `(diredp-dir-heading                          ((,class :inherit    variable-pitch :foreground ,bespoke-accent1 :background ,bespoke-subtle)))
+   `(diredp-dir-name                             ((,class :foreground ,bespoke-green)))
+   `(diredp-dir-heading                          ((,class :inherit    variable-pitch :foreground ,bespoke-blue :background ,bespoke-subtle)))
    `(diredp-deletion-file-name                   ((,class :foreground ,bespoke-critical)))
    `(diredp-deletion                             ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
    `(diredp-date-time                            ((,class :foreground ,bespoke-faded)))

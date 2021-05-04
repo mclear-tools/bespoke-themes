@@ -37,6 +37,8 @@
   (error "Requires Emacs 25 or later"))
 
 
+;;; Faces
+(require 'bespoke-faces)
 ;;; Modeline
 (require 'bespoke-modeline)
 
