@@ -1,4 +1,4 @@
-;;; bespoke-themes.el --- A set of minimal and medium contrast light/dark themes
+;;; bespoke-evil-cursors.el -- custom evil cursor colors for bespoke theme  ;; -*- lexical-binding: t -*-
 ;; Copyright (C) 2020 Colin McLear
 ;; -------------------------------------------------------------------
 ;; Authors: Colin McLear
@@ -24,41 +24,33 @@
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>
 ;; -------------------------------------------------------------------
 ;; Commentary:
-;; This theme offers a set of light/dark bespoke themes and custom mode line
-;; for the discerning yakshaver
+;; A custom set of evil cursor colors for the discerning yakshaver.
 ;; -------------------------------------------------------------------
-;; Code:
 ;;
 
+;;; Set variable
+(defcustom set-bespoke-evil-cursors t
+  "If t then use bespoke evil cursor colors"
+  :group 'bespoke-themes
+  :type 'boolean)
 
 
-;;; Version Requirements
-(unless (>= emacs-major-version 25)
-  (error "Requires Emacs 25 or later"))
+;;; Define evil cursor colors
+(defun bespoke-evil-load-cursors ()
+  "Load theme specific cursor colors"
+  (interactive)
+  (setq evil-emacs-state-cursor    `(,bespoke-salient box))
+  (setq evil-normal-state-cursor   `(,bespoke-yellow box))
+  (setq evil-visual-state-cursor   `(,bespoke-faded box))
+  (setq evil-insert-state-cursor   `(,bespoke-red (bar . 2)))
+  (setq evil-replace-state-cursor  `(,bespoke-critical hbar))
+  (setq evil-motion-state-cursor   `(,bespoke-green box))
+  (setq evil-operator-state-cursor `(,bespoke-brown hollow)))
 
-;;; After Load Theme Hook
-(defvar bespoke-after-load-theme-hook nil
-  "Hook run after a color theme is loaded using `load-theme'.")
-(defadvice load-theme (after run-after-load-theme-hook activate)
-  "Run `after-load-theme-hook'."
-  (run-hooks 'bespoke-after-load-theme-hook))
+(when set-bespoke-evil-cursors
+  (add-hook 'bespoke-after-load-theme-hook #'bespoke-evil-load-cursors))
 
-;;; Faces
-(require 'bespoke-faces)
-;;; Modeline
-(require 'bespoke-modeline)
+;;; Provide file
+(provide 'bespoke-evil-cursors)
 
-;;; Evil Cursors
-(require 'bespoke-evil-cursors)
-
-;;; Provide path to file
-
-;;;###autoload
-(when (and (boundp 'custom-theme-load-path) load-file-name)
-  (add-to-list 'custom-theme-load-path
-               (file-name-as-directory (file-name-directory load-file-name))))
-
-;;; Provide Theme
-(provide 'bespoke-themes)
-
-;;; End bespoke-themes.el
+;;; End bespoke-evil-cursors.el
