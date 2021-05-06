@@ -54,7 +54,7 @@
 ;;; Disable Theme Function
 ;;;###autoload
 (defun bespoke--disable-all-themes ()
-  "disable all active themes."
+  "Disable all active themes."
   (dolist (i custom-enabled-themes)
     (disable-theme i)))
 
@@ -62,6 +62,7 @@
 ;;; Toggle Light or Dark Theme
 ;;;###autoload
 (defun bespoke-toggle-light-dark-theme ()
+  "Toggle between dark and light bespoke themes"
   (interactive)
   (if (eq active-theme 'bespoke-light)
       (progn
