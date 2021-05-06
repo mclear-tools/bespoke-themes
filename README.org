@@ -14,7 +14,7 @@ made in various commits. Pull requests are welcome!
 Here's one possible way of setting up the theme. 
 #+begin_src emacs-lisp
 (use-package bespoke-themes
-  :straight (:host github :repo "mclear-tools/bespoke-themes")
+  :straight (:host github :repo "mclear-tools/bespoke-themes" :branch "master")
   :init
   ;; Add to load path
   (add-to-list 'custom-theme-load-path (concat custom-theme-directory "bespoke-themes/"))
