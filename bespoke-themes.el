@@ -51,6 +51,33 @@
 ;;; Evil Cursors
 (require 'bespoke-evil-cursors)
 
+;;; Disable Theme Function
+;;;###autoload
+(defun bespoke--disable-all-themes ()
+  "disable all active themes."
+  (dolist (i custom-enabled-themes)
+    (disable-theme i)))
+
+
+;;; Toggle Light or Dark Theme
+;;;###autoload
+(defun bespoke-toggle-light-dark-theme ()
+  (interactive)
+  (if (eq active-theme 'bespoke-light)
+      (progn
+        (bespoke--disable-all-themes)
+        (bespoke-theme-set-dark)
+        (load-theme 'bespoke-dark)
+        (setq active-theme 'bespoke-dark)
+        (force-mode-line-update))
+    (progn
+      (bespoke--disable-all-themes)
+      (bespoke-theme-set-light)
+      (load-theme 'bespoke-light)
+      (setq active-theme 'bespoke-light)
+      (force-mode-line-update))))
+
+
 ;;; Provide path to file
 
 ;;;###autoload
