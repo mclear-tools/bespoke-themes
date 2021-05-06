@@ -4,9 +4,14 @@ Rougier's]] work on [[https://github.com/rougier/elegant-emacs][elegant-emacs]] 
 colors borrowed from [[https://github.com/bbatsov/solarized-emacs][solarized]] and [[https://github.com/arcticicestudio/nord-emacs][nord]]. The mode line may be set as a header line
 (as in nano-emacs) or as the normal footer line. Also included is a useful footer
 line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. Faces are basic but fairly
-comprehensive.
+comprehensive, including evil cursor colors.
+
+*NOTE*: It is early days for this theme, so there may be fairly significant changes
+made in various commits. Pull requests are welcome!
+
 
 *** Settings
+Here's one possible way of setting up the theme. 
 #+begin_src emacs-lisp
 (use-package bespoke-themes
   :straight (:host github :repo "mclear-tools/bespoke-themes")
@@ -18,18 +23,27 @@ comprehensive.
       (setq set-bespoke-header-line nil)
       ;; Set header line in GUI
       (setq set-bespoke-header-line t))
+      ;; Set evil colors
+      (setq set-bespoke-evil-cursors t)
   :config
-  ;; Load dark theme
-  (load-theme 'bespoke-dark t)
   ;; Use mode line visual bell
-  (bespoke-themes-visual-bell-config))
+  (bespoke-themes-visual-bell-config)
+  ;; Load dark theme
+  (load-theme 'bespoke-dark t))
 #+end_src
 
 *** Screenshots:
 
 #+BEGIN_HTML
 <div>
-<img src="./screenshots/light-example.png"/>
-<img src="./screenshots/dark-example.png" />
+<img src="./screenshots/light-splash.png"/>
+<img src="./screenshots/light-colors.png"/>
+<img src="./screenshots/light-git.png"/>
+<img src="./screenshots/light-agenda.png"/>
+
+<img src="./screenshots/dark-splash.png" />
+<img src="./screenshots/dark-colors.png" />
+<img src="./screenshots/dark-git.png" />
+<img src="./screenshots/dark-agenda.png" />
 </div>
 #+END_HTML
