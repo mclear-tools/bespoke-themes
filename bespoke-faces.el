@@ -104,6 +104,7 @@
 
 ;;; Define Faces
 ;; The themes are fully defined by these faces
+;; TODO: fix face descriptions
 
 (defface bespoke-default nil
   "Default face is used for regular information."
@@ -130,6 +131,10 @@ weight differs by one level (e.g., light/regular or
 regular/bold). IT is generally used for titles, keywords,
 directory, etc."
   :group 'bespoke)
+
+(set-face-attribute 'bespoke-strong nil
+                    :foreground (face-foreground 'bespoke-default)
+                    :weight 'bold)
 
 (defface bespoke-salient nil
   "Salient face is used for information that are important.
