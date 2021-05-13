@@ -117,14 +117,20 @@
    `(link                                          ((,class :foreground ,bespoke-salient)))
    `(region                                        ((,class :background ,bespoke-highlight)))
    `(fringe                                        ((,class :foreground ,bespoke-faded :weight light)))
-   `(isearch                                       ((,class :foreground ,bespoke-strong)))
-   `(isearch-fail                                  ((,class :foreground ,bespoke-faded)))
    `(highlight                                     ((,class :background ,bespoke-highlight)))
    `(lazy-highlight                                ((,class :foreground ,bespoke-brown)))
    `(trailing-whitespace                           ((,class :foreground ,bespoke-faded)))
    `(show-paren-match                              ((,class :foreground ,bespoke-light :background ,bespoke-brown)))
    `(show-paren-mismatch                            ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
    `(tooltip nil                                    ((,class :height 0.85)))
+
+;;;; Search
+   `(evil-ex-search                                ((,class :background ,bespoke-popout)))
+   `(isearch                                       ((,class :background ,bespoke-popout :foreground ,bespoke-strong)))
+   `(isearch-fail                                  ((,class :background ,bespoke-critical)))
+   `(isearch-group-1                               ((,class :background ,bespoke-blue)))
+   `(isearch-group-2                               ((,class :background ,bespoke-red)))
+   `(query-replace                                 ((,class :background ,bespoke-yellow)))
 
 ;;;; Font Lock
    `(font-lock-comment-face                        ((,class :foreground ,bespoke-faded)))

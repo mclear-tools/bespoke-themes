@@ -121,7 +121,7 @@
    `(success                                       ((,class :foreground ,bespoke-salient)))
    `(warning                                       ((,class :foreground ,bespoke-popout)))
    `(error                                         ((,class :foreground ,bespoke-critical)))
-   `(match                                         ((,class :foreground ,bespoke-popout)))
+   `(match                                         ((,class :background ,bespoke-popout)))
 
 ;;;; Basic Faces
    `(buffer-menu-buffer                            ((,class :foreground ,bespoke-strong)))
@@ -129,14 +129,20 @@
    `(link                                          ((,class :foreground ,bespoke-salient)))
    `(region                                        ((,class :background ,bespoke-highlight)))
    `(fringe                                        ((,class :foreground ,bespoke-faded :weight light)))
-   `(isearch                                       ((,class :foreground ,bespoke-strong)))
-   `(isearch-fail                                  ((,class :foreground ,bespoke-faded)))
    `(highlight                                     ((,class :background ,bespoke-highlight)))
    `(lazy-highlight                                ((,class :foreground ,bespoke-green)))
    `(trailing-whitespace                           ((,class :foreground ,bespoke-faded)))
    `(show-paren-match                              ((,class :foreground ,bespoke-light :background ,bespoke-green)))
    `(show-paren-mismatch                           ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
    `(tooltip nil                                   ((,class :height 0.85)))
+
+;;;; Search
+   `(evil-ex-search                                ((,class :background ,bespoke-popout)))
+   `(isearch                                       ((,class :background ,bespoke-popout :foreground ,bespoke-strong)))
+   `(isearch-fail                                  ((,class :background ,bespoke-critical)))
+   `(isearch-group-1                               ((,class :background ,bespoke-blue)))
+   `(isearch-group-2                               ((,class :background ,bespoke-red)))
+   `(query-replace                                 ((,class :background ,bespoke-yellow)))
 
 ;;;; Font Lock
    `(font-lock-comment-face                        ((,class :foreground ,bespoke-faded)))
@@ -475,8 +481,8 @@
 
 ;;;; Posframe
 
-   `(which-key-posframe                           ((,class (:background ,bespoke-subtle))))
-   `(which-key-posframe-border                    ((,class (:background ,bespoke-subtle))))
+   `(which-key-posframe                           ((,class :background ,bespoke-subtle)))
+   `(which-key-posframe-border                    ((,class :background ,bespoke-subtle)))
 
    ))
 
