@@ -269,7 +269,7 @@ want to use in the modeline *in lieu of* the original.")
     (concat
      ;; Divider
      (when (vc-registered (buffer-file-name))
-       (propertize "• " 'face `(:inherit fringe)))
+       (propertize " • " 'face `(:inherit fringe)))
      (when (bound-and-true-p projectile-mode)
        (let ((project-name (projectile-project-name)))
          (unless (string= "-" project-name)
@@ -349,7 +349,7 @@ want to use in the modeline *in lieu of* the original.")
     (bespoke-modeline-compose (bespoke-modeline-status)
                               buffer-name
                               (concat "(" mode-name
-                                      (when branch (concat " " branch))
+                                      (when branch branch)
                                       ")")
                               (concat
                                ;; Narrowed buffer
