@@ -121,7 +121,7 @@
    `(success                                       ((,class :foreground ,bespoke-salient)))
    `(warning                                       ((,class :foreground ,bespoke-popout)))
    `(error                                         ((,class :foreground ,bespoke-critical)))
-   `(match                                         ((,class :background ,bespoke-popout)))
+   `(match                                         ((,class :forgeround ,bespoke-popout :weight bold)))
 
 ;;;; Basic Faces
    `(buffer-menu-buffer                            ((,class :foreground ,bespoke-strong)))

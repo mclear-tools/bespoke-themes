@@ -126,7 +126,7 @@
 
 ;;;; Search
    `(evil-ex-search                                ((,class :background ,bespoke-popout)))
-   `(isearch                                       ((,class :background ,bespoke-popout :foreground ,bespoke-strong)))
+   `(isearch                                       ((,class :foreground ,bespoke-popout :weight bold)))
    `(isearch-fail                                  ((,class :background ,bespoke-critical)))
    `(isearch-group-1                               ((,class :background ,bespoke-blue)))
    `(isearch-group-2                               ((,class :background ,bespoke-red)))
