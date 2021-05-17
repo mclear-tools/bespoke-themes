@@ -269,11 +269,11 @@ want to use in the modeline *in lieu of* the original.")
     (concat
      ;; Divider
      (when (vc-registered (buffer-file-name))
-       (propertize " • " 'face `(:inherit fringe)))
+       (propertize " •" 'face `(:inherit fringe)))
      (when (bound-and-true-p projectile-mode)
        (let ((project-name (projectile-project-name)))
          (unless (string= "-" project-name)
-           (format "%s" project-name))))
+           (format " %s" project-name))))
      ;; Show branch
      (if vc-mode
          (let ((backend (vc-backend buffer-file-name)))
@@ -342,14 +342,15 @@ want to use in the modeline *in lieu of* the original.")
 
 ;;;; Default display
 (defun bespoke-modeline-default-mode ()
-  (let ((buffer-name (format-mode-line "%b"))
+  (let ((buffer-name (format-mode-line (if buffer-file-name (file-name-nondirectory (buffer-file-name)) "%b")))
         (mode-name   (format-mode-line 'mode-name))
         (branch      (vc-project-branch))
         (position    (format-mode-line "%l:%c ")))
     (bespoke-modeline-compose (bespoke-modeline-status)
                               buffer-name
                               (concat "(" mode-name
-                                      (when branch branch)
+                                      (when branch
+                                        branch)
                                       ")")
                               (concat
                                ;; Narrowed buffer
