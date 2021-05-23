@@ -659,19 +659,22 @@ want to use in the modeline *in lieu of* the original.")
   "Install a header line whose content depends on the major mode"
   (interactive)
   (setq-default header-line-format bespoke--mode-line)
-  (setq-default mode-line-format (list "%-")))
+  (setq-default mode-line-format (list "%-"))
+  (force-mode-line-update))
 
 (defun bespoke/mode-line ()
   "Install mode line whose content depends on the major mode"
   (interactive)
   (setq-default header-line-format nil)
-  (setq-default mode-line-format bespoke--mode-line))
+  (setq-default mode-line-format bespoke--mode-line)
+  (force-mode-line-update))
 
 (defun bespoke/terminal-mode-line ()
   "Install a terminal-friendly mode-line"
   (interactive)
   (setq-default header-line-format nil)
-  (setq-default mode-line-format bespoke--terminal-mode-line))
+  (setq-default mode-line-format bespoke--terminal-mode-line)
+  (force-mode-line-update))
 
 ;;;; Update Window Display
 ;; ---------------------------------------------------------------------
