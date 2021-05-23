@@ -382,6 +382,9 @@
    `(selectrum-quick-keys-match                 ((,class :inherit isearch)))
    `(selectrum-quick-keys-highlight             ((,class :foreground ,bespoke-red)))
 
+;;;; Vertico
+   `(vertico-current                            ((,class :slant italic :weight bold :background ,bespoke-highlight)))
+
 ;;;; Orderless
 
    `(orderless-match-face-0                     ((,class :weight bold :foreground ,bespoke-blue)))
