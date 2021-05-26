@@ -4,7 +4,11 @@ Rougier's]] work on [[https://github.com/rougier/elegant-emacs][elegant-emacs]] 
 colors borrowed from [[https://material.io/design/color/the-color-system.html#color-theme-creation][material colors]], [[https://github.com/bbatsov/solarized-emacs][solarized]] and [[https://github.com/arcticicestudio/nord-emacs][nord]].
 
 One of the aims of the theme is to bring much of what is good about the nano-emacs
-distro into standard theme formatting, so that it can be set just like any other theme.
+distro into standard theme formatting, so that it can be set just like any other
+theme. The theme is notably less conservative/minimal than nano-emacs (or elegant
+emacs), in the sense that it has a broader color palette and set fewer configuration
+conditions on fonts and ui elements, but it otherwise shares many of its colors and
+themeing ideas.
 
 The mode line is custom, and may be set as a header line (as in nano-emacs) or as the
 normal footer line. Also included is a useful footer line visual alert "bell"
@@ -17,7 +21,10 @@ made in various commits. Pull requests are welcome!
 
 
 *** Settings
-Here's one possible way of setting up the theme. 
+Here's one possible way of setting up the theme. Note that since this theme is
+currently not on Melpa the [[https://github.com/jwiegley/use-package][use-package]] setup below utilizes [[https://github.com/raxod502/straight.el][straight]] to install
+packages, but you can of course install it from this repo however you wish.
+
 #+begin_src emacs-lisp
 (use-package bespoke-themes
   :straight (:host github :repo "mclear-tools/bespoke-themes" :branch "master")
@@ -37,6 +44,24 @@ Here's one possible way of setting up the theme.
   ;; Load dark theme
   (load-theme 'bespoke-dark t))
 #+end_src
+
+To get windows to divide in the manner seen in the screenshots use the following setting:
+
+#+begin_src emacs-lisp
+;; Vertical window divider
+(use-package frame
+  :straight (:type built-in)
+  :custom
+  (window-divider-default-right-width 12)
+  (window-divider-default-bottom-width 1)
+  (window-divider-default-places 'right-only)
+  (window-divider-mode t))
+;; Make sure new frames use window-divider
+(add-hook 'before-make-frame-hook 'window-divider-mode)
+
+#+end_src
+
+To get a splash screen see Rougier's [[https://github.com/rougier/emacs-splash][splash.el]]. You can see my customization of it [[https://github.com/mclear-tools/dotemacs/blob/master/setup-config/setup-splash.el][here]].
 
 *** Screenshots:
 
