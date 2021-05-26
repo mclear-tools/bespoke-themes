@@ -104,31 +104,32 @@
 
 ;;; Define Faces
 ;; The themes are fully defined by these faces
-;; TODO: fix face descriptions
 
 (defface bespoke-default nil
-  "Default face is used for regular information."
+  "Default face is for regular use."
   :group 'bespoke)
 
 (defface bespoke-critical nil
-  "Critical face is for information that requires immediate action.
-It should be of high constrast when compared to other faces. This
-can be realized (for example) by setting an intense background
-color, typically a shade of red. It must be used scarcely."
+  "Critical face is for information that requires action---e.g.,
+syntax or spelling errors. It should be of high constrast when
+compared to other faces. This can be realized (for example) by
+setting an intense background color, typically a shade of red or
+orange. It should be used rarely."
   :group 'bespoke)
 
 (defface bespoke-popout nil
   "Popout face is used for information that needs attention.
 To achieve such effect, the hue of the face has to be
 sufficiently different from other faces such that it attracts
-attention through the popout effect."
+attention through the popout effect (see
+https://metapraxis.com/blog/blog/the-pop-out-effect/)."
   :group 'bespoke)
 
 (defface bespoke-strong nil
   "Strong face is used for information of a structural nature.
-It has to be the same color as the default color and only the
+It is the same color as the default color. Only the
 weight differs by one level (e.g., light/regular or
-regular/bold). IT is generally used for titles, keywords,
+regular/bold). Usage might include titles, keywords,
 directory, etc."
   :group 'bespoke)
 
@@ -137,26 +138,29 @@ directory, etc."
                     :weight 'bold)
 
 (defface bespoke-salient nil
-  "Salient face is used for information that are important.
-To suggest the information is of the same nature but important,
-the face uses a different hue with approximately the same
-intensity as the default face. This is typically used for links."
+  "Salient face is used for important information, though not
+necessarily that which needs immediate action or attention. To
+suggest the information is important, the face uses a different
+hue with approximately the same intensity as the default face.
+This might be used, e.g., for links."
   :group 'bespoke)
 
 (defface bespoke-faded nil
-  "Faded face is for information that are less important.
-It is made by using the same hue as the default but with a lesser
+  "Faded face is for less (immediately) important information. It
+is made by using the same hue as the default but with a lesser
 intensity than the default. It can be used for comments,
-secondary information and also replace italic (which is generally
-abused anyway)."
+secondary information."
   :group 'bespoke)
 
 (defface bespoke-subtle nil
   "Subtle face is used to suggest a physical area on the screen.
-It is important to not disturb too strongly the reading of
-information and this can be made by setting a very light
-background color that is barely perceptible."
+It's main use is for differentiating regions without drawing a
+significant amount of attention. It is also closely related in
+shade to modeline color and to the highlight color."
   :group 'bespoke)
+
+;; The accent colors are used to fill out the color palatte. They are meant to be
+;; used for attention or contrast with the core colors.
 
 (defface bespoke-red nil
   "A reddish accent face"
@@ -193,15 +197,15 @@ background color that is barely perceptible."
   (setq bespoke-highlight    "#D8DEE9")
 
   (setq bespoke-faded        "#8a93a8")
-  (setq bespoke-salient      "#333fa6")
+  (setq bespoke-salient      "#303db4")
   (setq bespoke-popout       "#940b96")
   (setq bespoke-critical     "#f53137")
 
-  (setq bespoke-blue         "#90185a")
-  (setq bespoke-red          "#b71c1c")
+  (setq bespoke-blue         "#30608c")
   (setq bespoke-green        "#00796b")
+  (setq bespoke-red          "#b71c1c")
   (setq bespoke-brown        "#966e53")
-  (setq bespoke-yellow       "#e7b04b")
+  (setq bespoke-yellow       "#f7ba13")
 
   (setq bespoke-dark         "#292e39")
   (setq bespoke-strong       "#000000"))
