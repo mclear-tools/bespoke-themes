@@ -42,7 +42,7 @@
   (setq evil-emacs-state-cursor    `(,bespoke-salient box))
   (setq evil-normal-state-cursor   `(,bespoke-yellow box))
   (setq evil-visual-state-cursor   `(,bespoke-faded box))
-  (setq evil-insert-state-cursor   `(,bespoke-red (bar . 2)))
+  (setq evil-insert-state-cursor   `(,bespoke-critical (bar . 2)))
   (setq evil-replace-state-cursor  `(,bespoke-critical hbar))
   (setq evil-motion-state-cursor   `(,bespoke-green box))
   (setq evil-operator-state-cursor `(,bespoke-brown hollow)))
