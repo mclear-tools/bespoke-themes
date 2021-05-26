@@ -83,9 +83,9 @@
                                                 :style nil))))
 
    `(bespoke-header-mod-face ((,class :foreground ,bespoke-white
-                                      :background ,bespoke-blue
+                                      :background ,bespoke-critical
                                       :box (:line-width 1
-                                            :color ,bespoke-blue
+                                            :color ,bespoke-critical
                                             :style nil))))
 
    `(bespoke-header-ro-face ((,class :foreground ,bespoke-white
@@ -387,9 +387,9 @@
 
 ;;;; Orderless
 
-   `(orderless-match-face-0                     ((,class :weight bold :foreground ,bespoke-blue)))
-   `(orderless-match-face-1                     ((,class :weight bold :foreground ,bespoke-brown)))
-   `(orderless-match-face-2                     ((,class :weight bold :foreground ,bespoke-red)))
+   `(orderless-match-face-0                     ((,class :weight bold :foreground ,bespoke-salient)))
+   `(orderless-match-face-1                     ((,class :weight bold :foreground ,bespoke-yellow)))
+   `(orderless-match-face-2                     ((,class :weight bold :foreground ,bespoke-brown)))
    `(orderless-match-face-3                     ((,class :weight bold :foreground ,bespoke-green)))
 
 ;;;; Mu4e
@@ -457,7 +457,7 @@
    `(diredp-exec-priv                            ((,class :foreground ,bespoke-critical)))
    `(diredp-dir-priv                             ((,class :foreground ,bespoke-faded)))
    `(diredp-dir-name                             ((,class :foreground ,bespoke-brown)))
-   `(diredp-dir-heading                          ((,class :inherit    variable-pitch :foreground ,bespoke-yellow :background ,bespoke-subtle)))
+   `(diredp-dir-heading                          ((,class :inherit    variable-pitch :foreground ,bespoke-strong :background ,bespoke-subtle)))
    `(diredp-deletion-file-name                   ((,class :foreground ,bespoke-critical)))
    `(diredp-deletion                             ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
    `(diredp-date-time                            ((,class :foreground ,bespoke-faded)))
