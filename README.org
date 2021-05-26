@@ -71,10 +71,13 @@ To get a splash screen see Rougier's [[https://github.com/rougier/emacs-splash][
 <img src="./screenshots/light-colors.png"/>
 <img src="./screenshots/light-git.png"/>
 <img src="./screenshots/light-agenda.png"/>
+<img src="./screenshots/light-dired.png"/>
 
 <img src="./screenshots/dark-splash.png" />
 <img src="./screenshots/dark-colors.png" />
 <img src="./screenshots/dark-git.png" />
 <img src="./screenshots/dark-agenda.png" />
+<img src="./screenshots/dark-dired.png" />
+
 </div>
 #+END_HTML
