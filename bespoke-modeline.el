@@ -202,8 +202,8 @@ want to use in the modeline *in lieu of* the original.")
                                        " %b")
 
                                      ;; Parent directory
-                                     (when buffer-file-name
-                                       (propertize (concat " " (file-name-nondirectory (directory-file-name default-directory)) "/") 'face `(:inherit fringe)))
+                                     ;; (when buffer-file-name
+                                     ;;   (propertize (concat " " (file-name-nondirectory (directory-file-name default-directory)) "/") 'face `(:inherit fringe)))
 
                                      ;; Evil tags
                                      (propertize evil-mode-line-tag 'face `(:inherit fringe))
@@ -228,14 +228,13 @@ want to use in the modeline *in lieu of* the original.")
                                      ;; When buffer-file is tracked in vc add spacer between project & branch
                                      (when vc-mode
                                        (when (vc-registered (buffer-file-name))
-                                         (propertize "• " 'face `(:inherit fringe))))
-                                     ;; "⦁ • "
+                                         (propertize "" 'face `(:inherit fringe))))
                                      ;; Show branch name
                                      ;; NOTE: I can't seem to get line/col to display properly without putting them into the conditional
                                      (if vc-mode
                                          (list
                                           (propertize (vc-project-branch) 'face `(:inherit fringe))
-                                          "%l:%c  ")
+                                          " %l:%c  ")
                                        "%l:%c  ")))))))
 
 ;; (setq-default bespoke--terminal-mode-line
