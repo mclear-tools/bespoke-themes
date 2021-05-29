@@ -61,21 +61,38 @@
 
 ;;; Toggle Light or Dark Theme
 ;;;###autoload
+(defcustom bespoke--active-theme "bespoke-dark"
+  "Set initial loading of bespoke theme variant"
+  :group 'bespoke-themes
+  :type 'string)
+
+(defun bespoke-load-theme ()
+  "Load bespoke theme variant based on setting"
+  (if (eq bespoke--active-theme 'bespoke-dark)
+      (progn
+        (bespoke-theme-set-dark)
+        (load-theme 'bespoke-dark)
+        (setq bespoke--active-theme 'bespoke-dark))
+    (progn
+      (bespoke-theme-set-light)
+      (load-theme 'bespoke-light)
+      (setq bespoke--active-theme 'bespoke-light))))
+
 (defun bespoke-toggle-light-dark-theme ()
   "Toggle between dark and light bespoke themes"
   (interactive)
-  (if (eq active-theme 'bespoke-light)
+  (if (eq bespoke--active-theme 'bespoke-light)
       (progn
         (bespoke--disable-all-themes)
         (bespoke-theme-set-dark)
         (load-theme 'bespoke-dark)
-        (setq active-theme 'bespoke-dark)
+        (setq bespoke--active-theme 'bespoke-dark)
         (force-mode-line-update))
     (progn
       (bespoke--disable-all-themes)
       (bespoke-theme-set-light)
       (load-theme 'bespoke-light)
-      (setq active-theme 'bespoke-light)
+      (setq bespoke--active-theme 'bespoke-light)
       (force-mode-line-update))))
 
 
