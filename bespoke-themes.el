@@ -71,11 +71,11 @@
   (if (eq bespoke--active-theme 'bespoke-dark)
       (progn
         (bespoke-theme-set-dark)
-        (load-theme 'bespoke-dark)
+        (load-theme 'bespoke-dark t)
         (setq bespoke--active-theme 'bespoke-dark))
     (progn
       (bespoke-theme-set-light)
-      (load-theme 'bespoke-light)
+      (load-theme 'bespoke-light t)
       (setq bespoke--active-theme 'bespoke-light))))
 
 (defun bespoke-toggle-light-dark-theme ()
@@ -85,13 +85,13 @@
       (progn
         (bespoke--disable-all-themes)
         (bespoke-theme-set-dark)
-        (load-theme 'bespoke-dark)
+        (load-theme 'bespoke-dark t)
         (setq bespoke--active-theme 'bespoke-dark)
         (force-mode-line-update))
     (progn
       (bespoke--disable-all-themes)
       (bespoke-theme-set-light)
-      (load-theme 'bespoke-light)
+      (load-theme 'bespoke-light t)
       (setq bespoke--active-theme 'bespoke-light)
       (force-mode-line-update))))
 

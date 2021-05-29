@@ -12,13 +12,14 @@ themeing ideas.
 
 The mode line is custom, and may be set as a header line (as in nano-emacs) or as the
 normal footer line. There is a toggle function for toggling between light and dark
-theme variants. Also included is a useful footer line visual alert "bell" inspired by
-[[https://github.com/hlissner/doom-emacs][DOOM emacs]].
+theme variants: =(bespoke-toggle-light-dark-theme)=. Also included is a useful footer
+line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. To use call
+=(bespoke-themes-visual-bell-config)= in your setup of the theme.
 
 Faces are basic but fairly comprehensive, including evil cursor colors.
 
 *NOTE*: It is early days for this theme, so there may be fairly significant changes
-made in various commits. Pull requests are welcome!
+made in various commits. Suggestions and pull requests are welcome!
 
 
 *** Settings
@@ -47,7 +48,7 @@ packages, but you can of course install it from this repo however you wish.
   ;; set theme variant
   (bespoke--active-theme 'bespoke-light)
   :config
-  ;; load theme
+  ;; load theme based on setting of bespoke--active-theme
   (bespoke-load-theme)
   ;; Use mode line visual bell
   (bespoke-themes-visual-bell-config))
