@@ -11,8 +11,9 @@ conditions on fonts and ui elements, but it otherwise shares many of its colors 
 themeing ideas.
 
 The mode line is custom, and may be set as a header line (as in nano-emacs) or as the
-normal footer line. Also included is a useful footer line visual alert "bell"
-inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]].
+normal footer line. There is a toggle function for toggling between light and dark
+theme variants. Also included is a useful footer line visual alert "bell" inspired by
+[[https://github.com/hlissner/doom-emacs][DOOM emacs]].
 
 Faces are basic but fairly comprehensive, including evil cursor colors.
 
@@ -28,21 +29,28 @@ packages, but you can of course install it from this repo however you wish.
 #+begin_src emacs-lisp
 (use-package bespoke-themes
   :straight (:host github :repo "mclear-tools/bespoke-themes" :branch "master")
-  :init
+    :init
   ;; Add to load path
   (add-to-list 'custom-theme-load-path (concat custom-theme-directory "bespoke-themes/"))
-    (if (not (display-graphic-p))
-      ;; No header line in terminal
-      (setq set-bespoke-header-line nil)
+  (if (not (display-graphic-p))
+      (progn
+        ;; Set up evil cursor colors
+        (setq set-bespoke-evil-cursors nil)
+        ;; No header line in terminal
+        (setq set-bespoke-header-line nil))
+    (progn
       ;; Set header line in GUI
-      (setq set-bespoke-header-line t))
-      ;; Set evil colors
-      (setq set-bespoke-evil-cursors t)
+      (setq set-bespoke-header-line t)
+      ;; Set up evil cursor colors
+      (setq set-bespoke-evil-cursors t)))
+  :custom
+  ;; set theme variant
+  (bespoke--active-theme 'bespoke-light)
   :config
+  ;; load theme
+  (bespoke-load-theme)
   ;; Use mode line visual bell
-  (bespoke-themes-visual-bell-config)
-  ;; Load dark theme
-  (load-theme 'bespoke-dark t))
+  (bespoke-themes-visual-bell-config))
 #+end_src
 
 To get windows to divide in the manner seen in the screenshots use the following setting:
