@@ -203,7 +203,7 @@ shade to modeline color and to the highlight color."
 
 
 ;;; Define Theme
-(deftheme bespoke "A custom theme for yak-shaving, with light and dark variants")
+(deftheme bespoke "A custom theme for yak shaving, with light and dark variants")
 
 ;;; Set Colors
 

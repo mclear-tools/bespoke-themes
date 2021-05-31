@@ -24,7 +24,7 @@
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>
 ;; -------------------------------------------------------------------
 ;; Commentary:
-;; A custom mode line for the discerning yakshaver.
+;; A custom mode line for the discerning yak shaver.
 ;; This mode line started as a fork of nano-emacs modeline.
 ;; See https://github.com/rougier/nano-emacs
 ;; -------------------------------------------------------------------

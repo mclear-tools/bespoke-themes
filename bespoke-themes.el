@@ -24,7 +24,7 @@
 ;; program. If not, see <http://www.gnu.org/licenses/>
 ;; -------------------------------------------------------------------
 ;; Commentary: This theme offers a set of light/dark bespoke themes and custom mode
-;; line for the discerning yak-shaver. There is also an optional mode line
+;; line for the discerning yak shaver. There is also an optional mode line
 ;; configuration, which may be used either as a header line or a foot. Options and
 ;; useful function below. See README for further info
 ;; -------------------------------------------------------------------
