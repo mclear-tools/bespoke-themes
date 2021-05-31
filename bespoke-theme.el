@@ -110,7 +110,7 @@
 ;;;; Core faces
 (defface bespoke-default nil
   "Default face is for regular use."
-  :group 'bespoke-faces)
+  :group 'faces)
 
 (defface bespoke-critical nil
   "Critical face is for information that requires action---e.g.,
@@ -118,7 +118,7 @@ syntax or spelling errors. It should be of high constrast when
 compared to other faces. This can be realized (for example) by
 setting an intense background color, typically a shade of red or
 orange. It should be used rarely."
-  :group 'bespoke-faces)
+  :group 'faces)
 
 (defface bespoke-popout nil
   "Popout face is used for information that needs attention.
@@ -126,7 +126,7 @@ To achieve such effect, the hue of the face has to be
 sufficiently different from other faces such that it attracts
 attention through the popout effect (see
 https://metapraxis.com/blog/blog/the-pop-out-effect/)."
-  :group 'bespoke-faces)
+  :group 'faces)
 
 (defface bespoke-strong nil
   "Strong face is used for information of a structural nature.
@@ -134,7 +134,7 @@ It is the same color as the default color. Only the
 weight differs by one level (e.g., light/regular or
 regular/bold). Usage might include titles, keywords,
 directory, etc."
-  :group 'bespoke-faces)
+  :group 'faces)
 
 (set-face-attribute 'bespoke-strong nil
                     :foreground (face-foreground 'bespoke-default)
@@ -146,21 +146,21 @@ necessarily that which needs immediate action or attention. To
 suggest the information is important, the face uses a different
 hue with approximately the same intensity as the default face.
 This might be used, e.g., for links."
-  :group 'bespoke-faces)
+  :group 'faces)
 
 (defface bespoke-faded nil
   "Faded face is for less (immediately) important information. It
 is made by using the same hue as the default but with a lesser
 intensity than the default. It can be used for comments,
 secondary information."
-  :group 'bespoke-faces)
+  :group 'faces)
 
 (defface bespoke-subtle nil
   "Subtle face is used to suggest a physical area on the screen.
 It's main use is for differentiating regions without drawing a
 significant amount of attention. It is also closely related in
 shade to modeline color and to the highlight color."
-  :group 'bespoke-faces)
+  :group 'faces)
 
 ;;;; Accent faces
 ;; The accent colors are used to fill out the color palatte. They are meant to be
@@ -168,39 +168,37 @@ shade to modeline color and to the highlight color."
 
 (defface bespoke-red nil
   "A reddish accent face"
-  :group 'bespoke-faces)
+  :group 'faces)
 
 (defface bespoke-green nil
   "A greenish accent face"
-  :group 'bespoke-faces)
+  :group 'faces)
 
 (defface bespoke-blue nil
   "A bluish accent face"
-  :group 'bespoke-faces)
+  :group 'faces)
 
 (defface bespoke-yellow nil
   "A yellowish accent face"
-  :group 'bespoke-faces)
+  :group 'faces)
 
 (defface bespoke-brown nil
   "A brownish accent face"
-  :group 'bespoke-faces)
+  :group 'faces)
 
 ;;;; Modeline faces
 
 (defface bespoke-header-default-face nil
   "Default face for ther header line."
-  :group 'bespoke-faces)
+  :group 'faces)
 
 (defface bespoke-header-mod-face nil
   "Header line face for modified buffers."
-  :group 'bespoke-faces)
+  :group 'faces)
 
 (defface bespoke-header-ro-face nil
   "Header line face for read-only buffers."
-  :group 'bespoke-faces)
-
-
+  :group 'faces)
 
 ;;; Define Theme
 (deftheme bespoke "A custom theme for yak shaving, with light and dark variants")
