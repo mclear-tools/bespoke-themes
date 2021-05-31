@@ -44,7 +44,8 @@
   :type 'symbol)
 
 (defcustom set-bespoke-mode-line 'header
-  "If header then use bespoke header line; if footer use bespoke mode line; if nil then do nothing to mode line."
+  "If 'header then use bespoke header line; if 'footer use
+bespoke mode line; if nil then set only colors for mode line."
   :group 'bespoke-themes
   :type 'symbol)
 
@@ -54,7 +55,7 @@
   :type 'boolean)
 
 (defcustom set-bespoke-visual-bell t
-  "If t then use bespoke evil cursor colors"
+  "If t then use bespoke-visual-bell"
   :group 'bespoke-themes
   :type 'boolean)
 
