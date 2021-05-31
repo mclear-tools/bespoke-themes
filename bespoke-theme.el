@@ -231,7 +231,7 @@ shade to modeline color and to the highlight color."
   (setq bespoke-green      (--l/d "#00796b" "#8eb89d"))
   (setq bespoke-red        (--l/d "#b71c1c" "#bf616a"))
   (setq bespoke-brown      (--l/d "#966e53" "#d08770"))
-  (setq bespoke-yellow     (--l/d "#c59207" "#e9b85d")))
+  (setq bespoke-yellow     (--l/d "#e0a500" "#e9b85d")))
 
 ;;; Customize Faces
 
