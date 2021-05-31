@@ -13,9 +13,10 @@ themeing ideas.
 *OPTIONS*: There is an optional custom mode line, and may be set as a header line (as
 in nano-emacs) or as the normal footer line, or the theme can make marely cosmetic
 changes (see the options for the =(set-bespoke-mode-line)= variable. You can set
-italics for keywords or for comments (or both). There is a toggle function for
+italics for keywords or for comments (or both). You can set variable-pitch for
+headlines using =(set-bespoke-variable-pitch)=. There is a toggle function for
 toggling between light and dark theme variants: =(bespoke/toggle-theme)=. Also included
-is a useful footer line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. To use set =(setq
+is a useful footer line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. To use include =(setq
 set-bespoke-visual-bell t)= in your setup of the theme.
 
 Faces are basic but fairly comprehensive, including (optional) evil cursor colors.
@@ -34,15 +35,17 @@ packages, but you can of course install it from this repo however you wish.
   :config
   ;; Set header line
   (setq set-bespoke-mode-line 'header)
-  ;; Set up evil cursor colors
+  ;; Set evil cursor colors
   (setq set-bespoke-evil-cursors t)
   ;; Use mode line visual bell
   (setq set-bespoke-visual-bell t)
-  ;; Set initial theme variant
-  (setq bespoke-set-theme 'dark)
-    ;; Set use of italics
+  ;; Set use of italics
   (setq set-bespoke-italic-comments t
         set-bespoke-italic-keywords t)
+  ;; Set variable pitch
+  (setq set-bespoke-variable-pitch t)
+    ;; Set initial theme variant
+  (setq set-bespoke-theme 'dark)
   ;; Load theme
   (load-theme 'bespoke t))
 #+end_src

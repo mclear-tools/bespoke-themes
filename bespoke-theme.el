@@ -209,11 +209,12 @@ shade to modeline color and to the highlight color."
 
 (defun bespoke-theme--light-dark (light dark)
   "Determine theme using the LIGHT or the DARK color variants of bespoke-theme."
-  (if (eq bespoke-set-theme 'light)
+  (if (eq set-bespoke-theme 'light)
       light
     dark))
 (defalias '--l/d #'bespoke-theme--light-dark)
 
+;; Set colors according to variant so they can be used outside the theme declaration
 (defun bespoke/set-theme-variant ()
   (interactive)
   (setq bespoke-foreground (--l/d "#292e39" "#eceff4"))
@@ -236,7 +237,10 @@ shade to modeline color and to the highlight color."
 
 ;;; Customize Faces
 
+;; Call color settings
 (bespoke/set-theme-variant)
+
+;; Declare class and set faces
 (let ((class '((class color) (min-colors 89))))
   (custom-theme-set-faces
    `bespoke
@@ -245,11 +249,13 @@ shade to modeline color and to the highlight color."
 
 ;;;; Mode line/Header line
 
-   `(header-line ((,class :foreground ,bespoke-foreground
-                          :background ,bespoke-modeline
-                          :box (:line-width 5 :color ,bespoke-modeline :style nil)
-                          :overline nil
-                          :underline nil)))
+   ;; Mode line settings based on header or footer line
+   (when (eq set-bespoke-mode-line 'header)
+     `(header-line ((,class :foreground ,bespoke-foreground
+                            :background ,bespoke-modeline
+                            :box (:line-width 5 :color ,bespoke-modeline :style nil)
+                            :overline nil
+                            :underline nil))))
 
    (when (eq set-bespoke-mode-line 'header)
      `(mode-line  ((,class :height 0.1
@@ -382,8 +388,8 @@ shade to modeline color and to the highlight color."
 
 ;;;; Outline
    `(outline-minor-0      ((,class :background ,bespoke-subtle)))
-   `(outline-1            ((,class :inherit variable-pitch :weight bold :foreground ,bespoke-green)))
-   `(outline-2            ((,class :inherit variable-pitch :weight bold :foreground ,bespoke-blue)))
+   `(outline-1            ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default) :weight bold :foreground ,bespoke-green)))
+   `(outline-2            ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default) :weight bold :foreground ,bespoke-blue)))
    `(outline-3            ((,class :inherit outline-1)))
    `(outline-4            ((,class :inherit outline-2)))
    `(outline-5            ((,class :inherit outline-1)))
@@ -449,8 +455,8 @@ shade to modeline color and to the highlight color."
    `(org-agenda-column-dateline                   ((,class :foreground ,bespoke-faded)))
    `(org-agenda-current-time                      ((,class :foreground ,bespoke-faded)))
    `(org-agenda-date                              ((,class :foreground ,bespoke-salient)))
-   `(org-agenda-date-today                        ((,class :inherit    variable-pitch :height 1.25 :foreground ,bespoke-blue)))
-   `(org-super-agenda-header                      ((,class :inherit    variable-pitch :foreground ,bespoke-blue)))
+   `(org-agenda-date-today                        ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default) :height 1.25 :foreground ,bespoke-blue)))
+   `(org-super-agenda-header                      ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default) :foreground ,bespoke-blue)))
    `(org-agenda-date-weekend                      ((,class :foreground ,bespoke-faded)))
    `(org-agenda-diary                             ((,class :foreground ,bespoke-faded)))
    `(org-agenda-dimmed-todo-face                  ((,class :foreground ,bespoke-faded)))
@@ -479,7 +485,7 @@ shade to modeline color and to the highlight color."
    `(org-default                                ((,class :foreground ,bespoke-faded)))
    `(org-document-info                          ((,class :foreground ,bespoke-faded :weight light)))
    `(org-document-info-keyword                  ((,class :foreground ,bespoke-faded :weight light)))
-   `(org-document-title                         ((,class :inherit variable-pitch :height 1.25 :foreground ,bespoke-salient)))
+   `(org-document-title                         ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default) :height 1.25 :foreground ,bespoke-salient)))
    `(org-done                                   ((,class :foreground ,bespoke-faded :strike-through t)))
    `(org-drawer                                 ((,class :foreground ,bespoke-faded :weight light)))
    `(org-ellipsis                               ((,class :foreground ,bespoke-faded)))
@@ -531,7 +537,7 @@ shade to modeline color and to the highlight color."
    `(markdown-footnote-text-face                ((,class :inherit    default)))
    `(markdown-gfm-checkbox-face                 ((,class :inherit    default)))
    `(markdown-header-delimiter-face             ((,class :foreground ,bespoke-faded)))
-   `(markdown-header-face                       ((,class :inherit variable-pitch)))
+   `(markdown-header-face                       ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default))))
    `(markdown-header-face-1                     ((,class :inherit outline-1)))
    `(markdown-header-face-2                     ((,class :inherit outline-2)))
    `(markdown-header-face-3                     ((,class :inherit outline-1)))
@@ -640,7 +646,7 @@ shade to modeline color and to the highlight color."
 
 ;;;; Help(ful)
 
-   `(helpful-heading                            ((,class :inherit variable-pitch :foreground ,bespoke-blue :height 1.25)))
+   `(helpful-heading                            ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default) :foreground ,bespoke-blue :height 1.25)))
 
 ;;;; Dired (plus)
    `(diredp-write-priv                           ((,class :foreground ,bespoke-critical)))
@@ -664,7 +670,7 @@ shade to modeline color and to the highlight color."
    `(diredp-exec-priv                            ((,class :foreground ,bespoke-critical)))
    `(diredp-dir-priv                             ((,class :foreground ,bespoke-faded)))
    `(diredp-dir-name                             ((,class :foreground ,bespoke-green)))
-   `(diredp-dir-heading                          ((,class :inherit    variable-pitch :foreground ,bespoke-blue :background ,bespoke-subtle)))
+   `(diredp-dir-heading                          ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default) :foreground ,bespoke-blue :background ,bespoke-subtle)))
    `(diredp-deletion-file-name                   ((,class :foreground ,bespoke-critical)))
    `(diredp-deletion                             ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
    `(diredp-date-time                            ((,class :foreground ,bespoke-faded)))
@@ -694,7 +700,7 @@ shade to modeline color and to the highlight color."
    `(diredfl-exec-priv                            ((,class :foreground ,bespoke-critical)))
    `(diredfl-dir-priv                             ((,class :foreground ,bespoke-faded)))
    `(diredfl-dir-name                             ((,class :foreground ,bespoke-green)))
-   `(diredfl-dir-heading                          ((,class :inherit    variable-pitch :foreground ,bespoke-blue :background ,bespoke-subtle)))
+   `(diredfl-dir-heading                          ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default) :foreground ,bespoke-blue :background ,bespoke-subtle)))
    `(diredfl-deletion-file-name                   ((,class :foreground ,bespoke-critical)))
    `(diredfl-deletion                             ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
    `(diredfl-date-time                            ((,class :foreground ,bespoke-faded)))
@@ -714,9 +720,8 @@ shade to modeline color and to the highlight color."
    `(which-key-posframe                           ((,class :background ,bespoke-subtle)))
    `(which-key-posframe-border                    ((,class :background ,bespoke-subtle)))
 
+;;;; End Custom faces
    ))
-
-
 
 ;;; Define evil cursor colors
 (defun bespoke-evil-load-cursors ()

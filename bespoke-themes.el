@@ -38,7 +38,7 @@
 
 ;;; Theme Options
 
-(defcustom bespoke-set-theme 'light
+(defcustom set-bespoke-theme 'light
   "Choose which theme variant, light or dark, to use"
   :group 'bespoke-themes
   :type 'symbol)
@@ -68,6 +68,11 @@
   :group 'bespoke-themes
   :type 'boolean)
 
+(defcustom set-bespoke-variable-pitch t
+  "If t then use variable-pitch for headings"
+  :group 'bespoke-themes
+  :type 'boolean)
+
 
 ;;; After Load Theme Hook
 (defvar bespoke-after-load-theme-hook nil
@@ -88,14 +93,14 @@
 (defun bespoke/toggle-theme ()
   "Toggle between dark and light variants"
   (interactive)
-  (if (eq bespoke-set-theme 'light)
+  (if (eq set-bespoke-theme 'light)
       (progn
         (bespoke--disable-all-themes)
-        (setq bespoke-set-theme 'dark)
+        (setq set-bespoke-theme 'dark)
         (load-theme 'bespoke t))
     (progn
       (bespoke--disable-all-themes)
-      (setq bespoke-set-theme 'light)
+      (setq set-bespoke-theme 'light)
       (load-theme 'bespoke t))))
 
 
