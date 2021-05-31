@@ -10,13 +10,14 @@ emacs), in the sense that it has a broader color palette and set fewer configura
 conditions on fonts and ui elements, but it otherwise shares many of its colors and
 themeing ideas.
 
-The mode line is custom, and may be set as a header line (as in nano-emacs) or as the
-normal footer line. There is a toggle function for toggling between light and dark
-theme variants: =(bespoke-toggle-light-dark-theme)=. Also included is a useful footer
-line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. To use call
-=(bespoke-themes-visual-bell-config)= in your setup of the theme.
+There is an optional custom mode line, and may be set as a header line (as in
+nano-emacs) or as the normal footer line, or the theme can make marely cosmetic
+changes (see the options for the =(set-bespoke-mode-line)= variable. There is a toggle
+function for toggling between light and dark theme variants: =(bespoke/toggle-theme)=.
+Also included is a useful footer line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. To
+use set =(setq set-bespoke-visual-bell t)= in your setup of the theme.
 
-Faces are basic but fairly comprehensive, including evil cursor colors.
+Faces are basic but fairly comprehensive, including (optional) evil cursor colors.
 
 *NOTE*: It is early days for this theme, so there may be fairly significant changes
 made in various commits. Suggestions and pull requests are welcome!
@@ -29,29 +30,19 @@ packages, but you can of course install it from this repo however you wish.
 
 #+begin_src emacs-lisp
 (use-package bespoke-themes
+  :straight (:type built-in)
   :straight (:host github :repo "mclear-tools/bespoke-themes" :branch "master")
-  :init
-  ;; Add to load path
-  (add-to-list 'custom-theme-load-path (concat custom-theme-directory "bespoke-themes/"))
-  (if (not (display-graphic-p))
-      (progn
-        ;; Set up evil cursor colors
-        (setq set-bespoke-evil-cursors nil)
-        ;; No header line in terminal
-        (setq set-bespoke-header-line nil))
-    (progn
-      ;; Set header line in GUI
-      (setq set-bespoke-header-line t)
-      ;; Set up evil cursor colors
-      (setq set-bespoke-evil-cursors t)))
-  :custom
-  ;; set theme variant
-  (bespoke--active-theme 'bespoke-light)
   :config
-  ;; load theme based on setting of bespoke--active-theme
-  (bespoke-load-theme)
+  ;; Set header line
+  (setq set-bespoke-mode-line 'header)
+  ;; Set up evil cursor colors
+  (setq set-bespoke-evil-cursors t)
   ;; Use mode line visual bell
-  (bespoke-themes-visual-bell-config))
+  (setq set-bespoke-visual-bell t)
+  ;; Set initial theme variant
+  (setq bespoke-set-theme 'dark)
+  ;; Load theme
+  (load-theme 'bespoke t))
 #+end_src
 
 To get windows to divide in the manner seen in the screenshots use the following setting:

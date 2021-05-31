@@ -76,6 +76,7 @@
 ;;;###autoload
 (defun bespoke/toggle-theme ()
   "Toggle between dark and light variants"
+  (interactive)
   (if (eq bespoke-set-theme 'light)
       (progn
         (bespoke--disable-all-themes)
