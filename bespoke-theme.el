@@ -340,7 +340,8 @@ shade to modeline color and to the highlight color."
    `(query-replace                                 ((,class :background ,bespoke-yellow)))
 
 ;;;; Font Lock
-   `(font-lock-comment-face                        ((,class :foreground ,bespoke-faded)))
+   `(font-lock-comment-face                        ((,class :foreground ,bespoke-faded :slant ,(if set-bespoke-italic-comments 'italic 'normal))))
+   `(font-lock-comment-delimiter-face              ((,class :foreground ,bespoke-faded :weight bold :slant ,(if set-bespoke-italic-comments 'italic 'normal))))
    `(font-lock-doc-face                            ((,class :foreground ,bespoke-faded)))
    `(font-lock-string-face                         ((,class :foreground ,bespoke-strong)))
    `(font-lock-constant-face                       ((,class :foreground ,bespoke-green)))
@@ -348,7 +349,7 @@ shade to modeline color and to the highlight color."
    `(font-lock-function-name-face                  ((,class :foreground ,bespoke-brown)))
    `(font-lock-variable-name-face                  ((,class :foreground ,bespoke-yellow)))
    `(font-lock-type-face                           ((,class :foreground ,bespoke-salient)))
-   `(font-lock-keyword-face                        ((,class :foreground ,bespoke-blue)))
+   `(font-lock-keyword-face                        ((,class :foreground ,bespoke-blue :slant ,(if set-bespoke-italic-keywords 'italic 'normal))))
    `(font-lock-reference-face                      ((,class :foreground ,bespoke-blue)))
    `(font-lock-warning-face                        ((,class :foreground ,bespoke-critical)))
    `(font-lock-regexp-grouping-backslash           ((,class :foreground ,bespoke-critical)))

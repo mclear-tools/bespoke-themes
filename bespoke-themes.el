@@ -58,6 +58,17 @@
   :group 'bespoke-themes
   :type 'boolean)
 
+(defcustom set-bespoke-italic-comments t
+  "If t then use italics for comments"
+  :group 'bespoke-themes
+  :type 'boolean)
+
+(defcustom set-bespoke-italic-keywords t
+  "If t then use italics for keywords"
+  :group 'bespoke-themes
+  :type 'boolean)
+
+
 ;;; After Load Theme Hook
 (defvar bespoke-after-load-theme-hook nil
   "Hook run after a color theme is loaded using `load-theme'.")
