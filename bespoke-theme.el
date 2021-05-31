@@ -224,7 +224,7 @@ shade to modeline color and to the highlight color."
   (setq bespoke-critical   (--l/d "#f53137" "#f46715"))
   (setq bespoke-salient    (--l/d "#303db4" "#81a1c1"))
   (setq bespoke-strong     (--l/d "#000000" "#ffffff"))
-  (setq bespoke-popout     (--l/d "#940b96" "#a44da2"))
+  (setq bespoke-popout     (--l/d "#940b96" "#e011e4"))
   (setq bespoke-subtle     (--l/d "#eceff1" "#333a47"))
   (setq bespoke-faded      (--l/d "#8a93a8" "#7c89a2"))
 
@@ -298,8 +298,8 @@ shade to modeline color and to the highlight color."
                                       :box (:line-width 1 :color ,bespoke-red :style nil))))
 
    `(bespoke-header-ro-face ((,class :foreground ,bespoke-background
-                                     :background ,bespoke-brown
-                                     :box (:line-width 1 :color ,bespoke-brown :style nil))))
+                                     :background ,bespoke-yellow
+                                     :box (:line-width 1 :color ,bespoke-yellow :style nil))))
 
 ;;;; Window Divs
    ;; divide windows more attractively
@@ -322,7 +322,7 @@ shade to modeline color and to the highlight color."
    `(buffer-menu-buffer                            ((,class :foreground ,bespoke-strong)))
    `(minibuffer-prompt                             ((,class :foreground ,bespoke-green)))
    `(link                                          ((,class :foreground ,bespoke-salient)))
-   `(region                                        ((,class :background ,bespoke-highlight)))
+   `(region                                        ((,class :background ,bespoke-faded)))
    `(fringe                                        ((,class :foreground ,bespoke-faded :weight light)))
    `(highlight                                     ((,class :background ,bespoke-highlight)))
    `(lazy-highlight                                ((,class :foreground ,bespoke-green)))
@@ -381,8 +381,8 @@ shade to modeline color and to the highlight color."
 
 ;;;; Outline
    `(outline-minor-0      ((,class :background ,bespoke-subtle)))
-   `(outline-1            ((,class :inherit variable-pitch :foreground ,bespoke-green)))
-   `(outline-2            ((,class :inherit variable-pitch :foreground ,bespoke-blue)))
+   `(outline-1            ((,class :inherit variable-pitch :weight bold :foreground ,bespoke-green)))
+   `(outline-2            ((,class :inherit variable-pitch :weight bold :foreground ,bespoke-blue)))
    `(outline-3            ((,class :inherit outline-1)))
    `(outline-4            ((,class :inherit outline-2)))
    `(outline-5            ((,class :inherit outline-1)))
@@ -573,9 +573,9 @@ shade to modeline color and to the highlight color."
    `(company-tooltip-selection                  ((,class :foreground ,bespoke-salient)))
    `(company-tooltip                            ((,class :background ,bespoke-subtle)))
    `(company-tooltip-common                     ((,class :background ,bespoke-subtle)))
-   `(company-tooltip-common-selection           ((,class :foreground ,bespoke-faded)))
+   `(company-tooltip-common-selection           ((,class :foreground ,bespoke-salient)))
    `(company-tooltip-annotation                 ((,class :foreground ,bespoke-faded)))
-   `(company-tooltip-annotation-selection       ((,class :foreground ,bespoke-faded)))
+   `(company-tooltip-annotation-selection       ((,class :foreground ,bespoke-salient)))
 
 ;;;; Selectrum
    `(selectrum-current-candidate                ((,class :slant  italic :weight bold :background ,bespoke-highlight)))
