@@ -30,7 +30,6 @@ packages, but you can of course install it from this repo however you wish.
 
 #+begin_src emacs-lisp
 (use-package bespoke-themes
-  :straight (:type built-in)
   :straight (:host github :repo "mclear-tools/bespoke-themes" :branch "master")
   :config
   ;; Set header line
