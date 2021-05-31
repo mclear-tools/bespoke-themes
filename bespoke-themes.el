@@ -20,21 +20,43 @@
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 ;; General Public License for more details.
 ;;
-;; You should have received a copy of the GNU General Public License
-;; along with this program. If not, see <http://www.gnu.org/licenses/>
+;; You should have received a copy of the GNU General Public License along with this
+;; program. If not, see <http://www.gnu.org/licenses/>
 ;; -------------------------------------------------------------------
-;; Commentary:
-;; This theme offers a set of light/dark bespoke themes and custom mode line
-;; for the discerning yakshaver
+;; Commentary: This theme offers a set of light/dark bespoke themes and custom mode
+;; line for the discerning yak-shaver. There is also an optional mode line
+;; configuration, which may be used either as a header line or a foot. Options and
+;; useful function below. See README for further info
 ;; -------------------------------------------------------------------
 ;; Code:
 ;;
 
 
-
 ;;; Version Requirements
-(unless (>= emacs-major-version 25)
-  (error "Requires Emacs 25 or later"))
+(unless (>= emacs-major-version 26)
+  (error "Requires Emacs 26 or later"))
+
+;;; Theme Options
+
+(defcustom bespoke-set-theme 'light
+  "Choose which theme variant, light or dark, to use"
+  :group 'bespoke-themes
+  :type 'symbol)
+
+(defcustom set-bespoke-mode-line 'header
+  "If header then use bespoke header line; if footer use bespoke mode line; if nil then do nothing to mode line."
+  :group 'bespoke-themes
+  :type 'symbol)
+
+(defcustom set-bespoke-evil-cursors t
+  "If t then use bespoke evil cursor colors"
+  :group 'bespoke-themes
+  :type 'boolean)
+
+(defcustom set-bespoke-visual-bell t
+  "If t then use bespoke evil cursor colors"
+  :group 'bespoke-themes
+  :type 'boolean)
 
 ;;; After Load Theme Hook
 (defvar bespoke-after-load-theme-hook nil
@@ -43,65 +65,30 @@
   "Run `after-load-theme-hook'."
   (run-hooks 'bespoke-after-load-theme-hook))
 
-;;; Faces
-(require 'bespoke-faces)
-;;; Modeline
-(require 'bespoke-modeline)
-
-;;; Evil Cursors
-(require 'bespoke-evil-cursors)
 
 ;;; Disable Theme Function
-;;;###autoload
 (defun bespoke--disable-all-themes ()
   "Disable all active themes."
   (dolist (i custom-enabled-themes)
     (disable-theme i)))
 
-
-;;; Toggle Light or Dark Theme
+;;; Theme Toggle
 ;;;###autoload
-(defcustom bespoke--active-theme "bespoke-dark"
-  "Set initial loading of bespoke theme variant"
-  :group 'bespoke-themes
-  :type 'string)
-
-(defun bespoke-load-theme ()
-  "Load bespoke theme variant based on setting"
-  (if (eq bespoke--active-theme 'bespoke-dark)
-      (progn
-        (bespoke-theme-set-dark)
-        (load-theme 'bespoke-dark t)
-        (setq bespoke--active-theme 'bespoke-dark))
-    (progn
-      (bespoke-theme-set-light)
-      (load-theme 'bespoke-light t)
-      (setq bespoke--active-theme 'bespoke-light))))
-
-(defun bespoke-toggle-light-dark-theme ()
-  "Toggle between dark and light bespoke themes"
-  (interactive)
-  (if (eq bespoke--active-theme 'bespoke-light)
+(defun bespoke/toggle-theme ()
+  "Toggle between dark and light variants"
+  (if (eq bespoke-set-theme 'light)
       (progn
         (bespoke--disable-all-themes)
-        (bespoke-theme-set-dark)
-        (load-theme 'bespoke-dark t)
-        (setq bespoke--active-theme 'bespoke-dark)
-        (force-mode-line-update))
+        (setq bespoke-set-theme 'dark)
+        (load-theme 'bespoke t))
     (progn
       (bespoke--disable-all-themes)
-      (bespoke-theme-set-light)
-      (load-theme 'bespoke-light t)
-      (setq bespoke--active-theme 'bespoke-light)
-      (force-mode-line-update))))
+      (setq bespoke-set-theme 'light)
+      (load-theme 'bespoke t))))
 
 
-;;; Provide path to file
 
-;;;###autoload
-(when (and (boundp 'custom-theme-load-path) load-file-name)
-  (add-to-list 'custom-theme-load-path
-               (file-name-as-directory (file-name-directory load-file-name))))
+
 
 ;;; Provide Theme
 (provide 'bespoke-themes)

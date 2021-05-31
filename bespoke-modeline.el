@@ -35,34 +35,9 @@
 ;;
 ;; -------------------------------------------------------------------
 (require 'subr-x)
-;;; Set variable
-(defcustom set-bespoke-header-line t
-  "If t then use bespoke header line; if nil use bespoke mode line."
-  :group 'bespoke-themes
-  :type 'boolean)
-
-;;; Define extra faces
-(defface bespoke-header-default-face nil
-  "Default face for ther header line."
-  :group 'bespoke)
-
-(defface bespoke-header-mod-face nil
-  "Header line face for modified buffers."
-  :group 'bespoke)
-
-(defface bespoke-header-ro-face nil
-  "Header line face for read-only buffers."
-  :group 'bespoke)
-
-(defface bespoke-header-inactive-face nil
-  "Header line face for read-only buffers."
-  :group 'bespoke)
-
-(defface bespoke-header-inactive-face-status nil
-  "Header line face for read-only buffers."
-  :group 'bespoke)
 
 ;;; Visual bell for mode line
+
 ;; See https://github.com/hlissner/emacs-doom-themes for the idea
 
 (require 'face-remap)
@@ -90,17 +65,22 @@
   (setq ring-bell-function #'bespoke-themes-visual-bell-fn
         visible-bell t))
 
+(when set-bespoke-visual-bell
+  (bespoke-themes-visual-bell-config))
 
-;;; Inactive Header line
+
+
+
+;;; Inactive Modeline
 ;; https://emacs.stackexchange.com/a/3522/11934
-(defun bespoke-update-header ()
+(defun bespoke-inactive-header ()
   (mapc
    (lambda (window)
      (with-current-buffer (window-buffer window)
        ;; don't mess with buffers that don't have a header line
        (when header-line-format
          (let ((original-format (get 'header-line-format 'original))
-               (inactive-face 'bespoke-header-inactive-face)) ; change this to your favorite inactive header line face
+               (inactive-face 'bespoke-faded)) ; change this to your favorite inactive header line face
            ;; if we didn't save original format yet, do it now
            (when (not original-format)
              (put 'header-line-format 'original header-line-format)
@@ -112,14 +92,14 @@
              )))))
    (window-list)))
 
-(defun bespoke-update-modeline ()
+(defun bespoke-inactive-modeline ()
   (mapc
    (lambda (window)
      (with-current-buffer (window-buffer window)
        ;; don't mess with buffers that don't have a header line
        (when mode-line-format
          (let ((original-format (get 'mode-line-format 'original))
-               (inactive-face 'bespoke-header-inactive-face)) ; change this to your favorite inactive header line face
+               (inactive-face 'bespoke-faded)) ; change this to your favorite inactive header line face
            ;; if we didn't save original format yet, do it now
            (when (not original-format)
              (put 'mode-line-format 'original mode-line-format)
@@ -305,11 +285,11 @@ want to use in the modeline *in lieu of* the original.")
          (space-up       +0.10)
          (space-down     -0.10)
 	     (prefix (cond ((string= status "⨂")
-			            (propertize (if (window-dedicated-p)" -- " " ⨂ ") 'face 'bespoke-header-ro-face))
+			            (propertize (if (window-dedicated-p)" –– " " ⨂ ") 'face 'bespoke-header-ro-face))
                        ((string= status "⨀")
-			            (propertize (if (window-dedicated-p)" -- " " ⨀ ") 'face 'bespoke-header-mod-face))
+			            (propertize (if (window-dedicated-p)" –– " " ⨀ ") 'face 'bespoke-header-mod-face))
                        ((string= status "◯")
-		                (propertize (if (window-dedicated-p)" -- " " ◯ ") 'face 'bespoke-header-default-face))
+		                (propertize (if (window-dedicated-p)" –– " " ◯ ") 'face 'bespoke-header-default-face))
                        (t (propertize status 'face 'bespoke-header-ro-face))))
          (left (concat
                 (propertize " "  'face 'header-line
@@ -695,18 +675,24 @@ want to use in the modeline *in lieu of* the original.")
       )))
 
 ;;;; Load Mode or Header line
-(if set-bespoke-header-line
-    (progn
-      (setq eshell-status-in-modeline nil)
-      (bespoke/header-line)
-      (add-hook 'window-configuration-change-hook 'bespoke-modeline-update-windows)
-      (add-hook 'buffer-list-update-hook #'bespoke-update-header))
-  (progn
-    (setq eshell-status-in-modeline nil)
-    (if (not (display-graphic-p))
-        (bespoke/terminal-mode-line)
-      (bespoke/mode-line))
-    (add-hook 'buffer-list-update-hook #'bespoke-update-modeline)))
+(cond ((eq set-bespoke-mode-line 'header)
+       (progn
+         (setq eshell-status-in-modeline nil)
+         (if (not (display-graphic-p))
+             (bespoke/terminal-mode-line)
+           (bespoke/header-line))
+         (add-hook 'window-configuration-change-hook 'bespoke-modeline-update-windows)
+         (add-hook 'buffer-list-update-hook #'bespoke-inactive-header)
+         ))
+      ((eq set-bespoke-mode-line 'footer)
+       (progn
+         (setq eshell-status-in-modeline nil)
+         (if (not (display-graphic-p))
+             (bespoke/terminal-mode-line)
+           (bespoke/mode-line))
+         (add-hook 'buffer-list-update-hook #'bespoke-inactive-modeline)))
+      ((eq set-bespoke-mode-line nil)))
+
 
 ;;; Provide Bespoke Modeline
 (provide 'bespoke-modeline)
