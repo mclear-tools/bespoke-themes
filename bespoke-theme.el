@@ -233,7 +233,7 @@ shade to modeline color and to the highlight color."
   (setq bespoke-green      (--l/d "#00796b" "#8eb89d"))
   (setq bespoke-red        (--l/d "#b71c1c" "#bf616a"))
   (setq bespoke-brown      (--l/d "#966e53" "#d08770"))
-  (setq bespoke-yellow     (--l/d "#f7ba13" "#e9b85d")))
+  (setq bespoke-yellow     (--l/d "#c59207" "#e9b85d")))
 
 ;;; Customize Faces
 
@@ -388,8 +388,8 @@ shade to modeline color and to the highlight color."
 
 ;;;; Outline
    `(outline-minor-0      ((,class :background ,bespoke-subtle)))
-   `(outline-1            ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default) :weight bold :foreground ,bespoke-green)))
-   `(outline-2            ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default) :weight bold :foreground ,bespoke-blue)))
+   `(outline-1            ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default) :weight normal :foreground ,bespoke-green)))
+   `(outline-2            ((,class :inherit ,(if set-bespoke-variable-pitch 'variable-pitch 'default) :weight normal :foreground ,bespoke-blue)))
    `(outline-3            ((,class :inherit outline-1)))
    `(outline-4            ((,class :inherit outline-2)))
    `(outline-5            ((,class :inherit outline-1)))
@@ -521,7 +521,7 @@ shade to modeline color and to the highlight color."
    `(org-tag-group                              ((,class :foreground ,bespoke-faded)))
    `(org-target                                 ((,class :foreground ,bespoke-faded)))
    `(org-time-grid                              ((,class :foreground ,bespoke-faded)))
-   `(org-todo                                   ((,class :foreground ,bespoke-yellow)))
+   `(org-todo                                   ((,class :weight normal :foreground ,bespoke-yellow)))
    `(org-upcoming-deadline                      ((,class :foreground ,bespoke-strong)))
    `(org-upcoming-distant-deadline              ((,class :foreground ,bespoke-foreground)))
    `(org-verbatim                               ((,class :foreground ,bespoke-faded)))
