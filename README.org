@@ -6,9 +6,10 @@ colors borrowed from [[https://material.io/design/color/the-color-system.html#co
 One of the aims of the theme is to bring much of what is good about the nano-emacs
 distro into standard theme formatting, so that it can be set just like any other
 theme. The theme is notably less conservative/minimal than nano-emacs (or elegant
-emacs), in the sense that it has a broader color palette and set fewer configuration
-conditions on fonts and ui elements, but it otherwise shares many of its colors and
-themeing ideas.
+emacs), in the sense that it has a broader color palette and sets fewer configuration
+conditions on fonts and ui elements, but bespoke-themes otherwise shares many of its
+colors and themeing ideas with the good work done by Rougier (see also his work on [[https://arxiv.org/abs/2008.06030][on
+the design of text editors]]). 
 
 *OPTIONS*: There is an optional custom mode line, and may be set as a header line (as
 in nano-emacs) or as the normal footer line, or the theme can make marely cosmetic
@@ -20,7 +21,8 @@ useful footer line visual alert "bell" inspired by [[https://github.com/hlissner
 set-bespoke-visual-bell t)= in your setup of the theme. All options are available via
 =customize-group=, and can also be found in the =bespoke-themes.el= file.
 
-Faces are basic but fairly comprehensive, including (optional) evil cursor colors.
+Faces are fairly (though note totally!) comprehensive, including (optional) evil
+cursor colors.
 
 *NOTE*: It is early days for this theme, so there may be fairly significant changes
 made in various commits. Suggestions and pull requests are welcome!
