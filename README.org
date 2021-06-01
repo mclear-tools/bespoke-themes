@@ -69,6 +69,25 @@ To get windows to divide in the manner seen in the screenshots use the following
 
 #+end_src
 
+For the padding in frame used in the screenshots try the following settings:
+#+begin_src emacs-lisp
+(use-package frame
+  :straight (:type built-in)
+  :config
+  ;; Make a clean & minimalist frame
+  (setq-default default-frame-alist
+                (append (list
+	                        '(font . "SF Mono:style=medium:size=15")
+                         '(internal-border-width . 20)
+                         '(left-fringe    . 0)
+                         '(right-fringe   . 0)
+                         '(tool-bar-lines . 0)
+                         '(menu-bar-lines . 0)
+                         '(vertical-scroll-bars . nil))))
+  (setq-default window-resize-pixelwise t)
+  (setq-default frame-resize-pixelwise t)
+#+end_src
+
 To get a splash screen see Rougier's [[https://github.com/rougier/emacs-splash][splash.el]]. You can see my customization of it [[https://github.com/mclear-tools/dotemacs/blob/master/setup-config/setup-splash.el][here]].
 
 *** Screenshots:
