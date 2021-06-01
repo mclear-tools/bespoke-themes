@@ -706,6 +706,8 @@ shade to modeline color and to the highlight color."
    `(diredfl-compressed-file-name                 ((,class :foreground ,bespoke-background)))
    `(diredfl-autofile-name                        ((,class :background ,bespoke-subtle)))
 
+;;;; All The Icons Dired
+   `(all-the-icons-dired-dir-face                 ((,class :forground ,bespoke-salient)))
 
 ;;;; Imenu List
    `(imenu-list-entry-face-0 ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
