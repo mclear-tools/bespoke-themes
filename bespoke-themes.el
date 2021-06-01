@@ -38,38 +38,38 @@
 
 ;;; Theme Options
 
-(defcustom set-bespoke-theme 'light
+(defcustom bespoke-set-theme 'light
   "Choose which theme variant, light or dark, to use"
   :group 'bespoke-themes
   :type 'symbol)
 
-(defcustom set-bespoke-mode-line 'header
+(defcustom bespoke-set-mode-line 'header
   "If 'header then use bespoke header line; if 'footer use
 bespoke mode line; if nil then set only colors for mode line."
   :group 'bespoke-themes
   :type 'symbol)
 
-(defcustom set-bespoke-evil-cursors t
+(defcustom bespoke-set-evil-cursors t
   "If t then use bespoke evil cursor colors"
   :group 'bespoke-themes
   :type 'boolean)
 
-(defcustom set-bespoke-visual-bell t
+(defcustom bespoke-set-visual-bell t
   "If t then use bespoke-visual-bell"
   :group 'bespoke-themes
   :type 'boolean)
 
-(defcustom set-bespoke-italic-comments t
+(defcustom bespoke-set-italic-comments t
   "If t then use italics for comments"
   :group 'bespoke-themes
   :type 'boolean)
 
-(defcustom set-bespoke-italic-keywords t
+(defcustom bespoke-set-italic-keywords t
   "If t then use italics for keywords"
   :group 'bespoke-themes
   :type 'boolean)
 
-(defcustom set-bespoke-variable-pitch t
+(defcustom bespoke-set-variable-pitch t
   "If t then use variable-pitch for headings"
   :group 'bespoke-themes
   :type 'boolean)
@@ -94,14 +94,14 @@ bespoke mode line; if nil then set only colors for mode line."
 (defun bespoke/toggle-theme ()
   "Toggle between dark and light variants"
   (interactive)
-  (if (eq set-bespoke-theme 'light)
+  (if (eq bespoke-set-theme 'light)
       (progn
         (bespoke--disable-all-themes)
-        (setq set-bespoke-theme 'dark)
+        (setq bespoke-set-theme 'dark)
         (load-theme 'bespoke t))
     (progn
       (bespoke--disable-all-themes)
-      (setq set-bespoke-theme 'light)
+      (setq bespoke-set-theme 'light)
       (load-theme 'bespoke t))))
 
 

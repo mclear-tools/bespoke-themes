@@ -65,7 +65,7 @@
   (setq ring-bell-function #'bespoke-themes-visual-bell-fn
         visible-bell t))
 
-(when set-bespoke-visual-bell
+(when bespoke-set-visual-bell
   (bespoke-themes-visual-bell-config))
 
 
@@ -675,7 +675,7 @@ want to use in the modeline *in lieu of* the original.")
       )))
 
 ;;;; Load Mode or Header line
-(cond ((eq set-bespoke-mode-line 'header)
+(cond ((eq bespoke-set-mode-line 'header)
        (progn
          (setq eshell-status-in-modeline nil)
          (if (not (display-graphic-p))
@@ -684,14 +684,14 @@ want to use in the modeline *in lieu of* the original.")
          (add-hook 'window-configuration-change-hook 'bespoke-modeline-update-windows)
          (add-hook 'buffer-list-update-hook #'bespoke-inactive-header)
          ))
-      ((eq set-bespoke-mode-line 'footer)
+      ((eq bespoke-set-mode-line 'footer)
        (progn
          (setq eshell-status-in-modeline nil)
          (if (not (display-graphic-p))
              (bespoke/terminal-mode-line)
            (bespoke/mode-line))
          (add-hook 'buffer-list-update-hook #'bespoke-inactive-modeline)))
-      ((eq set-bespoke-mode-line nil)))
+      ((eq bespoke-set-mode-line nil)))
 
 
 ;;; Provide Bespoke Modeline

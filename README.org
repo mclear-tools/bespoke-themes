@@ -13,12 +13,12 @@ the design of text editors]]).
 
 *OPTIONS*: There is an optional custom mode line, and may be set as a header line (as
 in nano-emacs) or as the normal footer line, or the theme can make marely cosmetic
-changes (see the options for the =(set-bespoke-mode-line)= variable. You can set
+changes (see the options for the =(bespoke-set-mode-line)= variable. You can set
 italics for keywords or for comments (or both). You can set variable-pitch for
-headlines using =(set-bespoke-variable-pitch)=. There is a toggle function for toggling
+headlines using =(bespoke-set-variable-pitch)=. There is a toggle function for toggling
 between light and dark theme variants: =(bespoke/toggle-theme)=. Also included is a
 useful footer line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. To use include =(setq
-set-bespoke-visual-bell t)= in your setup of the theme. All options are available via
+bespoke-set-visual-bell t)= in your setup of the theme. All options are available via
 =customize-group=, and can also be found in the =bespoke-themes.el= file.
 
 Faces are fairly (though note totally!) comprehensive, including (optional) evil
@@ -37,18 +37,18 @@ packages, but you can of course install it from this repo however you wish.
   :straight (:host github :repo "mclear-tools/bespoke-themes" :branch "master")
   :config
   ;; Set header line
-  (setq set-bespoke-mode-line 'header)
+  (setq bespoke-set-mode-line 'header)
   ;; Set evil cursor colors
-  (setq set-bespoke-evil-cursors t)
+  (setq bespoke-set-evil-cursors t)
   ;; Use mode line visual bell
-  (setq set-bespoke-visual-bell t)
+  (setq bespoke-set-visual-bell t)
   ;; Set use of italics
-  (setq set-bespoke-italic-comments t
-        set-bespoke-italic-keywords t)
+  (setq bespoke-set-italic-comments t
+        bespoke-set-italic-keywords t)
   ;; Set variable pitch
-  (setq set-bespoke-variable-pitch t)
+  (setq bespoke-set-variable-pitch t)
     ;; Set initial theme variant
-  (setq set-bespoke-theme 'dark)
+  (setq bespoke-set-theme 'dark)
   ;; Load theme
   (load-theme 'bespoke t))
 #+end_src
