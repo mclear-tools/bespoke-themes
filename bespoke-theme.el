@@ -598,10 +598,38 @@ shade to modeline color and to the highlight color."
 
 ;;;; Orderless
 
-   `(orderless-match-face-0                     ((,class :weight bold :foreground ,bespoke-popout)))
-   `(orderless-match-face-1                     ((,class :weight bold :foreground ,bespoke-popout)))
-   `(orderless-match-face-2                     ((,class :weight bold :foreground ,bespoke-popout)))
-   `(orderless-match-face-3                     ((,class :weight bold :foreground ,bespoke-popout)))
+   `(orderless-match-face-0                     ((,class :weight bold :background ,bespoke-yellow)))
+   `(orderless-match-face-1                     ((,class :weight bold :background ,bespoke-yellow)))
+   `(orderless-match-face-2                     ((,class :weight bold :background ,bespoke-yellow)))
+   `(orderless-match-face-3                     ((,class :weight bold :background ,bespoke-yellow)))
+
+
+;;;; Counsel
+   `(counsel-active-mode ((,class :foreground ,bespoke-salient)))
+   `(counsel-application-name ((,class :foreground ,bespoke-red)))
+   `(counsel-key-binding ((,class :inherit default)))
+   `(counsel-outline-1 ((,class :inherit org-level-1)))
+   `(counsel-outline-2 ((,class :inherit org-level-2)))
+   `(counsel-outline-3 ((,class :inherit org-level-3)))
+   `(counsel-outline-4 ((,class :inherit org-level-4)))
+   `(counsel-outline-5 ((,class :inherit org-level-5)))
+   `(counsel-outline-6 ((,class :inherit org-level-6)))
+   `(counsel-outline-7 ((,class :inherit org-level-7)))
+   `(counsel-outline-8 ((,class :inherit org-level-8)))
+   `(counsel-outline-default ((,class :foreground ,bespoke-foreground)))
+   `(counsel-variable-documentation ((,class :inherit default :foreground ,bespoke-yellow)))
+
+;;;; Ivy
+   `(ivy-action ((,class :inherit bold)))
+   `(ivy-completions-annotations ((,class :inherit completions-annotations)))
+   `(ivy-current-match ((,class :background ,bespoke-highlight :weight bold)))
+   `(ivy-cursor ((,class :background ,bespoke-foreground :foreground ,bespoke-background)))
+   `(ivy-grep-info ((,class :foreground ,bespoke-green)))
+   `(ivy-grep-line-number ((,class :foreground ,bespoke-faded)))
+   `(ivy-highlight-face ((,class :foreground ,bespoke-popout)))
+   `(ivy-match-required-face ((,class :inherit error)))
+   `(ivy-minibuffer-match-face-1 ((,class :background ,bespoke-yellow)))
+   `(ivy-minibuffer-match-highlight ((,class :backgrond ,bespoke-yellow)))
 
 ;;;; Mu4e
    `(mu4e-attach-number-face                    ((,class :foreground ,bespoke-strong)))
