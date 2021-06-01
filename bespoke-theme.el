@@ -223,7 +223,7 @@ shade to modeline color and to the highlight color."
   (setq bespoke-critical   (--l/d "#f53137" "#f46715"))
   (setq bespoke-salient    (--l/d "#303db4" "#81a1c1"))
   (setq bespoke-strong     (--l/d "#000000" "#ffffff"))
-  (setq bespoke-popout     (--l/d "#940b96" "#e011e4"))
+  (setq bespoke-popout     (--l/d "#940b96" "#c40fc7"))
   (setq bespoke-subtle     (--l/d "#eceff1" "#333a47"))
   (setq bespoke-faded      (--l/d "#8a93a8" "#7c89a2"))
 
