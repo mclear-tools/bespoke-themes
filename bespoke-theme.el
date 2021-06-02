@@ -217,13 +217,14 @@ shade to modeline color and to the highlight color."
   (interactive)
   (setq bespoke-foreground (--l/d "#282b35" "#eceff4"))
   (setq bespoke-background (--l/d "#fffef9" "#282b35"))
+
   (setq bespoke-modeline   (--l/d "#e3e7ef" "#3c4353"))
-  (setq bespoke-highlight  (--l/d "#d8dee9" "#444B5c"))
+  (setq bespoke-highlight  (--l/d "#dbe1eb" "#444B5c"))
 
   (setq bespoke-critical   (--l/d "#f53137" "#f46715"))
   (setq bespoke-salient    (--l/d "#303db4" "#81a1c1"))
   (setq bespoke-strong     (--l/d "#000000" "#ffffff"))
-  (setq bespoke-popout     (--l/d "#940b96" "#bf369a"))
+  (setq bespoke-popout     (--l/d "#940b96" "#9e9ad6"))
   (setq bespoke-subtle     (--l/d "#eceff1" "#333a47"))
   (setq bespoke-faded      (--l/d "#8a93a8" "#7c89a2"))
 
@@ -254,7 +255,7 @@ shade to modeline color and to the highlight color."
    `(highlight                                     ((,class :background ,bespoke-highlight)))
    `(lazy-highlight                                ((,class :foreground ,bespoke-green)))
    `(trailing-whitespace                           ((,class :foreground ,bespoke-faded)))
-   `(show-paren-match                              ((,class :foreground ,bespoke-foreground :background ,bespoke-green)))
+   `(show-paren-match                              ((,class :foreground ,bespoke-yellow :background ,bespoke-green)))
    `(show-paren-mismatch                           ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
    `(tooltip nil                                   ((,class :height 0.85)))
 
@@ -777,7 +778,7 @@ shade to modeline color and to the highlight color."
 
 ;;;; Search
    `(evil-ex-search                                ((,class :background ,bespoke-popout)))
-   `(isearch                                       ((,class :background ,bespoke-popout :foreground ,bespoke-strong)))
+   `(isearch                                       ((,class :foreground ,bespoke-popout :weight bold)))
    `(isearch-fail                                  ((,class :background ,bespoke-critical)))
    `(isearch-group-1                               ((,class :background ,bespoke-blue)))
    `(isearch-group-2                               ((,class :background ,bespoke-red)))
