@@ -218,7 +218,7 @@ shade to modeline color and to the highlight color."
   (setq bespoke-foreground (--l/d "#282b35" "#eceff4"))
   (setq bespoke-background (--l/d "#fffef9" "#282b35"))
   (setq bespoke-modeline   (--l/d "#e3e7ef" "#3c4353"))
-  (setq bespoke-highlight  (--l/d "#d8dee9" "#596377"))
+  (setq bespoke-highlight  (--l/d "#d8dee9" "#444B5c"))
 
   (setq bespoke-critical   (--l/d "#f53137" "#f46715"))
   (setq bespoke-salient    (--l/d "#303db4" "#81a1c1"))
