@@ -294,6 +294,24 @@ shade to modeline color and to the highlight color."
    `(counsel-outline-default ((,class :foreground ,bespoke-foreground)))
    `(counsel-variable-documentation ((,class :inherit default :foreground ,bespoke-yellow)))
 
+;;;;; Helm
+   `(helm-selection                             ((,class :foreground ,bespoke-subtle :weight bold)))
+   `(helm-match                                 ((,class :foreground ,bespoke-strong)))
+   `(helm-source-header                         ((,class :foreground ,bespoke-salient)))
+   `(helm-visible-mark                          ((,class :foreground ,bespoke-strong)))
+   `(helm-swoop-target-line-face                ((,class :foreground ,bespoke-subtle :weight bold)))
+   `(helm-moccur-buffer                         ((,class :foreground ,bespoke-strong)))
+   `(helm-ff-file                               ((,class :foreground ,bespoke-faded)))
+   `(helm-ff-prefix                             ((,class :foreground ,bespoke-strong)))
+   `(helm-ff-dotted-directory                   ((,class :foreground ,bespoke-faded)))
+   `(helm-ff-directory                          ((,class :foreground ,bespoke-strong)))
+   `(helm-ff-executable                         ((,class :foreground ,bespoke-popout)))
+   `(helm-grep-match                            ((,class :foreground ,bespoke-strong)))
+   `(helm-grep-file                             ((,class :foreground ,bespoke-faded)))
+   `(helm-grep-lineno                           ((,class :foreground ,bespoke-faded)))
+   `(helm-grep-finish                           ((,class :foreground ,bespoke-foreground)))
+
+
 ;;;;; Ivy
    `(ivy-action ((,class :inherit bold)))
    `(ivy-completions-annotations ((,class :inherit completions-annotations)))
@@ -362,7 +380,7 @@ shade to modeline color and to the highlight color."
    `(deft-separator-face                  ((,class :foreground ,bespoke-faded)))
    `(deft-summary-face                    ((,class :foreground ,bespoke-faded)))
    `(deft-time-face                       ((,class :foreground ,bespoke-salient)))
-   `(deft-title-face                      ((,class :foreground ,bespoke-strong)))
+   `(deft-title-face                      ((,class :foreground ,bespoke-strong :weight semi-bold)))
 ;;;; Diff
    `(diff-header                                  ((,class :foreground ,bespoke-faded)))
    `(diff-file-header                             ((,class :foreground ,bespoke-strong)))
