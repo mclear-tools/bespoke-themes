@@ -418,7 +418,7 @@ shade to modeline color and to the highlight color."
    `(font-lock-comment-face                        ((,class :foreground ,bespoke-faded :slant ,(if bespoke-set-italic-comments 'italic 'normal))))
    `(font-lock-comment-delimiter-face              ((,class :foreground ,bespoke-faded :weight bold :slant ,(if bespoke-set-italic-comments 'italic 'normal))))
    `(font-lock-doc-face                            ((,class :foreground ,bespoke-faded)))
-   `(font-lock-string-face                         ((,class :foreground ,bespoke-strong)))
+   `(font-lock-string-face                         ((,class :foreground ,bespoke-popout)))
    `(font-lock-constant-face                       ((,class :foreground ,bespoke-green)))
    `(font-lock-builtin-face                        ((,class :foreground ,bespoke-green)))
    `(font-lock-function-name-face                  ((,class :foreground ,bespoke-brown)))
