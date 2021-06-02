@@ -262,8 +262,6 @@ shade to modeline color and to the highlight color."
    `(bookmark-menu-heading                         ((,class :foreground ,bespoke-strong)))
    `(bookmark-menu-bookmark                        ((,class :foreground ,bespoke-salient)))
 
-
-
 ;;;; Completion/Narrowing
 
 ;;;;; Company
@@ -313,16 +311,29 @@ shade to modeline color and to the highlight color."
 
 
 ;;;;; Ivy
-   `(ivy-action ((,class :inherit bold)))
-   `(ivy-completions-annotations ((,class :inherit completions-annotations)))
-   `(ivy-current-match ((,class :background ,bespoke-highlight :weight bold)))
-   `(ivy-cursor ((,class :background ,bespoke-foreground :foreground ,bespoke-background)))
-   `(ivy-grep-info ((,class :foreground ,bespoke-green)))
-   `(ivy-grep-line-number ((,class :foreground ,bespoke-faded)))
-   `(ivy-highlight-face ((,class :foreground ,bespoke-popout)))
-   `(ivy-match-required-face ((,class :inherit error)))
-   `(ivy-minibuffer-match-face-1 ((,class :background ,bespoke-yellow)))
-   `(ivy-minibuffer-match-highlight ((,class :backgrond ,bespoke-yellow)))
+   `(ivy-action                              ((,class :foreground bespoke-faded)))
+   `(ivy-completions-annotations             ((,class :foreground bespoke-faded)))
+   `(ivy-confirm-face                        ((,class :foreground bespoke-faded)))
+   `(ivy-current-match                       ((,class :foreground bespoke-subtle)))
+   `(ivy-cursor                              ((,class :foreground bespoke-strong)))
+   `(ivy-grep-info                           ((,class :foreground bespoke-strong)))
+   `(ivy-grep-line-number                    ((,class :foreground bespoke-faded)))
+   `(ivy-highlight-face                      ((,class :foreground bespoke-strong)))
+   `(ivy-match-required-face                 ((,class :foreground bespoke-faded)))
+   `(ivy-minibuffer-match-face-1             ((,class :foreground bespoke-faded)))
+   `(ivy-minibuffer-match-face-2             ((,class :foreground bespoke-faded)))
+   `(ivy-minibuffer-match-face-3             ((,class :foreground bespoke-faded)))
+   `(ivy-minibuffer-match-face-4             ((,class :foreground bespoke-faded)))
+   `(ivy-minibuffer-match-highlight          ((,class :foreground bespoke-strong)))
+   `(ivy-modified-buffer                     ((,class :foreground bespoke-popout)))
+   `(ivy-modified-outside-buffer             ((,class :foreground bespoke-strong)))
+   `(ivy-org                                 ((,class :foreground bespoke-faded)))
+   `(ivy-prompt-match                        ((,class :foreground bespoke-faded)))
+   `(ivy-remote                              ((,class :inherit default)))
+   `(ivy-separator                           ((,class :foreground bespoke-faded)))
+   `(ivy-subdir                              ((,class :foreground bespoke-faded)))
+   `(ivy-virtual                             ((,class :foreground bespoke-faded)))
+   `(ivy-yanked-word                         ((,class :foreground bespoke-faded)))
 
 ;;;;; Ido
    `(ido-first-match                              ((,class :foreground ,bespoke-salient)))
