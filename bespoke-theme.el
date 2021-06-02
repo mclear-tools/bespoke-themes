@@ -410,16 +410,6 @@ shade to modeline color and to the highlight color."
    `(diredfl-compressed-file-name                 ((,class :foreground ,bespoke-background)))
    `(diredfl-autofile-name                        ((,class :background ,bespoke-subtle)))
 
-;;;; Documentation
-   `(info-menu-header                              ((,class :foreground ,bespoke-strong)))
-   `(info-header-node                              ((,class :foreground ,bespoke-green)))
-   `(info-quoted                                   ((,class :foreground ,bespoke-faded)))
-   `(info-title-1                                  ((,class :foreground ,bespoke-strong)))
-   `(info-title-2                                  ((,class :foreground ,bespoke-strong)))
-   `(info-title-3                                  ((,class :foreground ,bespoke-strong)))
-   `(info-title-4                                  ((,class :foreground ,bespoke-strong)))
-
-
 ;;;; Flyspell
    `(flyspell-duplicate                           ((,class :foreground ,bespoke-red)))
    `(flyspell-incorrect                           ((,class :foreground ,bespoke-critical)))
@@ -449,6 +439,16 @@ shade to modeline color and to the highlight color."
    `(imenu-list-entry-face-1 ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
    `(imenu-list-entry-face-2 ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
    `(imenu-list-entry-face-3 ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
+
+;;;; Info (Documentation)
+   `(info-menu-header                              ((,class :foreground ,bespoke-strong)))
+   `(info-header-node                              ((,class :foreground ,bespoke-green)))
+   `(Info-quoted                                   ((,class :foreground ,bespoke-faded)))
+   `(info-title-1                                  ((,class :foreground ,bespoke-strong)))
+   `(info-title-2                                  ((,class :foreground ,bespoke-strong)))
+   `(info-title-3                                  ((,class :foreground ,bespoke-strong)))
+   `(info-title-4                                  ((,class :foreground ,bespoke-strong)))
+
 
 ;;;; Interface
    `(widget-field                                 ((,class :background ,bespoke-subtle)))
