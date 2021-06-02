@@ -215,15 +215,15 @@ shade to modeline color and to the highlight color."
 ;; Set colors according to variant so they can be used outside the theme declaration
 (defun bespoke/set-theme-variant ()
   (interactive)
-  (setq bespoke-foreground (--l/d "#292e39" "#eceff4"))
-  (setq bespoke-background (--l/d "#fffef9" "#292e39"))
+  (setq bespoke-foreground (--l/d "#282b35" "#eceff4"))
+  (setq bespoke-background (--l/d "#fffef9" "#282b35"))
   (setq bespoke-modeline   (--l/d "#e3e7ef" "#3c4353"))
   (setq bespoke-highlight  (--l/d "#d8dee9" "#596377"))
 
   (setq bespoke-critical   (--l/d "#f53137" "#f46715"))
   (setq bespoke-salient    (--l/d "#303db4" "#81a1c1"))
   (setq bespoke-strong     (--l/d "#000000" "#ffffff"))
-  (setq bespoke-popout     (--l/d "#940b96" "#c40fc7"))
+  (setq bespoke-popout     (--l/d "#940b96" "#bf369a"))
   (setq bespoke-subtle     (--l/d "#eceff1" "#333a47"))
   (setq bespoke-faded      (--l/d "#8a93a8" "#7c89a2"))
 
