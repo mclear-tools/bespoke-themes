@@ -333,6 +333,36 @@ shade to modeline color and to the highlight color."
    `(orderless-match-face-3                     ((,class :weight bold :foreground ,bespoke-yellow)))
 
 
+
+;;;; Customize
+   `(widget-field                         ((,class :background ,bespoke-subtle)))
+   `(widget-button                        ((,class :foreground ,bespoke-foreground :bold t)))
+   `(widget-single-line-field             ((,class :background ,bespoke-subtle)))
+   `(custom-group-subtitle                ((,class :foreground ,bespoke-foreground :bold t)))
+   `(custom-group-tag                     ((,class :foreground ,bespoke-foreground :bold t)))
+   `(custom-group-tag-1                   ((,class :foreground ,bespoke-foreground :bold t)))
+   `(custom-comment                       ((,class :foreground ,bespoke-faded)))
+   `(custom-comment-tag                   ((,class :foreground ,bespoke-faded)))
+   `(custom-changed                       ((,class :foreground ,bespoke-salient)))
+   `(custom-modified                      ((,class :foreground ,bespoke-salient)))
+   `(custom-face-tag                      ((,class :foreground ,bespoke-foreground :bold t)))
+   `(custom-variable-tag                  ((,class :foreground ,bespoke-foreground :bold t)))
+   `(custom-invalid                       ((,class :foreground ,bespoke-popout)))
+   `(custom-visibility                    ((,class :foreground ,bespoke-salient)))
+   `(custom-state                         ((,class :foreground ,bespoke-salient)))
+   `(custom-link                          ((,class :foreground ,bespoke-salient)))
+   `(custom-button                        ((,class :foreground ,bespoke-faded :background ,bespoke-background :box `(:line-width 1 :color ,(face-foreground 'bespoke-faded) :style nil))))
+   `(custom-button-mouse                  ((,class :foreground ,bespoke-faded :background ,bespoke-subtle :box `(:line-width 1 :color ,(face-foreground 'bespoke-faded) :style nil))))
+   `(custom-button-pressed                ((,class :foreground ,bespoke-foreground :background ,bespoke-salient :inverse-video nil :box `(:line-width 1 :color ,(face-foreground 'bespoke-salient) :style nil))))
+
+;;;; Deft
+   `(deft-filter-string-error-face        ((,class :foreground ,bespoke-popout)))
+   `(deft-filter-string-face              ((,class :foreground ,bespoke-yellow)))
+   `(deft-header-face                     ((,class :foreground ,bespoke-salient)))
+   `(deft-separator-face                  ((,class :foreground ,bespoke-faded)))
+   `(deft-summary-face                    ((,class :foreground ,bespoke-faded)))
+   `(deft-time-face                       ((,class :foreground ,bespoke-salient)))
+   `(deft-title-face                      ((,class :foreground ,bespoke-strong)))
 ;;;; Diff
    `(diff-header                                  ((,class :foreground ,bespoke-faded)))
    `(diff-file-header                             ((,class :foreground ,bespoke-strong)))
@@ -443,6 +473,7 @@ shade to modeline color and to the highlight color."
 ;;;; Info (Documentation)
    `(info-menu-header                              ((,class :foreground ,bespoke-strong)))
    `(info-header-node                              ((,class :foreground ,bespoke-green)))
+   `(info-index-match                              ((,class :foreground ,bespoke-salient)))
    `(Info-quoted                                   ((,class :foreground ,bespoke-faded)))
    `(info-title-1                                  ((,class :foreground ,bespoke-strong)))
    `(info-title-2                                  ((,class :foreground ,bespoke-strong)))
@@ -724,15 +755,24 @@ shade to modeline color and to the highlight color."
    `(query-replace                                 ((,class :background ,bespoke-yellow)))
 
 ;;;; Semantic
-   `(italic                                        ((,class (:slant italic))))
-   `(bold                                          ((,class (:weight bold))))
-   `(bold-italic                                   ((,class (:weight bold :slant italic))))
-   `(underline                                     ((,class (:underline t))))
+   `(italic                                        ((,class :slant italic)))
+   `(bold                                          ((,class :foreground ,bespoke-strong :weight bold)))
+   `(bold-italic                                   ((,class :foreground ,bespoke-strong :weight bold :slant italic)))
+   `(underline                                     ((,class :underline t)))
    `(shadow                                        ((,class :foreground ,bespoke-faded)))
    `(success                                       ((,class :foreground ,bespoke-salient)))
    `(warning                                       ((,class :foreground ,bespoke-popout)))
    `(error                                         ((,class :foreground ,bespoke-critical)))
    `(match                                         ((,class :forgeround ,bespoke-popout :weight bold)))
+
+;;;; Speed Bar
+   `(speedbar-button-face                 ((,class :foreground ,bespoke-faded)))
+   `(speedbar-directory-face              ((,class :foreground ,bespoke-foreground :bold t)))
+   `(speedbar-file-face                   ((,class :foreground ,bespoke-foreground :background ,bespoke-background)))
+   `(speedbar-highlight-face              ((,class :foreground ,bespoke-highlight)))
+   `(speedbar-selected-face               ((,class :background ,bespoke-subtle :bold t)))
+   `(speedbar-separator-face              ((,class :foreground ,bespoke-faded)))
+   `(speedbar-tag-face                    ((,class :foreground ,bespoke-faded)))
 
 ;;;; Term
    `(term-bold                                    ((,class :foreground ,bespoke-strong)))
