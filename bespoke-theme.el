@@ -849,6 +849,17 @@ shade to modeline color and to the highlight color."
 (when bespoke-set-evil-cursors
   (add-hook 'bespoke-after-load-theme-hook #'bespoke-evil-load-cursors))
 
+;;; Set Minibuffer & Echo Area
+(defun bespoke-theme--minibuffer ()
+  "Derive minibuffer / echo area faces from bespoke faces."
+  ;; Minibuffer / echo area
+  (dolist (buffer (list " *Minibuf-0*" " *Echo Area 0*"
+                        " *Minibuf-1*" " *Echo Area 1*"))
+    (when (get-buffer buffer)
+      (with-current-buffer buffer
+        (face-remap-add-relative 'default 'fringe)))))
+(bespoke-theme--minibuffer)
+
 ;;; Provide theme
 
 ;;;###autoload
