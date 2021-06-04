@@ -259,6 +259,11 @@ shade to modeline color and to the highlight color."
    `(show-paren-mismatch                           ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
    `(tooltip nil                                   ((,class :height 0.85)))
 
+;;;; Buttons
+   `(custom-button                                 ((,class :foreground ,bespoke-foreground :background ,bespoke-highlight :box nil)))
+   `(custom-button-mouse                           ((,class :foreground ,bespoke-foreground :background ,bespoke-subtle :box nil)))
+   `(custom-button-pressed                         ((,class :foreground ,bespoke-background :background ,bespoke-foreground :box nil)))
+
 ;;;; Bookmarks
    `(bookmark-menu-heading                         ((,class :foreground ,bespoke-strong)))
    `(bookmark-menu-bookmark                        ((,class :foreground ,bespoke-salient)))
@@ -623,7 +628,7 @@ shade to modeline color and to the highlight color."
                           :underline nil))))
 
    (when (eq bespoke-set-mode-line nil)
-     `(mode-line ((,class :foreground ,bespoke-faded
+     `(mode-line ((,class :foreground ,bespoke-foreground
                           :background ,bespoke-modeline
                           :box (:line-width 4 :color ,bespoke-modeline)
                           :overline nil
