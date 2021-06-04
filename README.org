@@ -11,19 +11,23 @@ conditions on fonts and ui elements, but bespoke-themes otherwise shares many of
 colors and themeing ideas with the good work done by Rougier (see also his work on [[https://arxiv.org/abs/2008.06030][on
 the design of text editors]]). 
 
-*OPTIONS*: There is an optional custom mode line, and may be set as a header line (as
-in nano-emacs) or as the normal footer line, or the theme can make marely cosmetic
-changes (see the options for the =(bespoke-set-mode-line)= variable. You can set
-italics for keywords or for comments (or both). You can set variable-pitch for
-headlines using =(bespoke-set-variable-pitch)=. There is a toggle function for toggling
-between light and dark theme variants: =(bespoke/toggle-theme)=. Also included is a
-useful footer line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. To use include =(setq
-bespoke-set-visual-bell t)= in your setup of the theme. All options are available via
-=customize-group=, and can also be found in the =bespoke-themes.el= file.
-
 Faces are fairly (though note totally!) comprehensive, including (optional) evil
-cursor colors.
+cursor colors. I'm trying to add faces on a regular basis.
 
+*** Options
+
+- There is an optional custom mode line, which may be set as a header line (as in
+  nano-emacs), or as the normal footer line, or the theme can make marely cosmetic
+  changes (see the options for the =(bespoke-set-mode-line)= variable.
+- You can set italics for keywords or for comments (or both).
+- You can set variable-pitch for headlines using =(bespoke-set-variable-pitch)=.
+- There is a toggle function for toggling between light and dark theme variants:
+  =(bespoke/toggle-theme)=.
+- There is a useful footer line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. To use
+  include =(setq bespoke-set-visual-bell t)= in your setup of the theme.
+- All options are available via =customize-group=, and can also be found in the =bespoke-themes.el= file.
+
+  
 *NOTE*: It is early days for this theme, so there may be fairly significant changes
 made in various commits. Suggestions and pull requests are welcome!
 
