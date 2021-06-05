@@ -58,7 +58,7 @@ packages, but you can of course install it from this repo however you wish.
   (load-theme 'bespoke t))
 #+end_src
 
-To get windows to divide in the manner seen in the screenshots use the following setting:
+To get windows to divide in a more attractive manner use the following setting:
 
 #+begin_src emacs-lisp
 ;; Vertical window divider
@@ -116,26 +116,43 @@ For dimming non-active windows try [[https://github.com/gonewest818/dimmer.el][d
 
 #+BEGIN_HTML
 <div>
+<p>Splash</p>
 <img src="./screenshots/light-splash.png" width=47.5%/>
 <img src="./screenshots/dark-splash.png" width=47.5%/>
 </div>
 
 <div>
+<p>Colors</p>
 <img src="./screenshots/light-colors.png" width=47.5%/>
 <img src="./screenshots/dark-colors.png"  width=47.5%/>
 </div>
 
 <div>
-<img src="./screenshots/light-git.png" width=47.5%/>
-<img src="./screenshots/dark-git.png"  width=47.5%/>
+<p>Code</p>
+<img src="./screenshots/light-code.png" width=47.5%/>
+<img src="./screenshots/dark-code.png"  width=47.5%/>
 </div>
 
 <div>
+<p>Magit</p>
+<img src="./screenshots/light-magit.png" width=47.5%/>
+<img src="./screenshots/dark-magit.png"  width=47.5%/>
+</div>
+
+<div>
+<p>Agenda</p>
 <img src="./screenshots/light-agenda.png" width=47.5%/>
 <img src="./screenshots/dark-agenda.png"  width=47.5%/>
 </div>
 
 <div>
+<p>Org</p>
+<img src="./screenshots/light-org.png" width=47.5%/>
+<img src="./screenshots/dark-org.png"  width=47.5%/>
+</div>
+
+<div>
+<p>Dired</p>
 <img src="./screenshots/light-dired.png" width=47.5%/>
 <img src="./screenshots/dark-dired.png"  width=47.5%/>
 </div>
