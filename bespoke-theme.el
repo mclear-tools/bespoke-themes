@@ -164,7 +164,7 @@ shade to modeline color and to the highlight color."
 
 ;;;; Accent faces
 ;; The accent colors are used to fill out the color palatte. They are meant to be
-;; used for attention or contrast with the core colors.
+;; used for attention or contrast with the core colors. Readability is important.
 
 (defface bespoke-red nil
   "A reddish accent face"
@@ -398,6 +398,7 @@ shade to modeline color and to the highlight color."
    `(deft-summary-face                             ((,class :foreground ,bespoke-faded)))
    `(deft-time-face                                ((,class :foreground ,bespoke-salient)))
    `(deft-title-face                               ((,class :foreground ,bespoke-strong :weight semi-bold)))
+
 ;;;; Diff
    `(diff-header                                   ((,class :foreground ,bespoke-faded)))
    `(diff-file-header                              ((,class :foreground ,bespoke-strong)))
@@ -486,11 +487,11 @@ shade to modeline color and to the highlight color."
    `(font-lock-string-face                         ((,class :foreground ,bespoke-popout)))
    `(font-lock-constant-face                       ((,class :foreground ,bespoke-green)))
    `(font-lock-builtin-face                        ((,class :foreground ,bespoke-green)))
-   `(font-lock-function-name-face                  ((,class :foreground ,bespoke-brown)))
+   `(font-lock-function-name-face                  ((,class :foreground ,bespoke-strong :weight semi-bold)))
    `(font-lock-variable-name-face                  ((,class :foreground ,bespoke-yellow)))
    `(font-lock-type-face                           ((,class :foreground ,bespoke-salient)))
-   `(font-lock-keyword-face                        ((,class :foreground ,bespoke-blue :slant ,(if bespoke-set-italic-keywords 'italic 'normal))))
-   `(font-lock-reference-face                      ((,class :foreground ,bespoke-blue)))
+   `(font-lock-keyword-face                        ((,class :foreground ,bespoke-salient :slant ,(if bespoke-set-italic-keywords 'italic 'normal))))
+   `(font-lock-reference-face                      ((,class :foreground ,bespoke-salient)))
    `(font-lock-warning-face                        ((,class :foreground ,bespoke-critical)))
    `(font-lock-regexp-grouping-backslash           ((,class :foreground ,bespoke-critical)))
    `(font-lock-regexp-grouping-construct           ((,class :foreground ,bespoke-critical)))
@@ -639,8 +640,8 @@ shade to modeline color and to the highlight color."
    ;;; Mode line indicators
 
    `(bespoke-header-default-face ((,class :foreground ,bespoke-background
-                                          :background ,bespoke-salient
-                                          :box (:line-width 1 :color ,bespoke-salient :style nil))))
+                                          :background ,bespoke-blue
+                                          :box (:line-width 1 :color ,bespoke-blue :style nil))))
 
    `(bespoke-header-mod-face ((,class :foreground ,bespoke-background
                                       :background ,bespoke-red
