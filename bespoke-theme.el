@@ -222,13 +222,13 @@ shade to modeline color and to the highlight color."
   (setq bespoke-highlight  (--l/d "#dbe1eb" "#444B5c"))
 
   (setq bespoke-critical   (--l/d "#f53137" "#f46715"))
-  (setq bespoke-salient    (--l/d "#303db4" "#81a1c1"))
+  (setq bespoke-salient    (--l/d "#303db4" "#88c0d0"))
   (setq bespoke-strong     (--l/d "#000000" "#ffffff"))
   (setq bespoke-popout     (--l/d "#940b96" "#bc85cf"))
   (setq bespoke-subtle     (--l/d "#eceff1" "#333a47"))
   (setq bespoke-faded      (--l/d "#8a93a8" "#7c89a2"))
 
-  (setq bespoke-blue       (--l/d "#30608c" "#88c0d0"))
+  (setq bespoke-blue       (--l/d "#30608c" "#81a1c1"))
   (setq bespoke-green      (--l/d "#00796b" "#8eb89d"))
   (setq bespoke-red        (--l/d "#b71c1c" "#bf616a"))
   (setq bespoke-brown      (--l/d "#966e53" "#d08770"))
