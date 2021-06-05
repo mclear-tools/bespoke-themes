@@ -76,10 +76,10 @@ To get windows to divide in the manner seen in the screenshots use the following
 
 For the padding in frame used in the screenshots try the following settings:
 #+begin_src emacs-lisp
+;; Make a clean & minimalist frame
 (use-package frame
   :straight (:type built-in)
   :config
-  ;; Make a clean & minimalist frame
   (setq-default default-frame-alist
                 (append (list
                 '(font . "SF Mono:style=medium:size=15") ;; NOTE: substitute whatever font you prefer here
@@ -95,21 +95,49 @@ For the padding in frame used in the screenshots try the following settings:
 
 To get a splash screen see Rougier's [[https://github.com/rougier/emacs-splash][splash.el]]. You can see my customization of it [[https://github.com/mclear-tools/dotemacs/blob/master/setup-config/setup-splash.el][here]].
 
+For dimming non-active windows try [[https://github.com/gonewest818/dimmer.el][dimmer.el]]
+
+#+begin_src emacs-lisp
+;; Dim inactive windows
+(use-package dimmer
+  :straight (:host github :repo "gonewest818/dimmer.el")
+  :hook (after-init . dimmer-mode)
+  :config
+  (setq dimmer-fraction 0.5)
+  (setq dimmer-adjustment-mode :foreground)
+  (setq dimmer-use-colorspace :rgb)
+  (setq dimmer-watch-frame-focus-events nil)
+  (dimmer-configure-which-key)
+  (dimmer-configure-magit)
+  (dimmer-configure-posframe))
+#+end_src
+
 *** Screenshots:
 
 #+BEGIN_HTML
 <div>
-<img src="./screenshots/light-splash.png"/>
-<img src="./screenshots/light-colors.png"/>
-<img src="./screenshots/light-git.png"/>
-<img src="./screenshots/light-agenda.png"/>
-<img src="./screenshots/light-dired.png"/>
-
-<img src="./screenshots/dark-splash.png" />
-<img src="./screenshots/dark-colors.png" />
-<img src="./screenshots/dark-git.png" />
-<img src="./screenshots/dark-agenda.png" />
-<img src="./screenshots/dark-dired.png" />
-
+<img src="./screenshots/light-splash.png" width=47.5%/>
+<img src="./screenshots/dark-splash.png" width=47.5%/>
 </div>
+
+<div>
+<img src="./screenshots/light-colors.png" width=47.5%/>
+<img src="./screenshots/dark-colors.png"  width=47.5%/>
+</div>
+
+<div>
+<img src="./screenshots/light-git.png" width=47.5%/>
+<img src="./screenshots/dark-git.png"  width=47.5%/>
+</div>
+
+<div>
+<img src="./screenshots/light-agenda.png" width=47.5%/>
+<img src="./screenshots/dark-agenda.png"  width=47.5%/>
+</div>
+
+<div>
+<img src="./screenshots/light-dired.png" width=47.5%/>
+<img src="./screenshots/dark-dired.png"  width=47.5%/>
+</div>
+
 #+END_HTML
