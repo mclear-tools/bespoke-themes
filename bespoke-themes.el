@@ -44,10 +44,15 @@
   :type 'symbol)
 
 (defcustom bespoke-set-mode-line 'header
-  "If 'header then use bespoke header line; if 'footer use
-bespoke mode line; if nil then set only colors for mode line."
+  "Whether bespoke-theme should set its own modeline, and if so, where.
+If nil, don't set modeline content or position, only its base colors.
+If the value is `header', then set modeline as headerline.
+If the value is `footer', then set modeline as the standard footer line"
   :group 'bespoke-themes
-  :type 'symbol)
+  :type '(choice
+          (const :tag "Nil" nil)
+          (const :tag "Header" header)
+          (const :tag "Footer" footer)))
 
 (defcustom bespoke-set-evil-cursors t
   "If t then use bespoke evil cursor colors"
