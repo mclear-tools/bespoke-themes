@@ -1,7 +1,8 @@
 Custom medium contrast light and dark themes for Emacs (intended for GUI only, though
 basic support in terminal has been added). This started as a fork of [[https://github.com/rougier][Nicolas
 Rougier's]] work on [[https://github.com/rougier/elegant-emacs][elegant-emacs]] and [[https://github.com/rougier/nano-emacs][nano-emacs]], but has evolved with some ideas and
-colors borrowed from [[https://material.io/design/color/the-color-system.html#color-theme-creation][material colors]], [[https://github.com/bbatsov/solarized-emacs][solarized]] and [[https://github.com/arcticicestudio/nord-emacs][nord]].
+colors borrowed from [[https://material.io/design/color/the-color-system.html#color-theme-creation][material colors]], [[https://github.com/bbatsov/solarized-emacs][solarized]] and [[https://github.com/arcticicestudio/nord-emacs][nord]], as well as color design
+aided by [[https://coolors.co][coolers.co]] and the classic [[https://www.c82.net/werner/][Werner's Nomenclature]].
 
 One of the aims of the theme is to bring much of what is good about the nano-emacs
 distro into standard theme formatting, so that it can be set just like any other
