@@ -602,7 +602,7 @@ shade to modeline color and to the highlight color."
    (when (eq bespoke-set-mode-line 'header)
      `(header-line ((,class :foreground ,bespoke-foreground
                             :background ,bespoke-modeline
-                            :box (:line-width 5 :color ,bespoke-modeline :style nil)
+                            :box (:line-width 3 :color ,bespoke-modeline :style nil)
                             :overline nil
                             :underline nil))))
 
@@ -612,34 +612,45 @@ shade to modeline color and to the highlight color."
                            :overline nil
                            :box nil))))
 
-   (if (eq bespoke-set-mode-line 'header)
-       `(mode-line-inactive  ((,class :height 0.1
-                                      :underline ,bespoke-subtle
-                                      :overline nil
-                                      :box nil)))
-     `(mode-line-inactive ((,class :foreground ,bespoke-subtle
-                                   :background ,bespoke-modeline
-                                   :box (:line-width 4
-                                         :color ,bespoke-modeline
-                                         :height 150)
-                                   :overline nil
-                                   :underline nil
-                                   :height 150))))
+   (when (eq bespoke-set-mode-line 'header)
+     `(mode-line-inactive  ((,class :height 0.1
+                                    :underline ,bespoke-subtle
+                                    :overline nil
+                                    :box nil))))
 
    (when (eq bespoke-set-mode-line 'footer)
      `(mode-line ((,class :foreground ,bespoke-foreground
                           :background ,bespoke-modeline
-                          :box (:line-width 4 :color ,bespoke-modeline)
+                          :box (:line-width 3 :color ,bespoke-modeline :style nil)
                           :overline nil
                           :underline nil))))
+
+   (when (eq bespoke-set-mode-line 'footer)
+     `(mode-line-inactive ((,class :foreground ,bespoke-subtle
+                                   :background ,bespoke-modeline
+                                   :box (:line-width 3
+                                         :color ,bespoke-modeline
+                                         :style nil)
+                                   :overline nil
+                                   :underline nil))))
 
    (when (eq bespoke-set-mode-line nil)
      `(mode-line ((,class :foreground ,bespoke-foreground
                           :background ,bespoke-modeline
-                          :box (:line-width 4 :color ,bespoke-modeline)
+                          :box (:line-width 3
+                                :color ,bespoke-modeline
+                                :style nil)
                           :overline nil
                           :underline nil))))
 
+   (when (eq bespoke-set-mode-line nil)
+     `(mode-line-inactive ((,class :foreground ,bespoke-foreground
+                                   :background ,bespoke-modeline
+                                   :box (:line-width 3
+                                         :color ,bespoke-modeline
+                                         :style nil)
+                                   :overline nil
+                                   :underline nil))))
 
 
    ;;; Mode line indicators
