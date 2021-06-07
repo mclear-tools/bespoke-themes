@@ -188,17 +188,22 @@ shade to modeline color and to the highlight color."
 
 ;;;; Modeline faces
 
-(defface bespoke-header-default-face nil
+(defface bespoke-modeline-default-face nil
   "Default face for ther header line."
   :group 'faces)
 
-(defface bespoke-header-mod-face nil
+(defface bespoke-modeline-mod-face nil
   "Header line face for modified buffers."
   :group 'faces)
 
-(defface bespoke-header-ro-face nil
+(defface bespoke-modeline-ro-face nil
   "Header line face for read-only buffers."
   :group 'faces)
+
+(defface bespoke-modeline-inactive-face nil
+  "Header line face for read-only buffers."
+  :group 'faces)
+
 
 ;;; Define Theme
 (deftheme bespoke "A custom theme for yak shaving, with light and dark variants")
@@ -639,17 +644,22 @@ shade to modeline color and to the highlight color."
 
    ;;; Mode line indicators
 
-   `(bespoke-header-default-face ((,class :foreground ,bespoke-background
-                                          :background ,bespoke-blue
-                                          :box (:line-width 1 :color ,bespoke-blue :style nil))))
+   `(bespoke-modeline-default-face ((,class :foreground ,bespoke-background
+                                            :background ,bespoke-blue
+                                            :box (:line-width 1 :color ,bespoke-blue :style nil))))
 
-   `(bespoke-header-mod-face ((,class :foreground ,bespoke-background
-                                      :background ,bespoke-red
-                                      :box (:line-width 1 :color ,bespoke-red :style nil))))
+   `(bespoke-modeline-mod-face ((,class :foreground ,bespoke-background
+                                        :background ,bespoke-red
+                                        :box (:line-width 1 :color ,bespoke-red :style nil))))
 
-   `(bespoke-header-ro-face ((,class :foreground ,bespoke-background
-                                     :background ,bespoke-yellow
-                                     :box (:line-width 1 :color ,bespoke-yellow :style nil))))
+   `(bespoke-modeline-ro-face ((,class :foreground ,bespoke-background
+                                       :background ,bespoke-yellow
+                                       :box (:line-width 1 :color ,bespoke-yellow :style nil))))
+
+   `(bespoke-modeline-inactive-face ((,class :foreground ,bespoke-faded
+                                             :background ,bespoke-highlight
+                                             :box (:line-width 1 :color ,bespoke-highlight :style nil))))
+
 
 ;;;; Mu4e
    `(mu4e-attach-number-face                      ((,class :foreground ,bespoke-strong)))
