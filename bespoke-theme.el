@@ -235,7 +235,7 @@ shade to modeline color and to the highlight color."
 
   (setq bespoke-blue       (--l/d "#30608c" "#81a1c1"))
   (setq bespoke-green      (--l/d "#00796b" "#8eb89d"))
-  (setq bespoke-red        (--l/d "#b71c1c" "#bf616a"))
+  (setq bespoke-red        (--l/d "#960d36" "#bf616a"))
   (setq bespoke-brown      (--l/d "#966e53" "#d08770"))
   (setq bespoke-yellow     (--l/d "#e0a500" "#e9b85d")))
 
