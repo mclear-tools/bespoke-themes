@@ -54,6 +54,12 @@ If the value is `footer', then set modeline as the standard footer line"
           (const :tag "Header" header)
           (const :tag "Footer" footer)))
 
+(defcustom bespoke-set-modeline-height 3
+  "Set the height of the mode line as an integer
+Initial value is 3"
+  :group 'bespoke-themes
+  :type 'integer)
+
 (defcustom bespoke-set-evil-cursors t
   "If t then use bespoke evil cursor colors"
   :group 'bespoke-themes
