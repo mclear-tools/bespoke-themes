@@ -24,7 +24,7 @@ made in various commits. Suggestions and pull requests are welcome!
 - There is an optional custom mode line, which may be set as a header line (as in
   nano-emacs), or as the normal footer line, or the theme can make merely cosmetic
   changes. See the options for the =(bespoke-set-mode-line)= variable.
-- You can set the height of the mode line with (bespoke-set-modeline-height)
+- You can set the height of the mode line with =(bespoke-set-modeline-height)=
 - You can set italics for keywords or for comments (or both).
 - You can set variable-pitch for headlines using =(bespoke-set-variable-pitch)=.
 - There is a toggle function for toggling between light and dark theme variants:
