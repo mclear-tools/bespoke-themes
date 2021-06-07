@@ -161,8 +161,8 @@ want to use in the modeline *in lieu of* the original.")
   (let* ((char-width    (window-font-width nil 'header-line))
          (window        (get-buffer-window (current-buffer)))
          (active        (eq window bespoke-modeline--selected-window))
-         (space-up       +0.10)
-         (space-down     -0.15)
+         (space-up       +0.20)
+         (space-down     -0.25)
          ;; Use status letters for TTY display
 	     (prefix          (if (display-graphic-p)
                               (cond ((string= status "⨂")
@@ -573,7 +573,6 @@ want to use in the modeline *in lieu of* the original.")
 (when bespoke-set-mode-line t
       (add-hook 'post-command-hook
 	            (lambda () (setq bespoke-modeline--selected-window (selected-window)))))
-
 
 ;;; Provide Bespoke Modeline
 (provide 'bespoke-modeline)
