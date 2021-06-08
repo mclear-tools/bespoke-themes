@@ -166,6 +166,15 @@ shade to modeline color and to the highlight color."
 ;; The accent colors are used to fill out the color palatte. They are meant to be
 ;; used for attention or contrast with the core colors. Readability is important.
 
+(defface bespoke-highlight nil
+  "This should be used primarily for highlighting. It is meant
+subtlety stand out from the mode line and other adjacent faces."
+  :group 'faces)
+
+(defface bespoke-inactive nil
+  "Face for the inactive mode line"
+  :group 'faces)
+
 (defface bespoke-red nil
   "A reddish accent face"
   :group 'faces)
@@ -225,6 +234,7 @@ shade to modeline color and to the highlight color."
 
   (setq bespoke-modeline   (--l/d "#e3e7ef" "#3c4353"))
   (setq bespoke-highlight  (--l/d "#dbe1eb" "#444B5c"))
+  (setq bespoke-inactive   (--l/d "#cbd3e1" "#525868"))
 
   (setq bespoke-critical   (--l/d "#f53137" "#f46715"))
   (setq bespoke-salient    (--l/d "#303db4" "#88c0d0"))
@@ -667,9 +677,9 @@ shade to modeline color and to the highlight color."
                                        :background ,bespoke-yellow
                                        :box (:line-width 1 :color ,bespoke-yellow :style nil))))
 
-   `(bespoke-modeline-inactive-face ((,class :foreground ,bespoke-faded
-                                             :background ,bespoke-highlight
-                                             :box (:line-width 1 :color ,bespoke-highlight :style nil))))
+   `(bespoke-modeline-inactive-face ((,class :foreground ,bespoke-highlight
+                                             :background ,bespoke-inactive
+                                             :box (:line-width 1 :color ,bespoke-inactive :style nil))))
 
 
 ;;;; Mu4e

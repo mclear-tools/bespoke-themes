@@ -180,10 +180,10 @@ want to use in the modeline *in lieu of* the original.")
 		                           (propertize (if (window-dedicated-p)" -- " " RW ") 'face (if active 'bespoke-modeline-default-face 'bespoke-modeline-inactive-face)))
                                   (t (propertize status 'face 'bespoke-modeline-ro-face)))))
          (left (concat
-                (propertize " "  'face (if active 'header-line 'bespoke-faded)
+                (propertize " "  'face (if active 'header-line 'fringe)
 			                'display `(raise ,space-up))
-                (propertize name 'face (if active 'header-line 'bespoke-faded))
-                (propertize " "  'face (if active 'header-line 'bespoke-faded)
+                (propertize name 'face (if active 'header-line 'fringe))
+                (propertize " "  'face (if active 'header-line 'fringe)
 			                'display `(raise ,space-down))
                 (if (derived-mode-p 'deft-mode)
                     (propertize primary 'face 'match)
@@ -196,8 +196,8 @@ want to use in the modeline *in lieu of* the original.")
     (concat prefix
 	        left
 	        (propertize (make-string available-width ?\ )
-                        'face (if active 'header-line 'bespoke-faded))
-	        (propertize right 'face (if active 'header-line 'bespoke-faded)))))
+                        'face (if active 'header-line 'fringe))
+	        (propertize right 'face (if active 'header-line 'fringe)))))
 
 ;;;; Mode line status
 ;; ---------------------------------------------------------------------
