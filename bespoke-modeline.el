@@ -35,7 +35,13 @@
 ;; [ status | name (primary)               secondary | item1 | item2 ]
 ;;
 ;; -------------------------------------------------------------------
-(require 'subr-x)
+
+;;; Requirements
+
+(eval-when-compile
+  (require 'subr-x)
+  (require 'cl-lib))
+
 
 ;;; Visual bell for mode line
 
@@ -102,7 +108,6 @@ want to use in the modeline *in lieu of* the original.")
 
 (defun clean-mode-line ()
   (interactive)
-  (require'cl-lib)
   (cl-loop for cleaner in mode-line-cleaner-alist
            do (let* ((mode (car cleaner))
                      (mode-str (cdr cleaner))
