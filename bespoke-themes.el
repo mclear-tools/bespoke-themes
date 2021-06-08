@@ -36,6 +36,8 @@
 (unless (>= emacs-major-version 26)
   (error "Requires Emacs 26 or later"))
 
+(eval-when-compile (require 'cl-lib))
+
 ;;; Theme Options
 
 (defcustom bespoke-set-theme 'light
