@@ -265,7 +265,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(buffer-menu-buffer                            ((,class :foreground ,bespoke-strong)))
    `(minibuffer-prompt                             ((,class :foreground ,bespoke-green)))
    `(link                                          ((,class :foreground ,bespoke-salient)))
-   `(region                                        ((,class :background ,bespoke-faded)))
+   `(region                                        ((,class :background ,bespoke-highlight)))
    `(fringe                                        ((,class :foreground ,bespoke-faded :weight light)))
    `(highlight                                     ((,class :background ,bespoke-highlight)))
    `(lazy-highlight                                ((,class :foreground ,bespoke-green)))
