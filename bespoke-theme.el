@@ -635,6 +635,13 @@ subtlety stand out from the mode line and other adjacent faces."
                           :overline nil
                           :underline nil))))
 
+   ;; no underline in terminal
+   (when (not (display-graphic-p))
+     (set-face-attribute 'mode-line nil
+                         :underline nil)
+     (set-face-attribute 'mode-line-inactive nil
+                         :underline nil))
+
    (when (eq bespoke-set-mode-line 'footer)
      `(mode-line-inactive ((,class :foreground ,bespoke-subtle
                                    :background ,bespoke-modeline
@@ -813,6 +820,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(outline-8            ((,class :inherit outline-2)))
 
 
+
 ;;;; Search
    `(evil-ex-search                               ((,class :background ,bespoke-popout)))
    `(isearch                                      ((,class :foreground ,bespoke-popout :weight bold)))
@@ -862,6 +870,11 @@ subtlety stand out from the mode line and other adjacent faces."
    `(window-divider                               ((,class :foreground ,bespoke-background)))
    `(window-divider-first-pixel                   ((,class :foreground ,bespoke-background)))
    `(window-divider-last-pixel                    ((,class :foreground ,bespoke-background)))
+   ;; divide windows better in terminal
+   ;; see https://www.reddit.com/r/emacs/comments/3u0d0u/how_do_i_make_the_vertical_window_divider_more/
+   (when (not (display-graphic-p))
+     (set-face-background 'vertical-border bespoke-background)
+     (set-face-foreground 'vertical-border (face-background 'vertical-border)))
 
 ;;;; End Custom faces
    ))
