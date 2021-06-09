@@ -282,6 +282,7 @@ subtlety stand out from the mode line and other adjacent faces."
 ;;;; Bookmarks
    `(bookmark-menu-heading                         ((,class :foreground ,bespoke-strong)))
    `(bookmark-menu-bookmark                        ((,class :foreground ,bespoke-salient)))
+   `(bookmark-face                                 ((,class :foreground ,bespoke-salient)))
 
 ;;;; Completion/Narrowing
 
@@ -684,7 +685,7 @@ subtlety stand out from the mode line and other adjacent faces."
                                        :background ,bespoke-yellow
                                        :box (:line-width 1 :color ,bespoke-yellow :style nil))))
 
-   `(bespoke-modeline-inactive-face ((,class :foreground ,bespoke-highlight
+   `(bespoke-modeline-inactive-face ((,class :foreground ,bespoke-subtle
                                              :background ,bespoke-inactive
                                              :box (:line-width 1 :color ,bespoke-inactive :style nil))))
 
