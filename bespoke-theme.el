@@ -198,19 +198,19 @@ subtlety stand out from the mode line and other adjacent faces."
 ;;;; Modeline faces
 
 (defface bespoke-modeline-default-face nil
-  "Default face for ther header line."
+  "Default face for the mode line."
   :group 'faces)
 
 (defface bespoke-modeline-mod-face nil
-  "Header line face for modified buffers."
+  "Mode line face for modified buffers."
   :group 'faces)
 
 (defface bespoke-modeline-ro-face nil
-  "Header line face for read-only buffers."
+  "Mode line face for read-only buffers."
   :group 'faces)
 
 (defface bespoke-modeline-inactive-face nil
-  "Header line face for read-only buffers."
+  "Mode line face for inactive windows."
   :group 'faces)
 
 
@@ -241,7 +241,7 @@ subtlety stand out from the mode line and other adjacent faces."
   (setq bespoke-strong     (--l/d "#000000" "#ffffff"))
   (setq bespoke-popout     (--l/d "#940b96" "#bc85cf"))
   (setq bespoke-subtle     (--l/d "#eceff1" "#333a47"))
-  (setq bespoke-faded      (--l/d "#8a93a8" "#7c89a2"))
+  (setq bespoke-faded      (--l/d "#727d97" "#959eb1"))
 
   (setq bespoke-blue       (--l/d "#30608c" "#81a1c1"))
   (setq bespoke-green      (--l/d "#00796b" "#8eb89d"))
