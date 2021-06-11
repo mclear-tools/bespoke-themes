@@ -613,7 +613,9 @@ subtlety stand out from the mode line and other adjacent faces."
    (when (eq bespoke-set-mode-line 'header)
      `(header-line ((,class :foreground ,bespoke-foreground
                             :background ,bespoke-modeline
-                            :box (:line-width ,bespoke-set-modeline-height :color ,bespoke-modeline :style nil)
+                            :box (:line-width ,bespoke-set-modeline-height
+                                  :color ,bespoke-modeline
+                                  :style nil)
                             :overline nil
                             :underline nil))))
 
@@ -632,16 +634,11 @@ subtlety stand out from the mode line and other adjacent faces."
    (when (eq bespoke-set-mode-line 'footer)
      `(mode-line ((,class :foreground ,bespoke-foreground
                           :background ,bespoke-modeline
-                          :box (:line-width ,bespoke-set-modeline-height :color ,bespoke-modeline :style nil)
+                          :box (:line-width ,bespoke-set-modeline-height
+                                :color ,bespoke-modeline
+                                :style nil)
                           :overline nil
                           :underline nil))))
-
-   ;; no underline in terminal
-   (when (not (display-graphic-p))
-     (set-face-attribute 'mode-line nil
-                         :underline nil)
-     (set-face-attribute 'mode-line-inactive nil
-                         :underline nil))
 
    (when (eq bespoke-set-mode-line 'footer)
      `(mode-line-inactive ((,class :foreground ,bespoke-subtle
@@ -651,6 +648,16 @@ subtlety stand out from the mode line and other adjacent faces."
                                          :style nil)
                                    :overline nil
                                    :underline nil))))
+
+   ;; no underline in terminal
+   ;; FIXME: for some reason this seems necessary
+   ;; to disable underline in terminal
+   (when (not (display-graphic-p))
+     (set-face-attribute 'mode-line nil
+                         :underline nil)
+     (set-face-attribute 'mode-line-inactive nil
+                         :underline nil))
+
 
    (when (eq bespoke-set-mode-line nil)
      `(mode-line ((,class :foreground ,bespoke-foreground

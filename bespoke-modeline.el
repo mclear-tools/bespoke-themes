@@ -185,14 +185,32 @@ want to use in the modeline *in lieu of* the original.")
 		                           (propertize (if (window-dedicated-p)" -- " " RW ") 'face (if active 'bespoke-modeline-default-face 'bespoke-modeline-inactive-face)))
                                   (t (propertize status 'face 'bespoke-modeline-ro-face)))))
          (left (concat
-                (propertize " "  'face (if active 'header-line 'fringe)
+                (propertize " "  'face (if active (cond ((eq bespoke-set-mode-line 'header)
+                                                         'header-line)
+                                                        ((eq bespoke-set-mode-line 'footer)
+                                                         'mode-line)
+                                                        ((eq bespoke-set-mode-line nil)
+                                                         'mode-line))
+                                         'fringe)
 			                'display `(raise ,space-up))
-                (propertize name 'face (if active 'header-line 'fringe))
-                (propertize " "  'face (if active 'header-line 'fringe)
-			                'display `(raise ,space-down))
+                (propertize name 'face (if active (cond ((eq bespoke-set-mode-line 'header)
+                                                         'header-line)
+                                                        ((eq bespoke-set-mode-line 'footer)
+                                                         'mode-line)
+                                                        ((eq bespoke-set-mode-line nil)
+                                                         'mode-line))
+                                         'fringe))
+                (propertize " "  'face (if active (cond ((eq bespoke-set-mode-line 'header)
+                                                         'header-line)
+                                                        ((eq bespoke-set-mode-line 'footer)
+                                                         'mode-line)
+                                                        ((eq bespoke-set-mode-line nil)
+                                                         'mode-line))
+                                         'fringe)
+		                    'display `(raise ,space-down))
                 (if (derived-mode-p 'deft-mode)
                     (propertize primary 'face 'match)
-		          (propertize primary 'face 'fringe))))
+	              (propertize primary 'face 'fringe))))
          (right (concat secondary " "))
          (available-width (- (window-total-width)
 			                 (length prefix) (length left) (length right)
@@ -201,17 +219,29 @@ want to use in the modeline *in lieu of* the original.")
     (concat prefix
 	        left
 	        (propertize (make-string available-width ?\ )
-                        'face (if active 'header-line 'fringe))
-	        (propertize right 'face (if active 'header-line 'fringe)))))
+                        'face (if active (cond ((eq bespoke-set-mode-line 'header)
+                                                'header-line)
+                                               ((eq bespoke-set-mode-line 'footer)
+                                                'mode-line)
+                                               ((eq bespoke-set-mode-line nil)
+                                                'mode-line))
+                                'fringe))
+            (propertize right 'face (if active (cond ((eq bespoke-set-mode-line 'header)
+                                                      'header-line)
+                                                     ((eq bespoke-set-mode-line 'footer)
+                                                      'mode-line)
+                                                     ((eq bespoke-set-mode-line nil)
+                                                      'mode-line))
+                                      'fringe)))))
 
 ;;;; Mode line status
-;; ---------------------------------------------------------------------
-(defun bespoke-modeline-status ()
-  "Return buffer status: read-only (⨂), modified (⨀) or read-write (◯)"
-  (let ((read-only   buffer-read-only)
-        (modified    (and buffer-file-name (buffer-modified-p))))
-    ;; Use status letters for TTY display
-    (cond (modified (if (display-graphic-p) "⨀" "**")) (read-only (if (display-graphic-p) "⨂" "RO")) (t (if (display-graphic-p) "◯" "RW")))))
+  ;; ---------------------------------------------------------------------
+  (defun bespoke-modeline-status ()
+    "Return buffer status: read-only (⨂), modified (⨀) or read-write (◯)"
+    (let ((read-only   buffer-read-only)
+          (modified    (and buffer-file-name (buffer-modified-p))))
+      ;; Use status letters for TTY display
+      (cond (modified (if (display-graphic-p) "⨀" "**")) (read-only (if (display-graphic-p) "⨂" "RO")) (t (if (display-graphic-p) "◯" "RW")))))
 
 ;;;; Default display
 (defun bespoke-modeline-default-mode ()
@@ -521,7 +551,7 @@ want to use in the modeline *in lieu of* the original.")
 ;; ---------------------------------------------------------------------
 
 (defun bespoke/header-line ()
-  "Install a header line whose content depends on the major mode"
+  "Install a mode line in header whose content depends on the major mode"
   (interactive)
   ;; Update selected window
   (setq bespoke-modeline--selected-window (selected-window))
@@ -529,7 +559,7 @@ want to use in the modeline *in lieu of* the original.")
   (setq-default mode-line-format (list "%-"))
   (force-mode-line-update))
 
-(defun bespoke/mode-line ()
+(defun bespoke/footer-line ()
   "Install mode line whose content depends on the major mode"
   (interactive)
   ;; Update selected window
@@ -567,7 +597,7 @@ want to use in the modeline *in lieu of* the original.")
       ((eq bespoke-set-mode-line 'footer)
        (progn
          (setq eshell-status-in-modeline nil)
-         (bespoke/mode-line)
+         (bespoke/footer-line)
          ))
       ((eq bespoke-set-mode-line nil)))
 
