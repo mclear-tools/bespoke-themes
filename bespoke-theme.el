@@ -5,7 +5,8 @@
 ;; -------------------------------------------------------------------
 ;; URL: https://github.com/mclear-tools/bespoke-themes
 ;; -------------------------------------------------------------------
-;; Version: 1
+;; Created: 2021-03-16
+;; Version: 0.5
 ;; Package-Requires: ((emacs "26.1"))
 ;; -------------------------------------------------------------------
 ;; This file is not part of GNU Emacs.
@@ -888,9 +889,8 @@ subtlety stand out from the mode line and other adjacent faces."
    ))
 
 ;;; Define evil cursor colors
-(defun bespoke-evil-load-cursors ()
+(defun bespoke--evil-load-cursors ()
   "Load theme specific cursor colors"
-  (interactive)
   (setq evil-emacs-state-cursor    `(,bespoke-salient box))
   (setq evil-normal-state-cursor   `(,bespoke-yellow box))
   (setq evil-visual-state-cursor   `(,bespoke-faded box))
@@ -900,7 +900,7 @@ subtlety stand out from the mode line and other adjacent faces."
   (setq evil-operator-state-cursor `(,bespoke-brown hollow)))
 
 (when bespoke-set-evil-cursors
-  (add-hook 'bespoke-after-load-theme-hook #'bespoke-evil-load-cursors))
+  (add-hook 'bespoke-after-load-theme-hook #'bespoke--evil-load-cursors))
 
 ;;; Set Minibuffer & Echo Area
 (defun bespoke-theme--minibuffer ()

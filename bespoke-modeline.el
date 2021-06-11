@@ -5,8 +5,9 @@
 ;; -------------------------------------------------------------------
 ;; URL: https://github.com/mclear-tools/bespoke-themes
 ;; -------------------------------------------------------------------
-;; Version: 1
-;; Package-Requires: ((emacs "25.1"))
+;; Created: 2021-03-16
+;; Version: 0.5
+;; Package-Requires: ((emacs "26.1"))
 ;; -------------------------------------------------------------------
 ;; This file is not part of GNU Emacs.
 ;;

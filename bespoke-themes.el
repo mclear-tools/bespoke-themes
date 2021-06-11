@@ -5,8 +5,9 @@
 ;; -------------------------------------------------------------------
 ;; URL: https://github.com/mclear-tools/bespoke-themes
 ;; -------------------------------------------------------------------
-;; Version: 1
-;; Package-Requires: ((emacs "25.1"))
+;; Created: 2021-03-16
+;; Version: 0.5
+;; Package-Requires: ((emacs "26.1"))
 ;; -------------------------------------------------------------------
 ;; This file is not part of GNU Emacs.
 ;;
@@ -115,6 +116,22 @@ Initial value is 3"
       (setq bespoke-set-theme 'light)
       (load-theme 'bespoke t))))
 
+;;; Call Theme Functions
+;;;###autoload
+(defun bespoke/light-theme ()
+  "Set light variant of bespoke-theme"
+  (interactive)
+  (bespoke--disable-all-themes)
+  (setq bespoke-set-theme 'light)
+  (load-theme 'bespoke t))
+
+;;;###autoload
+(defun bespoke/dark-theme ()
+  "Set dark variant of bespoke-theme"
+  (interactive)
+  (bespoke--disable-all-themes)
+  (setq bespoke-set-theme 'dark)
+  (load-theme 'bespoke t))
 
 
 
