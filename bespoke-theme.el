@@ -228,8 +228,7 @@ subtlety stand out from the mode line and other adjacent faces."
 (defalias '--l/d #'bespoke-theme--light-dark)
 
 ;; Set colors according to variant so they can be used outside the theme declaration
-(defun bespoke/set-theme-variant ()
-  (interactive)
+(defun bespoke--set-theme-variant ()
   (setq bespoke-foreground (--l/d "#282b35" "#eceff4"))
   (setq bespoke-background (--l/d "#fffef9" "#282b35"))
 
@@ -253,7 +252,7 @@ subtlety stand out from the mode line and other adjacent faces."
 ;;; Customize Faces
 
 ;; Call color settings
-(bespoke/set-theme-variant)
+(bespoke--set-theme-variant)
 
 ;; Declare class and set faces
 (let ((class '((class color) (min-colors 89))))
