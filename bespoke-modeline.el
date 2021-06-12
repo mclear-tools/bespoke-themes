@@ -168,7 +168,7 @@ want to use in the modeline *in lieu of* the original.")
          (window        (get-buffer-window (current-buffer)))
          (active        (eq window bespoke-modeline--selected-window))
          (space-up       +0.20)
-         (space-down     -0.25)
+         (space-down     -0.20)
          ;; Use status letters for TTY display
 	     (prefix          (if (display-graphic-p)
                               (cond ((string= status "⨂")
