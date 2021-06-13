@@ -55,7 +55,7 @@ If the value is `footer', then set modeline as the standard footer line"
           (const :tag "Header" header)
           (const :tag "Footer" footer)))
 
-(defcustom bespoke-set-modeline-size 3
+(defcustom bespoke-set-mode-line-size 3
   "Set the size of the mode line as an integer
 Initial value is 3"
   :group 'bespoke-themes

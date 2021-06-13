@@ -613,7 +613,7 @@ subtlety stand out from the mode line and other adjacent faces."
    (when (eq bespoke-set-mode-line 'header)
      `(header-line ((,class :foreground ,bespoke-foreground
                             :background ,bespoke-modeline
-                            :box (:line-width ,bespoke-set-modeline-height
+                            :box (:line-width ,bespoke-set-mode-line-height
                                   :color ,bespoke-modeline
                                   :style nil)
                             :overline nil
@@ -634,7 +634,7 @@ subtlety stand out from the mode line and other adjacent faces."
    (when (eq bespoke-set-mode-line 'footer)
      `(mode-line ((,class :foreground ,bespoke-foreground
                           :background ,bespoke-modeline
-                          :box (:line-width ,bespoke-set-modeline-height
+                          :box (:line-width ,bespoke-set-mode-line-height
                                 :color ,bespoke-modeline
                                 :style nil)
                           :overline nil
@@ -643,7 +643,7 @@ subtlety stand out from the mode line and other adjacent faces."
    (when (eq bespoke-set-mode-line 'footer)
      `(mode-line-inactive ((,class :foreground ,bespoke-subtle
                                    :background ,bespoke-modeline
-                                   :box (:line-width ,bespoke-set-modeline-height
+                                   :box (:line-width ,bespoke-set-mode-line-height
                                          :color ,bespoke-modeline
                                          :style nil)
                                    :overline nil
@@ -662,7 +662,7 @@ subtlety stand out from the mode line and other adjacent faces."
    (when (eq bespoke-set-mode-line nil)
      `(mode-line ((,class :foreground ,bespoke-foreground
                           :background ,bespoke-modeline
-                          :box (:line-width ,bespoke-set-modeline-height
+                          :box (:line-width ,bespoke-set-mode-line-height
                                 :color ,bespoke-modeline
                                 :style nil)
                           :overline nil
@@ -671,7 +671,7 @@ subtlety stand out from the mode line and other adjacent faces."
    (when (eq bespoke-set-mode-line nil)
      `(mode-line-inactive ((,class :foreground ,bespoke-foreground
                                    :background ,bespoke-modeline
-                                   :box (:line-width ,bespoke-set-modeline-height
+                                   :box (:line-width ,bespoke-set-mode-line-height
                                          :color ,bespoke-modeline
                                          :style nil)
                                    :overline nil
