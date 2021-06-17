@@ -50,7 +50,7 @@ packages, but you can of course install it from this repo however you wish.
   ;; Set header line
   (setq bespoke-set-mode-line 'header)
     ;; Set mode line height
-  (setq bespoke-set-mode-line-height 3)
+  (setq bespoke-set-mode-line-size 3)
   ;; Set evil cursor colors
   (setq bespoke-set-evil-cursors t)
   ;; Use mode line visual bell

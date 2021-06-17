@@ -363,7 +363,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(ido-subdir                                    ((,class :foreground ,bespoke-strong)))
 
 ;;;;; Selectrum
-   `(selectrum-current-candidate                   ((,class :slant  italic :weight bold :background ,bespoke-highlight)))
+   `(selectrum-current-candidate                   ((,class :weight bold :background ,bespoke-highlight)))
    `(selectrum-prescient-secondary-highlight       ((,class :weight bold :foreground ,bespoke-blue)))
    `(selectrum-prescient-primary-highlight         ((,class :weight bold :foreground ,bespoke-salient)))
    `(selectrum-completion-docsig                   ((,class :slant  italic :inherit selectrum-completion-annotation)))
@@ -915,12 +915,9 @@ subtlety stand out from the mode line and other adjacent faces."
 ;;; Provide theme
 
 ;;;###autoload
-(and load-file-name
-     (boundp 'custom-theme-load-path)
-     (add-to-list 'custom-theme-load-path
-                  (file-name-as-directory
-                   (file-name-directory load-file-name))))
-
+(when (and (boundp 'custom-theme-load-path) load-file-name)
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'bespoke)
 (provide 'bespoke-theme)
