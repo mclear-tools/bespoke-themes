@@ -30,7 +30,8 @@ balance between aesthetics and readability. Suggestions and pull requests are we
 - You can set italics for keywords or for comments (or both).
 - You can set variable-pitch for headlines using =(bespoke-set-variable-pitch)=.
 - There is a toggle function for toggling between light and dark theme variants:
-  =(bespoke/toggle-theme)=.
+  =(bespoke/toggle-theme)=. You can also call each theme variant directly with
+  =(bespoke/light-theme)= or =(bespoke/dark-theme)=.
 - There is a useful footer line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. To use
   include =(setq bespoke-set-visual-bell t)= in your setup of the theme.
 - All options are available via =customize-group=, and can also be found in the
