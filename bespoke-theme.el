@@ -595,6 +595,29 @@ subtlety stand out from the mode line and other adjacent faces."
    `(markdown-table-face                           ((,class :inherit    default)))
    `(markdown-url-face                             ((,class :foreground ,bespoke-salient)))
 
+;;;; Magit
+   `(magit-branch-current      ((,class :foreground ,bespoke-salient :box t)))
+   `(magit-branch-local        ((,class :foreground ,bespoke-salient)))
+   `(magit-branch-remote       ((,class :foreground ,bespoke-green)))
+   `(magit-branch-remote-head  ((,class :foreground ,bespoke-popout :box t)))
+   `(magit-branch-upstream     ((,class :inherit italic)))
+   `(magit-cherry-equivalent   ((,class :background ,bespoke-background :foreground ,bespoke-popout)))
+   `(magit-cherry-unmatched ((,class :background ,bespoke-background :foreground ,bespoke-salient)))
+   `(magit-head                ((,class :inherit magit-branch-local)))
+   `(magit-header-line ((,class :inherit bold :foreground ,bespoke-foreground)))
+   `(magit-header-line-key ((,class :foregrond ,bespoke-green)))
+   `(magit-header-line-log-select ((,class :inherit bold :foreground ,bespoke-foreground)))
+   `(magit-keyword ((,class :foreground ,bespoke-popout)))
+   `(magit-keyword-squash ((,class :inherit bold :foreground ,bespoke-yellow)))
+   `(magit-section ((,class :background ,bespoke-subtle :foreground ,bespoke-foreground)))
+   `(magit-section-heading     ((,class :weight semi-bold :foreground ,bespoke-yellow)))
+   `(magit-section-heading-selection ((,class :foreground ,bespoke-salient)))
+   `(magit-section-highlight ((,class :background ,bespoke-highlight)))
+   `(magit-tag                 ((,class :foreground ,bespoke-yellow)))
+
+
+
+
 ;;;; Message
    `(message-cited-text                            ((,class :foreground ,bespoke-faded)))
    `(message-header-cc                             ((,class :inherit default)))
@@ -872,6 +895,8 @@ subtlety stand out from the mode line and other adjacent faces."
 
    `(which-key-posframe                           ((,class :background ,bespoke-subtle)))
    `(which-key-posframe-border                    ((,class :background ,bespoke-subtle)))
+   `(transient-posframe-border                    ((,class :background ,bespoke-subtle)))
+   `(transient-posframe                           ((,class :foreground ,bespoke-strong :background ,bespoke-subtle)))
 
 ;;;; Window Divs
    ;; divide windows more attractively
