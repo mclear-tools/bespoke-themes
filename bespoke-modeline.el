@@ -131,15 +131,15 @@ want to use in the modeline *in lieu of* the original.")
     (concat
      ;; Divider
      (when (vc-registered (buffer-file-name))
-       (propertize " •" 'face `(:inherit fringe)))
+       (propertize " • " 'face `(:inherit fringe)))
      (when (bound-and-true-p projectile-mode)
        (let ((project-name (projectile-project-name)))
          (unless (string= "-" project-name)
-           (format " %s" project-name))))
+           (format "%s" project-name))))
      ;; Show branch
      (if vc-mode
          (let ((backend (vc-backend buffer-file-name)))
-           (concat "" (substring-no-properties vc-mode
+           (concat "" (substring-no-properties vc-mode
                                                 (+ (if (eq backend 'Hg) 2 3) 2))))  nil))))
 
 
