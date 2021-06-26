@@ -512,9 +512,37 @@ subtlety stand out from the mode line and other adjacent faces."
    `(font-lock-regexp-grouping-backslash           ((,class :foreground ,bespoke-critical)))
    `(font-lock-regexp-grouping-construct           ((,class :foreground ,bespoke-critical)))
 
+;;;; Git
+;;;;; Git-gutter
+   `(git-gutter:added        ((,class :foreground ,bespoke-salient)))
+   `(git-gutter:deleted      ((,class :foreground ,bespoke-red)))
+   `(git-gutter:modified     ((,class :foreground ,bespoke-popout)))
+   `(git-gutter:separator    ((,class :foreground ,bespoke-subtle)))
+   `(git-gutter:unchanged    ((,class :foreground ,bespoke-background)))
+;;;;; Git-gutter-fr
+   `(git-gutter-fr:added        ((,class :foreground ,bespoke-salient)))
+   `(git-gutter-fr:deleted      ((,class :foreground ,bespoke-red)))
+   `(git-gutter-fr:modified     ((,class :foreground ,bespoke-popout)))
+
 ;;;; Help(ful)
 
    `(helpful-heading                               ((,class :inherit ,(if bespoke-set-variable-pitch 'variable-pitch 'default) :foreground ,bespoke-blue :height 1.25)))
+
+
+;;;; Highlight-Indentation
+   `(highlight-indentation-face ((,class :inherit ,bespoke-highlight)))
+   `(highlight-indentation-current-column-face ((,class :background ,bespoke-yellow)))
+
+;;;; Highlight Indentation Guides
+   `(highlight-indent-guides-stack-odd-face        ((,class :foreground ,bespoke-brown)))
+   `(highlight-indent-guides-stack-even-face       ((,class :foreground ,bespoke-yellow)))
+   `(highlight-indent-guides-top-odd-face          ((,class :foreground ,bespoke-brown)))
+   `(highlight-indent-guides-top-even-face         ((,class :foreground ,bespoke-yellow)))
+   `(highlight-indent-guides-odd-face              ((,class :foreground ,bespoke-brown)))
+   `(highlight-indent-guides-even-face             ((,class :foreground ,bespoke-yellow)))
+   `(highlight-indent-guides-character-face        ((,class :foreground ,bespoke-highlight)))
+   `(highlight-indent-guides-top-character-face    ((,class :foreground ,bespoke-highlight)))
+   `(highlight-indent-guides-stack-character-face  ((,class :foreground ,bespoke-highlight)))
 
 ;;;; Imenu List
    `(imenu-list-entry-face-0                       ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
@@ -596,9 +624,9 @@ subtlety stand out from the mode line and other adjacent faces."
    `(markdown-url-face                             ((,class :foreground ,bespoke-salient)))
 
 ;;;; Magit
-   `(magit-branch-current      ((,class :foreground ,bespoke-salient :box t)))
-   `(magit-branch-local        ((,class :foreground ,bespoke-salient)))
-   `(magit-branch-remote       ((,class :foreground ,bespoke-green)))
+   `(magit-branch-current      ((,class :foreground ,bespoke-salient :box t :weight semi-bold)))
+   `(magit-branch-local        ((,class :foreground ,bespoke-salient :weight semi-bold)))
+   `(magit-branch-remote       ((,class :foreground ,bespoke-green :weight semi-bold)))
    `(magit-branch-remote-head  ((,class :foreground ,bespoke-popout :box t)))
    `(magit-branch-upstream     ((,class :inherit italic)))
    `(magit-cherry-equivalent   ((,class :background ,bespoke-background :foreground ,bespoke-popout)))
