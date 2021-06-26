@@ -238,7 +238,7 @@ want to use in the modeline *in lieu of* the original.")
 ;;;; Mode line status
   ;; ---------------------------------------------------------------------
   (defun bespoke-modeline-status ()
-    "Return buffer status: read-only (⨂), modified (⨀) or read-write (◯)"
+    "Return buffer status: read-only (⨂)/(RO), modified (⨀)/(**), or read-write (◯)/(RW)"
     (let ((read-only   buffer-read-only)
           (modified    (and buffer-file-name (buffer-modified-p))))
       ;; Use status letters for TTY display
