@@ -49,7 +49,7 @@ packages, but you can of course install it from this repo however you wish.
 
 #+begin_src emacs-lisp
 (use-package bespoke-themes
-  :straight (:host github :repo "mclear-tools/bespoke-themes")
+  :straight (:host github :repo "mclear-tools/bespoke-themes" :branch "main")
   :config
   ;; Set header line
   (setq bespoke-set-mode-line 'header)
