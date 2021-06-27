@@ -566,18 +566,16 @@ want to use in the modeline *in lieu of* the original.")
 
 ;;;; Mode line header function
 ;; ---------------------------------------------------------------------
-(defun bespoke/header-line ()
+(defun bespoke--header-line ()
   "Install a mode line in header whose content depends on the major mode"
-  (interactive)
   ;; Update selected window
   (setq bespoke-modeline--selected-window (selected-window))
   (setq-default header-line-format bespoke--mode-line)
   (setq-default mode-line-format (list "%-"))
   (force-mode-line-update))
 
-(defun bespoke/footer-line ()
+(defun bespoke--footer-line ()
   "Install mode line whose content depends on the major mode"
-  (interactive)
   ;; Update selected window
   (setq bespoke-modeline--selected-window (selected-window))
   (setq-default header-line-format nil)
@@ -632,12 +630,12 @@ Note that you may need to revert buffers to see the modeline properly"
 (cond ((eq bespoke-set-mode-line 'header)
        (progn
          (setq eshell-status-in-modeline nil)
-         (bespoke/header-line)
+         (bespoke--header-line)
          ))
       ((eq bespoke-set-mode-line 'footer)
        (progn
          (setq eshell-status-in-modeline nil)
-         (bespoke/footer-line)
+         (bespoke--footer-line)
          ))
       ((eq bespoke-set-mode-line nil)))
 
