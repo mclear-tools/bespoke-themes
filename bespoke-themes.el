@@ -61,6 +61,11 @@ Initial value is 3"
   :group 'bespoke-themes
   :type 'integer)
 
+(defcustom bespoke-set-git-diff-modeline t
+  "If t then show diff lines in modeline"
+  :group 'bespoke-themes
+  :type 'boolean)
+
 (defcustom bespoke-set-evil-cursors t
   "If t then use bespoke evil cursor colors"
   :group 'bespoke-themes
@@ -85,7 +90,6 @@ Initial value is 3"
   "If t then use variable-pitch for headings"
   :group 'bespoke-themes
   :type 'boolean)
-
 
 ;;; After Load Theme Hook
 (defvar bespoke-after-load-theme-hook nil

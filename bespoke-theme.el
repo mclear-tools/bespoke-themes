@@ -720,7 +720,7 @@ subtlety stand out from the mode line and other adjacent faces."
                           :underline nil))))
 
    (when (eq bespoke-set-mode-line nil)
-     `(mode-line-inactive ((,class :foreground ,bespoke-foreground
+     `(mode-line-inactive ((,class :foreground ,bespoke-faded
                                    :background ,bespoke-modeline
                                    :box (:line-width ,bespoke-set-mode-line-height
                                          :color ,bespoke-modeline

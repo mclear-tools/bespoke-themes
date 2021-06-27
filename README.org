@@ -12,28 +12,32 @@ conditions on fonts and ui elements, but bespoke-themes otherwise shares many of
 themeing ideas with the good work done by Rougier (see also his work on [[https://arxiv.org/abs/2008.06030][on the design
 of text editors]]).
 
-Faces are fairly (though not totally!) comprehensive, including (optional) evil
-cursor colors. I'm trying to add faces on a regular basis. If there is a face you'd
-like to see added please open an issue. 
+Faces are fairly comprehensive, including (optional) evil cursor colors. I'm trying
+to add faces on a regular basis. If there is a face you'd like to see added please
+open an issue.
 
-*NOTE*: It is early days for this theme, so there may be fairly significant changes
-made in various commits. I'm continuing to tweak colors slightly to find the best
-balance between aesthetics and readability. Suggestions and pull requests are welcome!
+*NOTE*: It is early days for this theme, so there may be significant and/or breaking
+changes made from one commit to the next. I'm continuing to tweak colors slightly to find the
+best balance between aesthetics and readability. Suggestions and pull requests are
+welcome!
 
 
 *** Options
 
-- There is an optional custom mode line, which may be set as a header line (as in
+- There is an optional custom modeline, which may be set as a header line (as in
   nano-emacs), or as the normal footer line, or the theme can make merely cosmetic
   changes. See the options for the =(bespoke-set-mode-line)= variable.
-- You can set the size of the mode line with =(bespoke-set-mode-line-size)=
-- You can set italics for keywords or for comments (or both).
+   + You can set the size of the mode line with =(bespoke-set-mode-line-size)=
+   + Toggle between the header or footer mode line with =(bespoke/toggle-mode-line)= or
+     disable the custom modeline altogether with =(bespoke/disable-custom-mode-line)=
+   + Show git diff in modeline with =(bespoke-set-git-diff-mode-line)=
+- There is a useful footer line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. To use
+  include =(setq bespoke-set-visual-bell t)= in your setup of the theme.
+- You can set italics for keywords or comments (or both).
 - You can set variable-pitch for headlines using =(bespoke-set-variable-pitch)=.
 - There is a toggle function for toggling between light and dark theme variants:
   =(bespoke/toggle-theme)=. You can also call each theme variant directly with
   =(bespoke/light-theme)= or =(bespoke/dark-theme)=.
-- There is a useful footer line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. To use
-  include =(setq bespoke-set-visual-bell t)= in your setup of the theme.
 - All options are available via =customize-group=, and can also be found in the
   =bespoke-themes.el= file.
 
@@ -45,12 +49,14 @@ packages, but you can of course install it from this repo however you wish.
 
 #+begin_src emacs-lisp
 (use-package bespoke-themes
-  :straight (:host github :repo "mclear-tools/bespoke-themes" :branch "master")
+  :straight (:host github :repo "mclear-tools/bespoke-themes")
   :config
   ;; Set header line
   (setq bespoke-set-mode-line 'header)
     ;; Set mode line height
   (setq bespoke-set-mode-line-size 3)
+    ;; Show diff lines in modeline
+  (setq bespoke-set-git-diff-mode-line t)
   ;; Set evil cursor colors
   (setq bespoke-set-evil-cursors t)
   ;; Use mode line visual bell
