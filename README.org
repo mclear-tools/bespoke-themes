@@ -63,9 +63,9 @@ packages, but you can of course install it from this repo however you wish.
   :config
   ;; Set header line
   (setq bespoke-set-mode-line 'header)
-    ;; Set mode line height
+  ;; Set mode line height
   (setq bespoke-set-mode-line-size 3)
-    ;; Show diff lines in modeline
+  ;; Show diff lines in modeline
   (setq bespoke-set-git-diff-mode-line t)
   ;; Set evil cursor colors
   (setq bespoke-set-evil-cursors t)
@@ -76,7 +76,7 @@ packages, but you can of course install it from this repo however you wish.
         bespoke-set-italic-keywords t)
   ;; Set variable pitch
   (setq bespoke-set-variable-pitch t)
-    ;; Set initial theme variant
+  ;; Set initial theme variant
   (setq bespoke-set-theme 'dark)
   ;; Load theme
   (load-theme 'bespoke t))
