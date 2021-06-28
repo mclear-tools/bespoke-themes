@@ -1,25 +1,36 @@
-Custom medium contrast light and dark themes for Emacs (intended for GUI, though
-basic support in terminal has been added). This started as a fork of [[https://github.com/rougier][Nicolas
-Rougier's]] work on [[https://github.com/rougier/elegant-emacs][elegant-emacs]] and [[https://github.com/rougier/nano-emacs][nano-emacs]], but has evolved with some ideas and
-colors borrowed from [[https://material.io/design/color/the-color-system.html#color-theme-creation][material colors]], [[https://github.com/bbatsov/solarized-emacs][solarized]] and [[https://github.com/arcticicestudio/nord-emacs][nord]], as well as color design
-aided by [[https://coolors.co][coolers.co]] and the classic [[https://www.c82.net/werner/][Werner's Nomenclature]].
+Bespoke-themes is a set of custom, medium contrast, light and dark themes for Emacs
+(intended for GUI, though basic support in terminal has been added), along with an
+optional custom modeline. This started as a fork of [[https://github.com/rougier][Nicolas Rougier's]] work on
+[[https://github.com/rougier/elegant-emacs][elegant-emacs]] and [[https://github.com/rougier/nano-emacs][nano-emacs]], but has evolved with some ideas and colors borrowed
+from [[https://material.io/design/color/the-color-system.html#color-theme-creation][material colors]], [[https://github.com/bbatsov/solarized-emacs][solarized]] and [[https://github.com/arcticicestudio/nord-emacs][nord]], as well as color design aided by [[https://coolors.co][coolers.co]]
+and the classic [[https://www.c82.net/werner/][Werner's Nomenclature]].
 
-One of the aims of the theme is to bring much of what is good about the nano-emacs
-distro into standard theme formatting, so that it can be set just like any other
-theme. The theme is notably less conservative/minimal than nano-emacs (or elegant
-emacs), in the sense that it has a broader color palette and sets fewer configuration
-conditions on fonts and ui elements, but bespoke-themes otherwise shares many of its
+The theme is notably less conservative/minimal than nano- or elegant-emacs, in
+the sense that it has a broader color palette and sets fewer configuration conditions
+on fonts and ui elements, but bespoke-themes otherwise shares many of its basic
 themeing ideas with the good work done by Rougier (see also his work on [[https://arxiv.org/abs/2008.06030][on the design
 of text editors]]).
+
+The theme sets six core colors, plus five highlight/accent colors, and colors for
+foreground, background, modeline, and highlight. The light and dark variants aim to
+be as consistent as possible in their use of colors, and to set a decent compromise
+between aesthetics and readability:
+
+#+BEGIN_HTML
+<div>
+<p>Colors</p>
+<img src="./screenshots/display-colors.png"/>
+</div>
+#+END_HTML
 
 Faces are fairly comprehensive, including (optional) evil cursor colors. I'm trying
 to add faces on a regular basis. If there is a face you'd like to see added please
 open an issue.
 
-*NOTE*: It is early days for this theme, so there may be significant and/or breaking
-changes made from one commit to the next. I'm continuing to tweak colors slightly to find the
-best balance between aesthetics and readability. Suggestions and pull requests are
-welcome!
+*NOTE*: It is still early days for this theme, so there may be significant and/or
+breaking changes made from one commit to the next. I also may continue to tweak
+colors slightly to find the best balance between aesthetics and readability.
+Suggestions and pull requests are welcome!
 
 
 *** Options
