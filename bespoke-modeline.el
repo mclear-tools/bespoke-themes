@@ -6,7 +6,7 @@
 ;; URL: https://github.com/mclear-tools/bespoke-themes
 ;; -------------------------------------------------------------------
 ;; Created: 2021-03-16
-;; Version: 0.5
+;; Version: 0.6
 ;; Package-Requires: ((emacs "26.1"))
 ;; -------------------------------------------------------------------
 ;; This file is not part of GNU Emacs.
@@ -24,7 +24,7 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>
 ;; -------------------------------------------------------------------
-;; Commentary:
+;;; Commentary:
 ;; A custom mode line for bespoke-theme
 ;; This mode line originated as a fork of nano-emacs modeline.
 ;; See https://github.com/rougier/nano-emacs
@@ -81,7 +81,7 @@
 ;; https://github.com/rougier/nano-modeline
 ;; Set variable to define inactive faces
 (defvar bespoke-modeline--selected-window nil
-  "Currently selected window")
+  "Currently selected window.")
 
 ;;; Clean mode line
 ;; https://www.masteringemacs.org/article/hiding-replacing-modeline-strings
@@ -174,7 +174,7 @@ want to use in the modeline *in lieu of* the original.")
 ;; From https://amitp.blogspot.com/2011/08/emacs-custom-mode-line.html
 ;; ---------------------------------------------------------------------
 (defun shorten-directory (dir max-length)
-  "Show up to `max-length' characters of a directory name `dir'."
+  "Show up to `max-length' characters of a directory name DIR."
   (let ((path (reverse (split-string (abbreviate-file-name dir) "/")))
         (output ""))
     (when (and path (equal "" (car path)))
@@ -578,7 +578,7 @@ want to use in the modeline *in lieu of* the original.")
 ;;;; Mode line header function
 ;; ---------------------------------------------------------------------
 (defun bespoke--header-line ()
-  "Install a mode line in header whose content depends on the major mode"
+  "Install a mode line in header whose content depends on the major mode."
   ;; Update selected window
   (setq bespoke-modeline--selected-window (selected-window))
   (setq-default header-line-format bespoke--mode-line)
@@ -586,7 +586,7 @@ want to use in the modeline *in lieu of* the original.")
   (force-mode-line-update))
 
 (defun bespoke--footer-line ()
-  "Install mode line whose content depends on the major mode"
+  "Install mode line whose content depends on the major mode."
   ;; Update selected window
   (setq bespoke-modeline--selected-window (selected-window))
   (setq-default header-line-format nil)
@@ -594,10 +594,10 @@ want to use in the modeline *in lieu of* the original.")
   (force-mode-line-update))
 
 (defun bespoke/toggle-mode-line ()
-  "Toggle betwee a modeline in header and one at footer whose
-content depends on the major mode.
+  "Toggle betwee a modeline in header and one at footer whose content depends on the
+major mode.
 
-Note that you may need to revert buffers to see the modeline properly"
+Note that you may need to revert buffers to see the modeline properly."
   (interactive)
   (bespoke--disable-all-themes)
   (if (eq bespoke-set-mode-line 'header)
@@ -619,7 +619,7 @@ Note that you may need to revert buffers to see the modeline properly"
   (revert-buffer))
 
 (defun bespoke/disable-custom-mode-line ()
-  "Use the emacs default mode line with bespoke colors
+  "Use the Emacs default mode line with bespoke colors
 
 Note that you may need to revert buffers to see the modeline properly"
   (interactive)

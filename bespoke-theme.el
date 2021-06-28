@@ -6,7 +6,7 @@
 ;; URL: https://github.com/mclear-tools/bespoke-themes
 ;; -------------------------------------------------------------------
 ;; Created: 2021-03-16
-;; Version: 0.5
+;; Version: 0.6
 ;; Package-Requires: ((emacs "26.1"))
 ;; -------------------------------------------------------------------
 ;; This file is not part of GNU Emacs.
@@ -24,16 +24,18 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>
 ;; -------------------------------------------------------------------
-;; Commentary:
+;;; Commentary:
 ;; This theme started as a fork of nano-emacs.
 ;; See https://github.com/rougier/nano-emacs.
 ;; Color palatte has been expanded and face definitions revised
 ;; -------------------------------------------------------------------
+;;; Code
 
+;;;; Requirements
 (require 'bespoke-modeline)
 
 
-;;; Define group & colors
+;;;; Define group & colors
 
 (defgroup bespoke-themes '()
   "Faces and colors for bespoke themes")
@@ -105,10 +107,10 @@
   :group 'bespoke-themes)
 
 
-;;; Define Faces
+;;;; Define Faces
 ;; The themes are fully defined by these faces
 
-;;;; Core faces
+;;;;; Core faces
 (defface bespoke-default nil
   "Default face is for regular use."
   :group 'faces)
@@ -163,7 +165,7 @@ significant amount of attention. It is also closely related in
 shade to modeline color and to the highlight color."
   :group 'faces)
 
-;;;; Accent faces
+;;;;; Accent faces
 ;; The accent colors are used to fill out the color palatte. They are meant to be
 ;; used for attention or contrast with the core colors. Readability is important.
 
@@ -196,7 +198,7 @@ subtlety stand out from the mode line and other adjacent faces."
   "A brownish accent face"
   :group 'faces)
 
-;;;; Modeline faces
+;;;;; Modeline faces
 
 (defface bespoke-modeline-default-face nil
   "Default face for the mode line."
@@ -215,10 +217,10 @@ subtlety stand out from the mode line and other adjacent faces."
   :group 'faces)
 
 
-;;; Define Theme
+;;;; Define Theme
 (deftheme bespoke "A custom theme for yak shaving, with light and dark variants")
 
-;;; Set Colors
+;;;; Set Colors
 
 (defun bespoke-theme--light-dark (light dark)
   "Determine theme using the LIGHT or the DARK color variants of bespoke-theme."
@@ -249,7 +251,7 @@ subtlety stand out from the mode line and other adjacent faces."
   (setq bespoke-brown      (--l/d "#966e53" "#d08770"))
   (setq bespoke-yellow     (--l/d "#e0a500" "#e9b85d")))
 
-;;; Customize Faces
+;;;; Customize Faces
 
 ;; Call color settings
 (bespoke--set-theme-variant)
@@ -261,7 +263,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(default ((,class :foreground ,bespoke-foreground :background ,bespoke-background)))
 
 
-;;;; Basic Faces
+;;;;; Basic Faces
    `(buffer-menu-buffer                            ((,class :foreground ,bespoke-strong)))
    `(minibuffer-prompt                             ((,class :foreground ,bespoke-green)))
    `(link                                          ((,class :foreground ,bespoke-salient)))
@@ -274,19 +276,19 @@ subtlety stand out from the mode line and other adjacent faces."
    `(show-paren-mismatch                           ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
    `(tooltip nil                                   ((,class :height 0.85)))
 
-;;;; Buttons
+;;;;; Buttons
    `(custom-button                                 ((,class :foreground ,bespoke-foreground :background ,bespoke-highlight :box nil)))
    `(custom-button-mouse                           ((,class :foreground ,bespoke-foreground :background ,bespoke-subtle :box nil)))
    `(custom-button-pressed                         ((,class :foreground ,bespoke-background :background ,bespoke-foreground :box nil)))
 
-;;;; Bookmarks
+;;;;; Bookmarks
    `(bookmark-menu-heading                         ((,class :foreground ,bespoke-strong)))
    `(bookmark-menu-bookmark                        ((,class :foreground ,bespoke-salient)))
    `(bookmark-face                                 ((,class :foreground ,bespoke-salient)))
 
-;;;; Completion/Narrowing
+;;;;; Completion/Narrowing
 
-;;;;; Company
+;;;;;; Company
    `(company-scrollbar-fg                          ((,class :foreground ,bespoke-faded)))
    `(company-scrollbar-bg                          ((,class :foreground ,bespoke-faded)))
    `(company-preview                               ((,class :foreground ,bespoke-faded :weight bold)))
@@ -299,7 +301,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(company-tooltip-annotation-selection          ((,class :foreground ,bespoke-salient)))
 
 
-;;;;; Counsel
+;;;;;; Counsel
    `(counsel-active-mode                           ((,class :foreground ,bespoke-salient)))
    `(counsel-application-name                      ((,class :foreground ,bespoke-red)))
    `(counsel-key-binding                           ((,class :inherit default)))
@@ -314,7 +316,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(counsel-outline-default                       ((,class :foreground ,bespoke-foreground)))
    `(counsel-variable-documentation                ((,class :inherit default :foreground ,bespoke-yellow)))
 
-;;;;; Helm
+;;;;;; Helm
    `(helm-selection                                ((,class :foreground ,bespoke-subtle :weight bold)))
    `(helm-match                                    ((,class :foreground ,bespoke-strong)))
    `(helm-source-header                            ((,class :foreground ,bespoke-salient)))
@@ -332,7 +334,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(helm-grep-finish                              ((,class :foreground ,bespoke-foreground)))
 
 
-;;;;; Ivy
+;;;;;; Ivy
    `(ivy-action                                    ((,class :foreground ,bespoke-faded)))
    `(ivy-completions-annotations                   ((,class :foreground ,bespoke-faded)))
    `(ivy-confirm-face                              ((,class :foreground ,bespoke-faded)))
@@ -357,12 +359,12 @@ subtlety stand out from the mode line and other adjacent faces."
    `(ivy-virtual                                   ((,class :foreground ,bespoke-faded)))
    `(ivy-yanked-word                               ((,class :foreground ,bespoke-faded)))
 
-;;;;; Ido
+;;;;;; Ido
    `(ido-first-match                               ((,class :foreground ,bespoke-salient)))
    `(ido-only-match                                ((,class :foreground ,bespoke-faded)))
    `(ido-subdir                                    ((,class :foreground ,bespoke-strong)))
 
-;;;;; Selectrum
+;;;;;; Selectrum
    `(selectrum-current-candidate                   ((,class :weight bold :background ,bespoke-highlight)))
    `(selectrum-prescient-secondary-highlight       ((,class :weight bold :foreground ,bespoke-blue)))
    `(selectrum-prescient-primary-highlight         ((,class :weight bold :foreground ,bespoke-salient)))
@@ -373,10 +375,10 @@ subtlety stand out from the mode line and other adjacent faces."
    `(selectrum-quick-keys-match                    ((,class :inherit isearch)))
    `(selectrum-quick-keys-highlight                ((,class :foreground ,bespoke-popout)))
 
-;;;;; Vertico
+;;;;;; Vertico
    `(vertico-current                               ((,class :slant italic :weight bold :background ,bespoke-highlight)))
 
-;;;;; Orderless
+;;;;;; Orderless
 
    `(orderless-match-face-0                        ((,class :weight bold :foreground ,bespoke-yellow)))
    `(orderless-match-face-1                        ((,class :weight bold :foreground ,bespoke-yellow)))
@@ -385,7 +387,7 @@ subtlety stand out from the mode line and other adjacent faces."
 
 
 
-;;;; Customize
+;;;;; Customize
    `(widget-field                                  ((,class :background ,bespoke-subtle)))
    `(widget-button                                 ((,class :foreground ,bespoke-foreground :bold t)))
    `(widget-single-line-field                      ((,class :background ,bespoke-subtle)))
@@ -406,7 +408,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(custom-button-mouse                           ((,class :foreground ,bespoke-faded :background ,bespoke-subtle :box `(:line-width 1 :color ,(face-foreground 'bespoke-faded) :style nil))))
    `(custom-button-pressed                         ((,class :foreground ,bespoke-foreground :background ,bespoke-salient :inverse-video nil :box `(:line-width 1 :color ,(face-foreground 'bespoke-salient) :style nil))))
 
-;;;; Deft
+;;;;; Deft
    `(deft-filter-string-error-face                 ((,class :foreground ,bespoke-popout)))
    `(deft-filter-string-face                       ((,class :foreground ,bespoke-yellow)))
    `(deft-header-face                              ((,class :foreground ,bespoke-salient)))
@@ -415,7 +417,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(deft-time-face                                ((,class :foreground ,bespoke-salient)))
    `(deft-title-face                               ((,class :foreground ,bespoke-strong :weight semi-bold)))
 
-;;;; Diff
+;;;;; Diff
    `(diff-header                                   ((,class :foreground ,bespoke-faded)))
    `(diff-file-header                              ((,class :foreground ,bespoke-strong)))
    `(diff-context                                  ((,class :inherit    default)))
@@ -428,11 +430,11 @@ subtlety stand out from the mode line and other adjacent faces."
    `(magit-section-highlight                       ((,class :background ,bespoke-subtle)))
 
 
-;;;; Dired
-;;;;; All The Icons Dired
+;;;;; Dired
+;;;;;; All The Icons Dired
    `(all-the-icons-dired-dir-face                  ((,class :forground ,bespoke-salient)))
 
-;;;;; Dired (plus)
+;;;;;; Dired (plus)
    `(diredp-write-priv                             ((,class :foreground ,bespoke-critical)))
    `(diredp-tagged-autofile-name                   ((,class :foreground ,bespoke-background)))
    `(diredp-symlink                                ((,class :foreground ,bespoke-popout)))
@@ -462,7 +464,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(diredp-compressed-file-name                   ((,class :foreground ,bespoke-background)))
    `(diredp-autofile-name                          ((,class :background ,bespoke-subtle)))
 
-;;;;; Dired Colors (Diredfl)
+;;;;;; Dired Colors (Diredfl)
    `(diredfl-write-priv                            ((,class :foreground ,bespoke-critical)))
    `(diredfl-tagged-autofile-name                  ((,class :foreground ,bespoke-background)))
    `(diredfl-symlink                               ((,class :foreground ,bespoke-popout)))
@@ -492,11 +494,11 @@ subtlety stand out from the mode line and other adjacent faces."
    `(diredfl-compressed-file-name                  ((,class :foreground ,bespoke-background)))
    `(diredfl-autofile-name                         ((,class :background ,bespoke-subtle)))
 
-;;;; Flyspell
+;;;;; Flyspell
    `(flyspell-duplicate                            ((,class :foreground ,bespoke-red)))
    `(flyspell-incorrect                            ((,class :foreground ,bespoke-critical)))
 
-;;;; Font Lock
+;;;;; Font Lock
    `(font-lock-comment-face                        ((,class :foreground ,bespoke-faded :slant ,(if bespoke-set-italic-comments 'italic 'normal))))
    `(font-lock-comment-delimiter-face              ((,class :foreground ,bespoke-faded :weight bold :slant ,(if bespoke-set-italic-comments 'italic 'normal))))
    `(font-lock-doc-face                            ((,class :foreground ,bespoke-faded)))
@@ -512,28 +514,28 @@ subtlety stand out from the mode line and other adjacent faces."
    `(font-lock-regexp-grouping-backslash           ((,class :foreground ,bespoke-critical)))
    `(font-lock-regexp-grouping-construct           ((,class :foreground ,bespoke-critical)))
 
-;;;; Git
-;;;;; Git-gutter
+;;;;; Git
+;;;;;; Git-gutter
    `(git-gutter:added        ((,class :foreground ,bespoke-salient)))
    `(git-gutter:deleted      ((,class :foreground ,bespoke-red)))
    `(git-gutter:modified     ((,class :foreground ,bespoke-popout)))
    `(git-gutter:separator    ((,class :foreground ,bespoke-subtle)))
    `(git-gutter:unchanged    ((,class :foreground ,bespoke-background)))
-;;;;; Git-gutter-fr
+;;;;;; Git-gutter-fr
    `(git-gutter-fr:added        ((,class :foreground ,bespoke-salient)))
    `(git-gutter-fr:deleted      ((,class :foreground ,bespoke-red)))
    `(git-gutter-fr:modified     ((,class :foreground ,bespoke-popout)))
 
-;;;; Help(ful)
+;;;;; Help(ful)
 
    `(helpful-heading                               ((,class :inherit ,(if bespoke-set-variable-pitch 'variable-pitch 'default) :foreground ,bespoke-blue :height 1.25)))
 
 
-;;;; Highlight-Indentation
+;;;;; Highlight-Indentation
    `(highlight-indentation-face ((,class :inherit ,bespoke-highlight)))
    `(highlight-indentation-current-column-face ((,class :background ,bespoke-yellow)))
 
-;;;; Highlight Indentation Guides
+;;;;; Highlight Indentation Guides
    `(highlight-indent-guides-stack-odd-face        ((,class :foreground ,bespoke-brown)))
    `(highlight-indent-guides-stack-even-face       ((,class :foreground ,bespoke-yellow)))
    `(highlight-indent-guides-top-odd-face          ((,class :foreground ,bespoke-brown)))
@@ -544,13 +546,13 @@ subtlety stand out from the mode line and other adjacent faces."
    `(highlight-indent-guides-top-character-face    ((,class :foreground ,bespoke-highlight)))
    `(highlight-indent-guides-stack-character-face  ((,class :foreground ,bespoke-highlight)))
 
-;;;; Imenu List
+;;;;; Imenu List
    `(imenu-list-entry-face-0                       ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
    `(imenu-list-entry-face-1                       ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
    `(imenu-list-entry-face-2                       ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
    `(imenu-list-entry-face-3                       ((,class :inherit imenu-list-entry-face :foreground ,bespoke-faded)))
 
-;;;; Info (Documentation)
+;;;;; Info (Documentation)
    `(info-menu-header                              ((,class :foreground ,bespoke-strong)))
    `(info-header-node                              ((,class :foreground ,bespoke-green)))
    `(info-index-match                              ((,class :foreground ,bespoke-salient)))
@@ -561,7 +563,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(info-title-4                                  ((,class :foreground ,bespoke-strong)))
 
 
-;;;; Interface
+;;;;; Interface
    `(widget-field                                  ((,class :background ,bespoke-subtle)))
    `(widget-button                                 ((,class :foreground ,bespoke-strong)))
    `(widget-single-line-field                      ((,class :foreground ,bespoke-subtle)))
@@ -579,7 +581,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(custom-state                                  ((,class :foreground ,bespoke-salient)))
    `(custom-link                                   ((,class :foreground ,bespoke-salient)))
 
-;;;; Markdown Mode
+;;;;; Markdown Mode
    `(markdown-blockquote-face                      ((,class :foreground ,bespoke-salient)))
    `(markdown-bold-face                            ((,class :foreground ,bespoke-strong :weight bold)))
    `(markdown-code-face                            ((,class :inherit    default)))
@@ -623,7 +625,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(markdown-table-face                           ((,class :inherit    default)))
    `(markdown-url-face                             ((,class :foreground ,bespoke-salient)))
 
-;;;; Magit
+;;;;; Magit
    `(magit-branch-current      ((,class :foreground ,bespoke-salient :box t :weight semi-bold)))
    `(magit-branch-local        ((,class :foreground ,bespoke-salient :weight semi-bold)))
    `(magit-branch-remote       ((,class :foreground ,bespoke-green :weight semi-bold)))
@@ -646,7 +648,7 @@ subtlety stand out from the mode line and other adjacent faces."
 
 
 
-;;;; Message
+;;;;; Message
    `(message-cited-text                            ((,class :foreground ,bespoke-faded)))
    `(message-header-cc                             ((,class :inherit default)))
    `(message-header-name                           ((,class :foreground ,bespoke-strong)))
@@ -658,7 +660,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(message-mml                                   ((,class :foreground ,bespoke-popout)))
    `(message-separator                             ((,class :foreground ,bespoke-faded)))
 
-;;;; Mode line/Header line
+;;;;; Mode line/Header line
 
    ;; Mode line settings based on header or footer line
    (when (eq bespoke-set-mode-line 'header)
@@ -748,7 +750,7 @@ subtlety stand out from the mode line and other adjacent faces."
                                              :box (:line-width 1 :color ,bespoke-inactive :style nil))))
 
 
-;;;; Mu4e
+;;;;; Mu4e
    `(mu4e-attach-number-face                      ((,class :foreground ,bespoke-strong)))
    `(mu4e-cited-1-face                            ((,class :foreground ,bespoke-faded)))
    `(mu4e-cited-2-face                            ((,class :foreground ,bespoke-faded)))
@@ -787,7 +789,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(mu4e-view-body-face                          ((,class :inherit    default)))
    `(mu4e-warning-face                            ((,class :foreground ,bespoke-faded)))
 
-;;;; Org-agenda
+;;;;; Org-agenda
    `(org-agenda-calendar-event                    ((,class :inherit default)))
    `(org-agenda-calendar-sexp                     ((,class :foreground ,bespoke-faded)))
    `(org-agenda-clocking                          ((,class :foreground ,bespoke-faded)))
@@ -807,7 +809,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(org-agenda-restriction-lock                  ((,class :foreground ,bespoke-faded)))
    `(org-agenda-structure                         ((,class :foreground ,bespoke-faded)))
 
-;;;; Org mode
+;;;;; Org mode
    `(org-archived                                 ((,class :foreground ,bespoke-faded)))
    `(org-block                                    ((,class :foreground ,bespoke-faded)))
    `(org-block-begin-line                         ((,class :foreground ,bespoke-faded)))
@@ -867,7 +869,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(org-verse                                    ((,class :foreground ,bespoke-faded)))
    `(org-warning                                  ((,class :foreground ,bespoke-popout)))
 
-;;;; Outline
+;;;;; Outline
    `(outline-minor-0      ((,class :background ,bespoke-subtle)))
    `(outline-1            ((,class :inherit ,(if bespoke-set-variable-pitch 'variable-pitch 'default) :weight normal :foreground ,bespoke-green)))
    `(outline-2            ((,class :inherit ,(if bespoke-set-variable-pitch 'variable-pitch 'default) :weight normal :foreground ,bespoke-blue)))
@@ -880,7 +882,7 @@ subtlety stand out from the mode line and other adjacent faces."
 
 
 
-;;;; Search
+;;;;; Search
    `(evil-ex-search                               ((,class :background ,bespoke-popout)))
    `(isearch                                      ((,class :foreground ,bespoke-popout :weight bold)))
    `(isearch-fail                                 ((,class :background ,bespoke-critical)))
@@ -888,7 +890,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(isearch-group-2                              ((,class :background ,bespoke-red)))
    `(query-replace                                ((,class :background ,bespoke-yellow)))
 
-;;;; Semantic
+;;;;; Semantic
    `(italic                                       ((,class :slant italic)))
    `(bold                                         ((,class :foreground ,bespoke-strong :weight bold)))
    `(bold-italic                                  ((,class :foreground ,bespoke-strong :weight bold :slant italic)))
@@ -899,7 +901,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(error                                        ((,class :foreground ,bespoke-critical)))
    `(match                                        ((,class :forgeround ,bespoke-popout :weight bold)))
 
-;;;; Speed Bar
+;;;;; Speed Bar
    `(speedbar-button-face                         ((,class :foreground ,bespoke-faded)))
    `(speedbar-directory-face                      ((,class :foreground ,bespoke-foreground :bold t)))
    `(speedbar-file-face                           ((,class :foreground ,bespoke-foreground :background ,bespoke-background)))
@@ -908,7 +910,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(speedbar-separator-face                      ((,class :foreground ,bespoke-faded)))
    `(speedbar-tag-face                            ((,class :foreground ,bespoke-faded)))
 
-;;;; Term
+;;;;; Term
    `(term-bold                                    ((,class :foreground ,bespoke-strong)))
    `(term-color-black                             ((,class :inherit    default)))
    `(term-color-white                             ((,class :foreground "white" :background "white")))
@@ -919,14 +921,14 @@ subtlety stand out from the mode line and other adjacent faces."
    `(term-color-red                               ((,class :foreground "#EF5350" :background "#FFCDD2")))
    `(term-color-yellow                            ((,class :foreground "#a67c00" :background "#FFEE58")))
 
-;;;; Posframe
+;;;;; Posframe
 
    `(which-key-posframe                           ((,class :background ,bespoke-subtle)))
    `(which-key-posframe-border                    ((,class :background ,bespoke-subtle)))
    `(transient-posframe-border                    ((,class :background ,bespoke-subtle)))
    `(transient-posframe                           ((,class :foreground ,bespoke-strong :background ,bespoke-subtle)))
 
-;;;; Window Divs
+;;;;; Window Divs
    ;; divide windows more attractively
    `(window-divider                               ((,class :foreground ,bespoke-background)))
    `(window-divider-first-pixel                   ((,class :foreground ,bespoke-background)))
@@ -937,10 +939,10 @@ subtlety stand out from the mode line and other adjacent faces."
      (set-face-background 'vertical-border bespoke-background)
      (set-face-foreground 'vertical-border (face-background 'vertical-border)))
 
-;;;; End Custom faces
+;;;;; End Custom faces
    ))
 
-;;; Define evil cursor colors
+;;;; Define evil cursor colors
 (defun bespoke--evil-load-cursors ()
   "Load theme specific cursor colors"
   (setq evil-emacs-state-cursor    `(,bespoke-salient box))
@@ -954,7 +956,7 @@ subtlety stand out from the mode line and other adjacent faces."
 (when bespoke-set-evil-cursors
   (add-hook 'bespoke-after-load-theme-hook #'bespoke--evil-load-cursors))
 
-;;; Set Minibuffer & Echo Area
+;;;; Set Minibuffer & Echo Area
 (defun bespoke-theme--minibuffer ()
   "Derive minibuffer / echo area faces from bespoke faces."
   ;; Minibuffer / echo area

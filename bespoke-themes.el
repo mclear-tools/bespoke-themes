@@ -6,7 +6,7 @@
 ;; URL: https://github.com/mclear-tools/bespoke-themes
 ;; -------------------------------------------------------------------
 ;; Created: 2021-03-16
-;; Version: 0.5
+;; Version: 0.6
 ;; Package-Requires: ((emacs "26.1"))
 ;; -------------------------------------------------------------------
 ;; This file is not part of GNU Emacs.
@@ -24,20 +24,20 @@
 ;; You should have received a copy of the GNU General Public License along with this
 ;; program. If not, see <http://www.gnu.org/licenses/>
 ;; -------------------------------------------------------------------
-;; Commentary: This theme offers a set of light/dark bespoke themes and custom mode
+;;; Commentary: This theme offers a set of light/dark bespoke themes and custom mode
 ;; line for the discerning yak shaver. There is also an optional mode line
 ;; configuration, which may be used either as a header line or a foot. Options and
 ;; useful function below. See README for further info
 ;; -------------------------------------------------------------------
-;; Code:
+;;; Code:
 ;;
 
 
-;;; Version Requirements
+;;;; Version Requirements
 (unless (>= emacs-major-version 26)
   (error "Requires Emacs 26 or later"))
 
-;;; Theme Options
+;;;; Theme Options
 
 (defcustom bespoke-set-theme 'light
   "Choose which theme variant, light or dark, to use"
@@ -91,7 +91,7 @@ Initial value is 3"
   :group 'bespoke-themes
   :type 'boolean)
 
-;;; After Load Theme Hook
+;;;; After Load Theme Hook
 (defvar bespoke-after-load-theme-hook nil
   "Hook run after a color theme is loaded using `load-theme'.")
 (defadvice load-theme (after run-after-load-theme-hook activate)
@@ -99,13 +99,13 @@ Initial value is 3"
   (run-hooks 'bespoke-after-load-theme-hook))
 
 
-;;; Disable Theme Function
+;;;; Disable Theme Function
 (defun bespoke--disable-all-themes ()
   "Disable all active themes."
   (dolist (i custom-enabled-themes)
     (disable-theme i)))
 
-;;; Theme Toggle
+;;;; Theme Toggle
 ;;;###autoload
 (defun bespoke/toggle-theme ()
   "Toggle between dark and light variants"
@@ -120,7 +120,7 @@ Initial value is 3"
       (setq bespoke-set-theme 'light)
       (load-theme 'bespoke t))))
 
-;;; Call Theme Functions
+;;;; Call Theme Functions
 ;;;###autoload
 (defun bespoke/light-theme ()
   "Set light variant of bespoke-theme"
