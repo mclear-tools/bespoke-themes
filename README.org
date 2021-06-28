@@ -18,7 +18,6 @@ between aesthetics and readability:
 
 #+BEGIN_HTML
 <div>
-<p>Colors</p>
 <img src="./screenshots/display-colors.png"/>
 </div>
 #+END_HTML
