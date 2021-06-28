@@ -87,20 +87,27 @@
 ;; https://www.masteringemacs.org/article/hiding-replacing-modeline-strings
 ;; NOTE: this is only for minor and major modes
 (defvar mode-line-cleaner-alist
-  `((auto-complete-mode . " α")
-    (yas/minor-mode . " υ")
-    (paredit-mode . " π")
-    (eldoc-mode . "")
+  `(;; Minor modes
     (abbrev-mode . "")
+    (auto-complete-mode . " α")
+    (eldoc-mode . "")
+    (hi-lock-mode . "")
+    (paredit-mode . " π")
+    (yas/minor-mode . " υ")
     ;; Major modes
     (dired-mode . "Dir")
-    (lisp-interaction-mode . "λ")
-    (hi-lock-mode . "")
-    (python-mode . "Py")
     (emacs-lisp-mode . "EL")
-    (nxhtml-mode . "nx")
+    (fundamental-mode . "FL")
+    (helpful-mode . "")
+    (help-mode . "")
+    (lisp-interaction-mode . "λ")
     (markdown-mode . "MD")
-    (fundamental-mode . "FL"))
+    (magit-mode . "MG")
+    (nxhtml-mode . "NX")
+    (prog-mode . "PR")
+    (python-mode . "PY")
+    (text-mode . "TX")
+    )
   "Alist for `clean-mode-line'.
 
 When you add a new element to the alist, keep in mind that you
