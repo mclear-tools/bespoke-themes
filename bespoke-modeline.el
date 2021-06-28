@@ -133,21 +133,25 @@ want to use in the modeline *in lieu of* the original.")
 ;;;; Branch display
 ;; -------------------------------------------------------------------
 (defun vc-project-branch ()
-  ;; Show project name
-  (when buffer-file-name
-    (concat
-     ;; Divider
-     (when (vc-registered (buffer-file-name))
-       (propertize " • " 'face `(:inherit fringe)))
-     (when (bound-and-true-p projectile-mode)
-       (let ((project-name (projectile-project-name)))
-         (unless (string= "-" project-name)
-           (format "%s" project-name))))
-     ;; Show branch
-     (if vc-mode
-         (let ((backend (vc-backend buffer-file-name)))
-           (concat "" (substring-no-properties vc-mode
-                                                (+ (if (eq backend 'Hg) 2 3) 2))))  nil))))
+  "Show project and branch name"
+  (let ((backend (vc-backend buffer-file-name)))
+    (when buffer-file-name
+      (concat
+       (if (bound-and-true-p projectile-mode)
+           (let ((project-name (projectile-project-name)))
+             ;; Project name
+             (unless (string= "-" project-name)
+               (concat
+                ;; Divider
+                (propertize " •" 'face `(:inherit fringe))
+                (format " %s" project-name))))
+         " ")
+       ;; Show branch
+       (if vc-mode
+           (concat
+            "" (substring-no-properties vc-mode
+                                         (+ (if (eq backend 'Hg) 2 3) 2)))  nil)))))
+
 ;; Git diff in modeline
 ;; https://cocktailmake.github.io/posts/emacs-modeline-enhancement-for-git-diff/
 (when bespoke-set-git-diff-mode-line
@@ -578,7 +582,7 @@ want to use in the modeline *in lieu of* the original.")
   ;; Update selected window
   (setq bespoke-modeline--selected-window (selected-window))
   (setq-default header-line-format bespoke--mode-line)
-  (setq-default mode-line-format (list "%-"))
+  (setq-default mode-line-format (list (propertize "%-" 'face `(:inherit fringe))))
   (force-mode-line-update))
 
 (defun bespoke--footer-line ()
@@ -606,7 +610,7 @@ Note that you may need to revert buffers to see the modeline properly"
     (progn
       (setq bespoke-set-mode-line 'header)
       (setq-default header-line-format bespoke--mode-line)
-      (setq-default mode-line-format (list "%–"))
+      (setq-default mode-line-format (list (propertize "%-" 'face `(:inherit fringe))))
       (set-face-attribute 'header-line nil :inherit 'header-line)
       (set-face-attribute 'mode-line nil :inherit 'mode-line)
 	  (set-face-attribute 'mode-line-inactive nil :inherit 'mode-line-inactive-face)))
