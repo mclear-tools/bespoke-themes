@@ -61,7 +61,13 @@ Initial value is 3"
   :group 'bespoke-themes
   :type 'integer)
 
-(defcustom bespoke-set-git-diff-modeline t
+(defcustom bespoke-set-mode-line-height 3
+  "Set the size of the mode line as an integer
+Initial value is 3"
+  :group 'bespoke-themes
+  :type 'integer)
+
+(defcustom bespoke-set-git-diff-mode-line t
   "If t then show diff lines in modeline"
   :group 'bespoke-themes
   :type 'boolean)
