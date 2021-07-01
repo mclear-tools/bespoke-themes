@@ -61,7 +61,7 @@ Initial value is 3"
   :group 'bespoke-themes
   :type 'integer)
 
-(defcustom bespoke-set-git-diff-modeline t
+(defcustom bespoke-set-git-diff-mode-line t
   "If t then show diff lines in modeline"
   :group 'bespoke-themes
   :type 'boolean)

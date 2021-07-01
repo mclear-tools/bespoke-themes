@@ -34,9 +34,9 @@ Suggestions and pull requests are welcome!
 
 *** Options
 
-- There is an optional custom modeline, which may be set as a header line (as in
-  nano-emacs), or as the normal footer line, or the theme can make merely cosmetic
-  changes. See the options for the =(bespoke-set-mode-line)= variable.
+- There is an optional custom modeline, which may be set as a header line (similar to
+  [[https://github.com/rougier/nano-emacs][nano-emacs]]), or as the normal footer line, or the theme can make merely cosmetic
+  changes to the modeline. See the options for the =(bespoke-set-mode-line)= variable.
    + You can set the size of the mode line with =(bespoke-set-mode-line-size)=
    + Toggle between the header or footer mode line with =(bespoke/toggle-mode-line)= or
      disable the custom modeline altogether with =(bespoke/disable-custom-mode-line)=

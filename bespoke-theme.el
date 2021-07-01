@@ -229,8 +229,8 @@ subtlety stand out from the mode line and other adjacent faces."
     dark))
 (defalias '--l/d #'bespoke-theme--light-dark)
 
-;; Set colors according to variant so they can be used outside the theme declaration
 (defun bespoke--set-theme-variant ()
+  "Set theme colors according to LIGHT or DARK variant"
   (setq bespoke-foreground (--l/d "#282b35" "#eceff4"))
   (setq bespoke-background (--l/d "#fffef9" "#282b35"))
 
@@ -561,7 +561,6 @@ subtlety stand out from the mode line and other adjacent faces."
    `(info-title-2                                  ((,class :foreground ,bespoke-strong)))
    `(info-title-3                                  ((,class :foreground ,bespoke-strong)))
    `(info-title-4                                  ((,class :foreground ,bespoke-strong)))
-
 
 ;;;;; Interface
    `(widget-field                                  ((,class :background ,bespoke-subtle)))
