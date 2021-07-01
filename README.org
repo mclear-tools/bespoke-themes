@@ -31,7 +31,14 @@ breaking changes made from one commit to the next. I also may continue to tweak
 colors slightly to find the best balance between aesthetics and readability.
 Suggestions and pull requests are welcome!
 
+**** Breaking Changes:
 
+I'll try and log all breaking changes, including renaming functions and variables here:
+
+- 6/13: Normalized all modeline variable names from =bespoke...modeline= to =bespoke...mode-line= for consistency (commit: e119c0a)
+- 6/12: Renamed =bespoke-set-mode-line-height= to =bespoke-set-mode-line-size= (commit: a46b7b5)
+
+  
 *** Options
 
 - There is an optional custom modeline, which may be set as a header line (similar to
