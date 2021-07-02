@@ -44,6 +44,7 @@
   :group 'bespoke-themes
   :type 'symbol)
 
+;; Modeline options
 (defcustom bespoke-set-mode-line 'header
   "Whether bespoke-theme should set its own modeline, and if so, where.
 If nil, don't set modeline content or position, only its base colors.
@@ -61,21 +62,29 @@ Initial value is 3"
   :group 'bespoke-themes
   :type 'integer)
 
+(defcustom bespoke-set-mode-line-cleaner t
+  "If t then show abbreviated mode symbol in modeline"
+  :group 'bespoke-themes
+  :type 'boolean)
+
 (defcustom bespoke-set-git-diff-mode-line t
   "If t then show diff lines in modeline"
   :group 'bespoke-themes
   :type 'boolean)
 
+;; Cursors
 (defcustom bespoke-set-evil-cursors t
   "If t then use bespoke evil cursor colors"
   :group 'bespoke-themes
   :type 'boolean)
 
+;; Visual Bell
 (defcustom bespoke-set-visual-bell t
   "If t then use bespoke-visual-bell"
   :group 'bespoke-themes
   :type 'boolean)
 
+;; Font options
 (defcustom bespoke-set-italic-comments t
   "If t then use italics for comments"
   :group 'bespoke-themes

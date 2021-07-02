@@ -48,6 +48,8 @@ I'll try and log all breaking changes, including renaming functions and variable
    + Toggle between the header or footer mode line with =(bespoke/toggle-mode-line)= or
      disable the custom modeline altogether with =(bespoke/disable-custom-mode-line)=
    + Show git diff in modeline with =(bespoke-set-git-diff-mode-line)=
+   + Substitute any symbol for the major mode with =(bespoke-set-clean-mode-line)= (see
+     also the variable =(bespoke-mode-line-cleaner-alist)=
 - There is a useful footer line visual alert "bell" inspired by [[https://github.com/hlissner/doom-emacs][DOOM emacs]]. To use
   include =(setq bespoke-set-visual-bell t)= in your setup of the theme.
 - You can set italics for keywords or comments (or both).
@@ -74,6 +76,8 @@ packages, but you can of course install it from this repo however you wish.
   (setq bespoke-set-mode-line-size 3)
   ;; Show diff lines in modeline
   (setq bespoke-set-git-diff-mode-line t)
+  ;; Set mode-line cleaner
+  (setq bespoke-set-mode-line-cleaner t)
   ;; Set evil cursor colors
   (setq bespoke-set-evil-cursors t)
   ;; Use mode line visual bell

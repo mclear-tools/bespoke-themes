@@ -84,18 +84,9 @@
   "Currently selected window.")
 
 ;;; Clean mode line
-;; https://www.masteringemacs.org/article/hiding-replacing-modeline-strings
-;; NOTE: this is only for minor and major modes
-(defvar mode-line-cleaner-alist
-  `(;; Minor modes
-    (abbrev-mode . "")
-    (auto-complete-mode . " α")
-    (eldoc-mode . "")
-    (hi-lock-mode . "")
-    (paredit-mode . " π")
-    (yas/minor-mode . " υ")
-    ;; Major modes
-    (dired-mode . "Dir")
+;; Source: https://www.masteringemacs.org/article/hiding-replacing-modeline-strings
+(defvar bespoke-mode-line-cleaner-alist
+  `((dired-mode . "Dir")
     (emacs-lisp-mode . "EL")
     (fundamental-mode . "FL")
     (helpful-mode . "")
@@ -108,15 +99,15 @@
     (python-mode . "PY")
     (text-mode . "TX")
     )
-  "Alist for `clean-mode-line'.
+  "Alist for `bespoke-clean-mode-line'.
 
 When you add a new element to the alist, keep in mind that you
 must pass the correct minor/major mode symbol and a string you
-want to use in the modeline *in lieu of* the original.")
+want to use in the modeline *as substitute for* the original.")
 
-(defun clean-mode-line ()
+(defun bespoke-clean-mode-line ()
   (interactive)
-  (cl-loop for cleaner in mode-line-cleaner-alist
+  (cl-loop for cleaner in bespoke-mode-line-cleaner-alist
            do (let* ((mode (car cleaner))
                      (mode-str (cdr cleaner))
                      (old-mode-str (cdr (assq mode minor-mode-alist))))
@@ -126,7 +117,8 @@ want to use in the modeline *in lieu of* the original.")
                 (when (eq mode major-mode)
                   (setq mode-name mode-str)))))
 
-(add-hook 'after-change-major-mode-hook 'clean-mode-line)
+(when bespoke-set-mode-line-cleaner
+  (add-hook 'after-change-major-mode-hook #'bespoke-clean-mode-line))
 
 
 ;;; Mode line functions
