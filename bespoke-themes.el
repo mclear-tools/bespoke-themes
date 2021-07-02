@@ -40,7 +40,7 @@
 ;;;; Theme Options
 
 (defcustom bespoke-set-theme 'light
-  "Choose which theme variant, light or dark, to use"
+  "Choose which theme variant, light or dark, to use."
   :group 'bespoke-themes
   :type 'symbol)
 
@@ -49,7 +49,7 @@
   "Whether bespoke-theme should set its own modeline, and if so, where.
 If nil, don't set modeline content or position, only its base colors.
 If the value is `header', then set modeline as headerline.
-If the value is `footer', then set modeline as the standard footer line"
+If the value is `footer', then set modeline as the standard footer line."
   :group 'bespoke-themes
   :type '(choice
           (const :tag "Nil" nil)
@@ -58,45 +58,45 @@ If the value is `footer', then set modeline as the standard footer line"
 
 (defcustom bespoke-set-mode-line-size 3
   "Set the size of the mode line as an integer
-Initial value is 3"
+Initial value is 3."
   :group 'bespoke-themes
   :type 'integer)
 
-(defcustom bespoke-set-mode-line-cleaner t
-  "If t then show abbreviated mode symbol in modeline"
+(defcustom bespoke-set-mode-line-cleaner nil
+  "If t then show abbreviated mode symbol in modeline. Default is nil."
   :group 'bespoke-themes
   :type 'boolean)
 
 (defcustom bespoke-set-git-diff-mode-line t
-  "If t then show diff lines in modeline"
+  "If t then show diff lines in modeline."
   :group 'bespoke-themes
   :type 'boolean)
 
 ;; Cursors
 (defcustom bespoke-set-evil-cursors t
-  "If t then use bespoke evil cursor colors"
+  "If t then use bespoke evil cursor colors."
   :group 'bespoke-themes
   :type 'boolean)
 
 ;; Visual Bell
 (defcustom bespoke-set-visual-bell t
-  "If t then use bespoke-visual-bell"
+  "If t then use bespoke-visual-bell."
   :group 'bespoke-themes
   :type 'boolean)
 
 ;; Font options
 (defcustom bespoke-set-italic-comments t
-  "If t then use italics for comments"
+  "If t then use italics for comments."
   :group 'bespoke-themes
   :type 'boolean)
 
 (defcustom bespoke-set-italic-keywords t
-  "If t then use italics for keywords"
+  "If t then use italics for keywords."
   :group 'bespoke-themes
   :type 'boolean)
 
 (defcustom bespoke-set-variable-pitch t
-  "If t then use variable-pitch for headings"
+  "If t then use variable-pitch for headings."
   :group 'bespoke-themes
   :type 'boolean)
 
