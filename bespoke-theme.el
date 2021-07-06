@@ -516,13 +516,13 @@ subtlety stand out from the mode line and other adjacent faces."
 
 ;;;;; Git
 ;;;;;; Git-gutter
-   `(git-gutter:added        ((,class :foreground ,bespoke-salient)))
+   `(git-gutter:added        ((,class :foreground ,bespoke-green)))
    `(git-gutter:deleted      ((,class :foreground ,bespoke-red)))
    `(git-gutter:modified     ((,class :foreground ,bespoke-popout)))
    `(git-gutter:separator    ((,class :foreground ,bespoke-subtle)))
    `(git-gutter:unchanged    ((,class :foreground ,bespoke-background)))
 ;;;;;; Git-gutter-fr
-   `(git-gutter-fr:added        ((,class :foreground ,bespoke-salient)))
+   `(git-gutter-fr:added        ((,class :foreground ,bespoke-green)))
    `(git-gutter-fr:deleted      ((,class :foreground ,bespoke-red)))
    `(git-gutter-fr:modified     ((,class :foreground ,bespoke-popout)))
 
@@ -879,8 +879,6 @@ subtlety stand out from the mode line and other adjacent faces."
    `(outline-7            ((,class :inherit outline-1)))
    `(outline-8            ((,class :inherit outline-2)))
 
-
-
 ;;;;; Search
    `(evil-ex-search                               ((,class :background ,bespoke-popout)))
    `(isearch                                      ((,class :foreground ,bespoke-popout :weight bold)))
@@ -954,6 +952,26 @@ subtlety stand out from the mode line and other adjacent faces."
 
 (when bespoke-set-evil-cursors
   (add-hook 'bespoke-after-load-theme-hook #'bespoke--evil-load-cursors))
+
+;;;; Set Hl-Todo
+;; inherit faces
+(setq hl-todo-keyword-faces
+      '(("HOLD" .       query-replace)
+        ("TODO" .       warning)
+        ("NEXT" .       highlight)
+        ("OKAY" .       success)
+        ("DONT" .       error)
+        ("FAIL" .       error)
+        ("DONE" .       shadow)
+        ("NOTE" .       warning)
+        ("KLUDGE" .     warning)
+        ("HACK" .       warning)
+        ("TEMP" .       warning)
+        ("FIXME" .      error)
+        ("XXX+" .       error)
+        ("BUG" .        error)
+        ("REVIEW" .     shadow)
+        ("DEPRECATED" . shadow)))
 
 ;;;; Set Minibuffer & Echo Area
 (defun bespoke-theme--minibuffer ()
