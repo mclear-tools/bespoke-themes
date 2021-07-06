@@ -99,13 +99,13 @@
     (python-mode . "PY")
     (text-mode . "TX")
     )
-  "Alist for `bespoke-clean-mode-line'.
+  "Alist for `bespoke/clean-mode-line'.
 
 When you add a new element to the alist, keep in mind that you
 must pass the correct minor/major mode symbol and a string you
 want to use in the modeline *as substitute for* the original.")
 
-(defun bespoke-clean-mode-line ()
+(defun bespoke/clean-mode-line ()
   (interactive)
   (cl-loop for cleaner in bespoke-mode-line-cleaner-alist
            do (let* ((mode (car cleaner))
@@ -118,7 +118,7 @@ want to use in the modeline *as substitute for* the original.")
                   (setq mode-name mode-str)))))
 
 (when bespoke-set-mode-line-cleaner
-  (add-hook 'after-change-major-mode-hook #'bespoke-clean-mode-line))
+  (add-hook 'after-change-major-mode-hook #'bespoke/clean-mode-line))
 
 
 ;;; Mode line functions
