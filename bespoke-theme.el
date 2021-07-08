@@ -908,15 +908,15 @@ subtlety stand out from the mode line and other adjacent faces."
    `(speedbar-tag-face                            ((,class :foreground ,bespoke-faded)))
 
 ;;;;; Term
-   `(term-bold                                    ((,class :foreground ,bespoke-strong)))
-   `(term-color-black                             ((,class :inherit    default)))
-   `(term-color-white                             ((,class :foreground "white" :background "white")))
-   `(term-color-blue                              ((,class :foreground "#42A5F5" :background "#BBDEFB")))
-   `(term-color-cyan                              ((,class :foreground "#26C6DA" :background "#B2EBF2")))
-   `(term-color-green                             ((,class :foreground "#66BB6A" :background "#C8E6C9")))
-   `(term-color-magenta                           ((,class :foreground "#AB47BC" :background "#E1BEE7")))
-   `(term-color-red                               ((,class :foreground "#EF5350" :background "#FFCDD2")))
-   `(term-color-yellow                            ((,class :foreground "#a67c00" :background "#FFEE58")))
+   `(term-bold                                    ((,class :foreground ,bespoke-strong :weight semi-bold)))
+   `(term-color-black                             ((,class :foregroud  ,bespoke-background)))
+   `(term-color-white                             ((,class :foreground ,bespoke-foreground)))
+   `(term-color-blue                              ((,class :foreground ,bespoke-blue)))
+   `(term-color-cyan                              ((,class :foreground ,bespoke-salient)))
+   `(term-color-green                             ((,class :foreground ,bespoke-green)))
+   `(term-color-magenta                           ((,class :foreground ,bespoke-popout)))
+   `(term-color-red                               ((,class :foreground ,bespoke-critical)))
+   `(term-color-yellow                            ((,class :foreground ,bespoke-yellow)))
 
 ;;;;; Posframe
 
