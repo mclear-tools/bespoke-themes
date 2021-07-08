@@ -63,7 +63,9 @@ Initial value is 3."
   :type 'integer)
 
 (defcustom bespoke-set-mode-line-cleaner nil
-  "If t then show abbreviated mode symbol in modeline. Default is nil."
+  "If t then show abbreviated mode symbol in modeline. Default is
+nil. To change the values of the major-mode symbols see the value
+of bespoke-mode-line-cleaner-alist"
   :group 'bespoke-themes
   :type 'boolean)
 
