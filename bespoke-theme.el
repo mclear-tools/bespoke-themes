@@ -881,7 +881,7 @@ subtlety stand out from the mode line and other adjacent faces."
 
 ;;;;; Search
    `(evil-ex-search                               ((,class :background ,bespoke-popout)))
-   `(isearch                                      ((,class :foreground ,bespoke-popout :weight bold)))
+   `(isearch                                      ((,class :background ,bespoke-popout :foreground ,bespoke-highlight :weight bold)))
    `(isearch-fail                                 ((,class :background ,bespoke-critical)))
    `(isearch-group-1                              ((,class :background ,bespoke-blue)))
    `(isearch-group-2                              ((,class :background ,bespoke-red)))
