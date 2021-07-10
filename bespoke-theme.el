@@ -276,6 +276,26 @@ subtlety stand out from the mode line and other adjacent faces."
    `(show-paren-mismatch                           ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
    `(tooltip nil                                   ((,class :height 0.85)))
 
+;;;;; Bespoke Faces
+   ;; NOTE: We want the bespoke colors to be available as faces. It seems like there
+   ;; should be a better way to do this but...
+   `(bespoke-foreground ((,class :foreground ,bespoke-foreground)))
+   `(bespoke-background ((,class :background ,bespoke-background)))
+   `(bespoke-modeline   ((,class :background ,bespoke-modeline)))
+   `(bespoke-highlight  ((,class :foreground ,bespoke-highlight)))
+   `(bespoke-inactive   ((,class :foreground ,bespoke-inactive)))
+   `(bespoke-critical   ((,class :foreground ,bespoke-critical)))
+   `(bespoke-salient    ((,class :foreground ,bespoke-salient)))
+   `(bespoke-strong     ((,class :foreground ,bespoke-strong)))
+   `(bespoke-popout     ((,class :foreground ,bespoke-popout)))
+   `(bespoke-subtle     ((,class :foreground ,bespoke-subtle)))
+   `(bespoke-faded      ((,class :foreground ,bespoke-faded)))
+   `(bespoke-blue       ((,class :foreground ,bespoke-blue)))
+   `(bespoke-green      ((,class :foreground ,bespoke-green)))
+   `(bespoke-red        ((,class :foreground ,bespoke-red)))
+   `(bespoke-brown      ((,class :foreground ,bespoke-brown)))
+   `(bespoke-yellow     ((,class :foreground ,bespoke-yellow)))
+
 ;;;;; Buttons
    `(custom-button                                 ((,class :foreground ,bespoke-foreground :background ,bespoke-highlight :box nil)))
    `(custom-button-mouse                           ((,class :foreground ,bespoke-foreground :background ,bespoke-subtle :box nil)))
