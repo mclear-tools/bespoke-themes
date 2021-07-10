@@ -231,7 +231,7 @@ subtlety stand out from the mode line and other adjacent faces."
 
 (defun bespoke--set-theme-variant ()
   "Set theme colors according to LIGHT or DARK variant"
-  (setq bespoke-foreground (--l/d "#282b35" "#eceff4"))
+  (setq bespoke-foreground (--l/d "#282b35" "#eceff1"))
   (setq bespoke-background (--l/d "#fffef9" "#282b35"))
 
   (setq bespoke-modeline   (--l/d "#e3e7ef" "#3c4353"))
@@ -663,6 +663,20 @@ subtlety stand out from the mode line and other adjacent faces."
    `(magit-section-heading-selection ((,class :foreground ,bespoke-salient)))
    `(magit-section-highlight ((,class :background ,bespoke-highlight)))
    `(magit-tag                 ((,class :foreground ,bespoke-yellow)))
+   `(magit-header-line         ((,class :foreground ,bespoke-foreground
+                                        :background ,bespoke-modeline
+                                        :box (:line-width ,bespoke-set-mode-line-size
+                                              :color ,bespoke-modeline
+                                              :style nil)
+                                        :overline nil
+                                        :underline nil)))
+   `(magit-header-line-log-select ((,class :foreground ,bespoke-foreground
+                                           :background ,bespoke-modeline
+                                           :box (:line-width ,bespoke-set-mode-line-size
+                                                 :color ,bespoke-modeline
+                                                 :style nil)
+                                           :overline nil
+                                           :underline nil)))
 
 
 
