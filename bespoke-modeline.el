@@ -602,7 +602,7 @@ Note that you may need to revert buffers to see the modeline properly."
     (progn
       (setq bespoke-set-mode-line 'header)
       (setq-default header-line-format bespoke--mode-line)
-      (setq-default mode-line-format (list (propertize "%-" 'face `(:inherit fringe))))
+      (setq-default mode-line-format (list (propertize "%_" 'face `(:inherit fringe))))
       (set-face-attribute 'header-line nil :inherit 'header-line)
       (set-face-attribute 'mode-line nil :inherit 'mode-line)
 	  (set-face-attribute 'mode-line-inactive nil :inherit 'mode-line-inactive-face)))
