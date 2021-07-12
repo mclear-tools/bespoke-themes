@@ -574,7 +574,7 @@ want to use in the modeline *as substitute for* the original.")
   ;; Update selected window
   (setq bespoke-modeline--selected-window (selected-window))
   (setq-default header-line-format bespoke--mode-line)
-  (setq-default mode-line-format (list (propertize "%-" 'face `(:inherit fringe))))
+  (setq-default mode-line-format (list (propertize "%_" 'face `(:inherit fringe))))
   (force-mode-line-update))
 
 (defun bespoke--footer-line ()
