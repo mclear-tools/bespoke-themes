@@ -74,6 +74,37 @@ of bespoke-mode-line-cleaner-alist"
   :group 'bespoke-themes
   :type 'boolean)
 
+;; Mode line symbols
+(defcustom bespoke-mode-line-gui-ro-symbol " ⨂ "
+  "Modeline gui read-only symbol."
+  :group 'bespoke-themes
+  :type 'string)
+
+(defcustom bespoke-mode-line-gui-mod-symbol " ⨀ "
+  "Modeline gui modified symbol."
+  :group 'bespoke-themes
+  :type 'string)
+
+(defcustom bespoke-mode-line-gui-rw-symbol " ◯ "
+  "Modeline gui read-write symbol."
+  :group 'bespoke-themes
+  :type 'string)
+
+(defcustom bespoke-mode-line-tty-ro-symbol " RO "
+  "Modeline tty read-only symbol."
+  :group 'bespoke-themes
+  :type 'string)
+
+(defcustom bespoke-mode-line-tty-mod-symbol " ** "
+  "Modeline tty modified symbol."
+  :group 'bespoke-themes
+  :type 'string)
+
+(defcustom bespoke-mode-line-tty-rw-symbol " RW "
+  "Modeline tty read-write symbol."
+  :group 'bespoke-themes
+  :type 'string)
+
 ;; Cursors
 (defcustom bespoke-set-evil-cursors t
   "If t then use bespoke evil cursor colors."
