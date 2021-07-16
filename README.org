@@ -47,6 +47,9 @@ I'll try and log all breaking changes, including renaming functions and variable
    + You can set the size of the mode line with =(bespoke-set-mode-line-size)=
    + Toggle between the header or footer mode line with =(bespoke/toggle-mode-line)= or
      disable the custom modeline altogether with =(bespoke/disable-custom-mode-line)=
+   + Set the buffer status symbol in the modeline. This is configurable separately
+     for GUI and terminal. Default symbols are, respectively, read-only: (⨂)/(RO),
+     modified: (⨀)/(**), and read-write: (◯)/(RW).
    + Show git diff in modeline with =(bespoke-set-git-diff-mode-line)=
    + Substitute any symbol for the major mode by setting
      =(bespoke-set-mode-line-cleaner)= to 't' (see also the variable
