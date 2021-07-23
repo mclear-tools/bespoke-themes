@@ -141,8 +141,8 @@ want to use in the modeline *as substitute for* the original.")
        ;; Show branch
        (if vc-mode
            (concat
-            "" (substring-no-properties vc-mode
-                                         (+ (if (eq backend 'Hg) 2 3) 2)))  nil)))))
+            "" (substring-no-properties vc-mode ;    
+                                        (+ (if (eq backend 'Hg) 2 3) 2)))  nil)))))
 
 ;; Git diff in modeline
 ;; https://cocktailmake.github.io/posts/emacs-modeline-enhancement-for-git-diff/
@@ -394,8 +394,7 @@ modified (⨀)/(**), or read-write (◯)/(RW)"
      (bespoke-modeline-status)
      buffer-name
      (concat "(" mode-name
-	         (if branch (concat ", "
-				                (propertize branch 'face 'italic)))
+             branch
 	         ")" )
      page-number)))
 
@@ -417,8 +416,7 @@ modified (⨀)/(**), or read-write (◯)/(RW)"
      (bespoke-modeline-status)
      buffer-name
      (concat "(" mode-name
-	         (if branch (concat ", "
-				                (propertize branch 'face 'italic)))
+             branch
 	         ")" )
      (concat page-number " "))))
 
