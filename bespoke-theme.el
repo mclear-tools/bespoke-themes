@@ -396,7 +396,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(selectrum-quick-keys-highlight                ((,class :foreground ,bespoke-popout)))
 
 ;;;;;; Vertico
-   `(vertico-current                               ((,class :slant italic :weight bold :background ,bespoke-highlight)))
+   `(vertico-current                               ((,class :weight bold :background ,bespoke-highlight)))
 
 ;;;;;; Orderless
 
