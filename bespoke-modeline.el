@@ -493,7 +493,7 @@ modified (⨀)/(**), or read-write (◯)/(RW)"
 (defun bespoke-modeline-org-capture-mode ()
   (bespoke-modeline-compose (bespoke-modeline-status)
                             "Capture"
-                            "(org)"
+                            "(Org)"
                             ""))
 
 (with-eval-after-load 'org-capture
