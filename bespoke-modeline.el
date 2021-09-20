@@ -43,6 +43,7 @@
   (require 'subr-x)
   (require 'cl-lib))
 
+(require 'bespoke-themes)
 
 ;;; Visual bell for mode line
 
