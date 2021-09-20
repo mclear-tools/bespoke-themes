@@ -43,6 +43,27 @@
   (require 'subr-x)
   (require 'cl-lib))
 
+(require 'bespoke-themes)
+
+(defvar Info-use-header-line)
+(defvar Info-current-file)
+(defvar Info-current-node)
+(defvar Info-breadcrumbs-depth)
+(defvar deft-filter-regexp)
+(defvar deft-current-files)
+(defvar deft-all-files)
+(defvar org-mode-line-string)
+(defvar eshell-status-in-modeline)
+
+(declare-function projectile-project-name "ext:projectile")
+(declare-function Info-toc-nodes "info")
+(declare-function doc-view-current-page "ext:doc-view")
+(declare-function doc-view-last-page-number "ext:doc-view")
+(declare-function pdf-view-current-page "ext:pdf-view")
+(declare-function pdf-cache-number-of-pages "ext:pdf-cache")
+(declare-function deft-whole-filter-regexp "ext:deft")
+(declare-function calendar-setup-header "calendar")
+(declare-function org-capture-turn-off-header-line "org")
 
 ;;; Visual bell for mode line
 
@@ -150,16 +171,16 @@ want to use in the modeline *as substitute for* the original.")
   (defadvice vc-git-mode-line-string (after plus-minus (file) compile activate)
     "Show the information of git diff on modeline."
     (setq ad-return-value
-	      (concat ad-return-value
-		          (let ((plus-minus (vc-git--run-command-string
-				                     file "diff" "--numstat" "--")))
-		            (if (and plus-minus
-		                     (string-match "^\\([0-9]+\\)\t\\([0-9]+\\)\t" plus-minus))
-		                (concat
+	  (concat ad-return-value
+		  (let ((plus-minus (vc-git--run-command-string
+				     file "diff" "--numstat" "--")))
+		    (if (and plus-minus
+		             (string-match "^\\([0-9]+\\)\t\\([0-9]+\\)\t" plus-minus))
+		        (concat
                          " "
-			             (format "+%s" (match-string 1 plus-minus))
-			             (format "-%s" (match-string 2 plus-minus)))
-		              (propertize "" 'face '(:weight bold))))))))
+			 (format "+%s" (match-string 1 plus-minus))
+			 (format "-%s" (match-string 2 plus-minus)))
+		      (propertize "" 'face '(:weight bold))))))))
 
 
 ;;;; Dir display
@@ -354,7 +375,7 @@ modified (⨀)/(**), or read-write (◯)/(RW)"
 (defun bespoke-modeline-vterm-mode-p ()
   (derived-mode-p 'vterm-mode))
 
-(defun bespoke-modeline-get-ssh-host (str)
+(defun bespoke-modeline-get-ssh-host (_str)
   (let ((split-defdir (split-string default-directory)))
     (if (equal (length split-defdir) 1)
         (car (split-string (shell-command-to-string "hostname") "\n"))
@@ -383,19 +404,19 @@ modified (⨀)/(**), or read-write (◯)/(RW)"
 
 (defun bespoke-modeline-docview-mode ()
   (let ((buffer-name (format-mode-line "%b"))
-	    (mode-name   (format-mode-line 'mode-name))
-	    (branch      (vc-project-branch))
-	    (page-number (concat
-		              (number-to-string (doc-view-current-page)) "/"
-		              (or (ignore-errors
-			                (number-to-string (doc-view-last-page-number)))
-			              "???"))))
+	(mode-name   (format-mode-line 'mode-name))
+	(branch      (vc-project-branch))
+	(page-number (concat
+		      (number-to-string (doc-view-current-page)) "/"
+		      (or (ignore-errors
+			    (number-to-string (doc-view-last-page-number)))
+			  "???"))))
     (bespoke-modeline-compose
      (bespoke-modeline-status)
      buffer-name
      (concat "(" mode-name
              branch
-	         ")" )
+	     ")" )
      page-number)))
 
 ;;;; PDF View Mode
@@ -459,7 +480,7 @@ modified (⨀)/(**), or read-write (◯)/(RW)"
         (matches (if deft-filter-regexp
                      (format "%d matches" (length deft-current-files))
                    (format "%d notes" (length deft-all-files)))))
-    (bespoke-modeline-compose " DEFT "
+    (bespoke-modeline-compose prefix
                               primary filter matches)))
 
 ;;;; Calendar Mode
@@ -511,12 +532,13 @@ modified (⨀)/(**), or read-write (◯)/(RW)"
   (derived-mode-p 'org-agenda-mode))
 
 (defun bespoke-modeline-org-agenda-mode ()
-  (let* ((space-up       +0.06)
-         (space-down     -0.20))
-    (bespoke-modeline-compose (bespoke-modeline-status)
-                              "Agenda"
-                              ""
-                              (concat (propertize "◴" 'face 'default 'display `(raise ,space-up)) (format-time-string "%H:%M ")))))
+  (bespoke-modeline-compose (bespoke-modeline-status)
+                            "Agenda"
+                            ""
+                            (concat (propertize "◴"
+                                                'face 'default
+                                                'display '(raise 0.06))
+                                    (format-time-string "%H:%M "))))
 
 ;;;; Org Clock
 ;; ---------------------------------------------------------------------
@@ -531,20 +553,17 @@ modified (⨀)/(**), or read-write (◯)/(RW)"
 
 (defun bespoke-modeline-org-clock-mode ()
   (let ((buffer-name (format-mode-line "%b"))
-        (mode-name   (format-mode-line 'mode-name))
-        (branch      (vc-project-branch))
-        (position    (format-mode-line "%l:%c")))
+        (mode-name (format-mode-line 'mode-name))
+        (branch (vc-project-branch)))
     (bespoke-modeline-compose (bespoke-modeline-status)
                               buffer-name
                               (concat "(" mode-name
-                                      (if branch (concat ", "
-                                                         (propertize branch 'face 'italic)))
+                                      (if branch
+                                          (concat ", "
+                                                  (propertize branch
+                                                              'face 'italic)))
                                       ")" )
                               org-mode-line-string)))
-
-
-
-
 
 ;;; Set Mode line
 ;;;; Set content for mode/header line
@@ -557,8 +576,8 @@ modified (⨀)/(**), or read-write (◯)/(RW)"
            ((bespoke-modeline-vterm-mode-p)           (bespoke-modeline-vterm-mode))
            ((bespoke-modeline-text-mode-p)            (bespoke-modeline-default-mode))
            ((bespoke-modeline-pdf-view-mode-p)        (bespoke-modeline-pdf-view-mode))
-	       ((bespoke-modeline-docview-mode-p)         (bespoke-modeline-docview-mode))
-	       ((bespoke-modeline-completion-list-mode-p) (bespoke-modeline-completion-list-mode))
+	   ((bespoke-modeline-docview-mode-p)         (bespoke-modeline-docview-mode))
+	   ((bespoke-modeline-completion-list-mode-p) (bespoke-modeline-completion-list-mode))
            ((bespoke-modeline-calendar-mode-p)        (bespoke-modeline-calendar-mode))
            ((bespoke-modeline-org-capture-mode-p)     (bespoke-modeline-org-capture-mode))
            ((bespoke-modeline-org-agenda-mode-p)      (bespoke-modeline-org-agenda-mode))
