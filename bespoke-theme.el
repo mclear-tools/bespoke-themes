@@ -32,8 +32,17 @@
 ;;; Code
 
 ;;;; Requirements
+(require 'bespoke-themes)
 (require 'bespoke-modeline)
 
+(defvar evil-emacs-state-cursor)
+(defvar evil-normal-state-cursor)
+(defvar evil-visual-state-cursor)
+(defvar evil-insert-state-cursor)
+(defvar evil-replace-state-cursor)
+(defvar evil-motion-state-cursor)
+(defvar evil-operator-state-cursor)
+(defvar hl-todo-keyword-faces)
 
 ;;;; Define group & colors
 
