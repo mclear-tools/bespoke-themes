@@ -151,16 +151,16 @@ want to use in the modeline *as substitute for* the original.")
   (defadvice vc-git-mode-line-string (after plus-minus (file) compile activate)
     "Show the information of git diff on modeline."
     (setq ad-return-value
-	      (concat ad-return-value
-		          (let ((plus-minus (vc-git--run-command-string
-				                     file "diff" "--numstat" "--")))
-		            (if (and plus-minus
-		                     (string-match "^\\([0-9]+\\)\t\\([0-9]+\\)\t" plus-minus))
-		                (concat
+	  (concat ad-return-value
+		  (let ((plus-minus (vc-git--run-command-string
+				     file "diff" "--numstat" "--")))
+		    (if (and plus-minus
+		             (string-match "^\\([0-9]+\\)\t\\([0-9]+\\)\t" plus-minus))
+		        (concat
                          " "
-			             (format "+%s" (match-string 1 plus-minus))
-			             (format "-%s" (match-string 2 plus-minus)))
-		              (propertize "" 'face '(:weight bold))))))))
+			 (format "+%s" (match-string 1 plus-minus))
+			 (format "-%s" (match-string 2 plus-minus)))
+		      (propertize "" 'face '(:weight bold))))))))
 
 
 ;;;; Dir display
@@ -384,19 +384,19 @@ modified (⨀)/(**), or read-write (◯)/(RW)"
 
 (defun bespoke-modeline-docview-mode ()
   (let ((buffer-name (format-mode-line "%b"))
-	    (mode-name   (format-mode-line 'mode-name))
-	    (branch      (vc-project-branch))
-	    (page-number (concat
-		              (number-to-string (doc-view-current-page)) "/"
-		              (or (ignore-errors
-			                (number-to-string (doc-view-last-page-number)))
-			              "???"))))
+	(mode-name   (format-mode-line 'mode-name))
+	(branch      (vc-project-branch))
+	(page-number (concat
+		      (number-to-string (doc-view-current-page)) "/"
+		      (or (ignore-errors
+			    (number-to-string (doc-view-last-page-number)))
+			  "???"))))
     (bespoke-modeline-compose
      (bespoke-modeline-status)
      buffer-name
      (concat "(" mode-name
              branch
-	         ")" )
+	     ")" )
      page-number)))
 
 ;;;; PDF View Mode
