@@ -37,8 +37,9 @@
 
 ;;;; Define group & colors
 
-(defgroup bespoke-themes '()
-  "Faces and colors for bespoke themes")
+(defgroup bespoke-themes nil
+  "Faces and colors for bespoke themes"
+  :group 'faces)
 
 ;; Derive our default color set from core Emacs faces.
 ;; This allows use of bespoke colors in independently themed Emacsen
