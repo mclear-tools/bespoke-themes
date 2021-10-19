@@ -703,6 +703,10 @@ subtlety stand out from the mode line and other adjacent faces."
    `(message-mml                                   ((,class :foreground ,bespoke-popout)))
    `(message-separator                             ((,class :foreground ,bespoke-faded)))
 
+;;;;; Mini-Popup (Childframe)
+   `(mini-popup-background ((,class :background ,bespoke-subtle)))
+   `(mini-popup-border     ((,class :background ,bespoke-subtle)))
+
 ;;;;; Mode line/Header line
 
    ;; Mode line settings based on header or footer line
