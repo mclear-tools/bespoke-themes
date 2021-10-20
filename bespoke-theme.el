@@ -703,20 +703,25 @@ subtlety stand out from the mode line and other adjacent faces."
                                     :color ,bespoke-modeline
                                     :style nil)
                               :overline nil
-                              :underline nil))))
+                              :underline nil)))))
 
+   (when (fboundp 'bespoke-modeline)
      (when (eq bespoke-modeline-position 'top)
        `(mode-line  ((,class :height 0.1
                              :underline ,bespoke-subtle
                              :overline nil
-                             :box nil))))
+                             :box nil)))))
 
+
+   (when (fboundp 'bespoke-modeline)
      (when (eq bespoke-modeline-position 'top)
        `(mode-line-inactive  ((,class :height 0.1
                                       :underline ,bespoke-subtle
                                       :overline nil
-                                      :box nil))))
+                                      :box nil)))))
 
+
+   (when (fboundp 'bespoke-modeline)
      (when (eq bespoke-modeline-position 'bottom)
        `(mode-line ((,class :foreground ,bespoke-foreground
                             :background ,bespoke-modeline
@@ -724,8 +729,9 @@ subtlety stand out from the mode line and other adjacent faces."
                                   :color ,bespoke-modeline
                                   :style nil)
                             :overline nil
-                            :underline nil))))
+                            :underline nil)))))
 
+   (when (fboundp 'bespoke-modeline)
      (when (eq bespoke-modeline-position 'bottom)
        `(mode-line-inactive ((,class :foreground ,bespoke-subtle
                                      :background ,bespoke-modeline
@@ -733,18 +739,19 @@ subtlety stand out from the mode line and other adjacent faces."
                                            :color ,bespoke-modeline
                                            :style nil)
                                      :overline nil
-                                     :underline nil))))
+                                     :underline nil)))))
 
-     ;; no underline in terminal
-     ;; FIXME: for some reason this seems necessary
-     ;; to disable underline in terminal
-     (when (not (display-graphic-p))
-       (set-face-attribute 'mode-line nil
-                           :underline nil)
-       (set-face-attribute 'mode-line-inactive nil
-                           :underline nil))
+   ;; no underline in terminal
+   ;; FIXME: for some reason this seems necessary
+   ;; to disable underline in terminal
+   (when (not (display-graphic-p))
+     (set-face-attribute 'mode-line nil
+                         :underline nil)
+     (set-face-attribute 'mode-line-inactive nil
+                         :underline nil))
 
 
+   (when (fboundp 'bespoke-modeline)
      (when (eq bespoke-modeline-position nil)
        `(mode-line ((,class :foreground ,bespoke-foreground
                             :background ,bespoke-modeline
@@ -752,8 +759,9 @@ subtlety stand out from the mode line and other adjacent faces."
                                   :color ,bespoke-modeline
                                   :style nil)
                             :overline nil
-                            :underline nil))))
+                            :underline nil)))))
 
+   (when (fboundp 'bespoke-modeline)
      (when (eq bespoke-modeline-position nil)
        `(mode-line-inactive ((,class :foreground ,bespoke-faded
                                      :background ,bespoke-modeline
@@ -761,55 +769,50 @@ subtlety stand out from the mode line and other adjacent faces."
                                            :color ,bespoke-modeline
                                            :style nil)
                                      :overline nil
-                                     :underline nil))))
-;;;;; Mode line indicators
+                                     :underline nil)))))
 
-     ;; Active
+;;;;;; Mode line indicators
+
+   ;; Active
+   (when (fboundp 'bespoke-modeline)
      `(bespoke-modeline-active               ((,class (:foreground ,bespoke-foreground
                                                        :background ,bespoke-modeline
                                                        :box (:line-width ,bespoke-modeline-size
                                                              :color ,bespoke-modeline
                                                              :style nil)
                                                        :overline nil
-                                                       :underline nil))))
+                                                       :underline nil)))))
 
-     `(bespoke-modeline-active-name          ((,class (:background ,bespoke-modeline
-                                                       :foreground ,bespoke-foreground))))
-     `(bespoke-modeline-active-primary       ((,class (:foreground ,bespoke-faded :weight light))))
-     `(bespoke-modeline-active-secondary     ((,class (:foreground ,bespoke-foreground))))
-     `(bespoke-modeline-active-status-RW ((,class :foreground ,bespoke-background
-                                                  :background ,bespoke-blue
-                                                  :box (:line-width 1 :color ,bespoke-blue :style nil))))
+   `(bespoke-modeline-active-name          ((,class (:background ,bespoke-modeline
+                                                     :foreground ,bespoke-foreground))))
+   `(bespoke-modeline-active-primary       ((,class (:foreground ,bespoke-faded :weight light))))
+   `(bespoke-modeline-active-secondary     ((,class (:foreground ,bespoke-foreground))))
+   `(bespoke-modeline-active-status-RW ((,class :foreground ,bespoke-background
+                                                :background ,bespoke-blue
+                                                :box (:line-width 1 :color ,bespoke-blue :style nil))))
 
-     `(bespoke-modeline-active-status-** ((,class :foreground ,bespoke-background
-                                                  :background ,bespoke-red
-                                                  :box (:line-width 1 :color ,bespoke-red :style nil))))
+   `(bespoke-modeline-active-status-** ((,class :foreground ,bespoke-background
+                                                :background ,bespoke-red
+                                                :box (:line-width 1 :color ,bespoke-red :style nil))))
 
-     `(bespoke-modeline-active-status-RO ((,class :foreground ,bespoke-background
-                                                  :background ,bespoke-yellow
-                                                  :box (:line-width 1 :color ,bespoke-yellow :style nil))))
+   `(bespoke-modeline-active-status-RO ((,class :foreground ,bespoke-background
+                                                :background ,bespoke-yellow
+                                                :box (:line-width 1 :color ,bespoke-yellow :style nil))))
 
-     ;; Inactive
+   ;; Inactive
+   (when (fboundp 'bespoke-modeline)
      `(bespoke-modeline-inactive             ((,class (:foreground ,bespoke-subtle
                                                        :background ,bespoke-modeline
                                                        :box (:line-width ,bespoke-modeline-size
                                                              :color ,bespoke-modeline
                                                              :style nil)
                                                        :overline nil
-                                                       :underline nil))))
-     `(bespoke-modeline-inactive-name        ((,class (:foreground ,bespoke-faded :background ,bespoke-modeline :weight light))))
-     `(bespoke-modeline-inactive-primary     ((,class (:foreground ,bespoke-faded :background ,bespoke-modeline :weight light))))
-     `(bespoke-modeline-inactive-secondary   ((,class (:foreground ,bespoke-faded :background ,bespoke-modeline :weight light))))
+                                                       :underline nil)))))
+   `(bespoke-modeline-inactive-name        ((,class (:foreground ,bespoke-faded :background ,bespoke-modeline :weight light))))
+   `(bespoke-modeline-inactive-primary     ((,class (:foreground ,bespoke-faded :background ,bespoke-modeline :weight light))))
+   `(bespoke-modeline-inactive-secondary   ((,class (:foreground ,bespoke-faded :background ,bespoke-modeline :weight light))))
 
-     `(bespoke-modeline-inactive-status-RO   ((,class :foreground ,bespoke-subtle
-                                                      :background ,bespoke-inactive
-                                                      :box (:line-width 1
-                                                            :color ,bespoke-inactive
-                                                            :style nil)
-                                                      :overline nil
-                                                      :underline nil)))
-
-     `(bespoke-modeline-inactive-status-RW ((,class :foreground ,bespoke-subtle
+   `(bespoke-modeline-inactive-status-RO   ((,class :foreground ,bespoke-subtle
                                                     :background ,bespoke-inactive
                                                     :box (:line-width 1
                                                           :color ,bespoke-inactive
@@ -817,13 +820,22 @@ subtlety stand out from the mode line and other adjacent faces."
                                                     :overline nil
                                                     :underline nil)))
 
-     `(bespoke-modeline-inactive-status-**  ((,class :foreground ,bespoke-subtle
-                                                     :background ,bespoke-inactive
-                                                     :box (:line-width 1
-                                                           :color ,bespoke-inactive
-                                                           :style nil)
-                                                     :overline nil
-                                                     :underline nil))))
+   `(bespoke-modeline-inactive-status-RW ((,class :foreground ,bespoke-subtle
+                                                  :background ,bespoke-inactive
+                                                  :box (:line-width 1
+                                                        :color ,bespoke-inactive
+                                                        :style nil)
+                                                  :overline nil
+                                                  :underline nil)))
+
+   `(bespoke-modeline-inactive-status-**  ((,class :foreground ,bespoke-subtle
+                                                   :background ,bespoke-inactive
+                                                   :box (:line-width 1
+                                                         :color ,bespoke-inactive
+                                                         :style nil)
+                                                   :overline nil
+                                                   :underline nil)))
+
    (when (not (fboundp 'bespoke-modeline))
      `(mode-line ((,class :foreground ,bespoke-foreground
                           :background ,bespoke-modeline
