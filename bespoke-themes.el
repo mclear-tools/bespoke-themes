@@ -44,76 +44,9 @@
   :group 'bespoke-themes
   :type 'symbol)
 
-;; Modeline options
-(defcustom bespoke-set-mode-line 'header
-  "Whether bespoke-theme should set its own modeline, and if so, where.
-If nil, don't set modeline content or position, only its base colors.
-If the value is `header', then set modeline as headerline.
-If the value is `footer', then set modeline as the standard footer line."
-  :group 'bespoke-themes
-  :type '(choice
-          (const :tag "Nil" nil)
-          (const :tag "Header" header)
-          (const :tag "Footer" footer)))
-
-(defcustom bespoke-set-mode-line-size 3
-  "Set the size of the mode line as an integer
-Initial value is 3."
-  :group 'bespoke-themes
-  :type 'integer)
-
-(defcustom bespoke-set-mode-line-cleaner nil
-  "If t then show abbreviated mode symbol in modeline. Default is
-nil. To change the values of the major-mode symbols see the value
-of bespoke-mode-line-cleaner-alist"
-  :group 'bespoke-themes
-  :type 'boolean)
-
-(defcustom bespoke-set-git-diff-mode-line t
-  "If t then show diff lines in modeline."
-  :group 'bespoke-themes
-  :type 'boolean)
-
-;; Mode line symbols
-(defcustom bespoke-mode-line-gui-ro-symbol " ⨂ "
-  "Modeline gui read-only symbol."
-  :group 'bespoke-themes
-  :type 'string)
-
-(defcustom bespoke-mode-line-gui-mod-symbol " ⨀ "
-  "Modeline gui modified symbol."
-  :group 'bespoke-themes
-  :type 'string)
-
-(defcustom bespoke-mode-line-gui-rw-symbol " ◯ "
-  "Modeline gui read-write symbol."
-  :group 'bespoke-themes
-  :type 'string)
-
-(defcustom bespoke-mode-line-tty-ro-symbol " RO "
-  "Modeline tty read-only symbol."
-  :group 'bespoke-themes
-  :type 'string)
-
-(defcustom bespoke-mode-line-tty-mod-symbol " ** "
-  "Modeline tty modified symbol."
-  :group 'bespoke-themes
-  :type 'string)
-
-(defcustom bespoke-mode-line-tty-rw-symbol " RW "
-  "Modeline tty read-write symbol."
-  :group 'bespoke-themes
-  :type 'string)
-
 ;; Cursors
 (defcustom bespoke-set-evil-cursors t
   "If t then use bespoke evil cursor colors."
-  :group 'bespoke-themes
-  :type 'boolean)
-
-;; Visual Bell
-(defcustom bespoke-set-visual-bell t
-  "If t then use bespoke-visual-bell."
   :group 'bespoke-themes
   :type 'boolean)
 
@@ -139,7 +72,6 @@ of bespoke-mode-line-cleaner-alist"
 (defadvice load-theme (after run-after-load-theme-hook activate)
   "Run `after-load-theme-hook'."
   (run-hooks 'bespoke-after-load-theme-hook))
-
 
 ;;;; Disable Theme Function
 (defun bespoke--disable-all-themes ()
@@ -178,9 +110,6 @@ of bespoke-mode-line-cleaner-alist"
   (bespoke--disable-all-themes)
   (setq bespoke-set-theme 'dark)
   (load-theme 'bespoke t))
-
-
-
 
 ;;; Provide Theme
 (provide 'bespoke-themes)
