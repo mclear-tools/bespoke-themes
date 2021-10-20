@@ -35,7 +35,6 @@ Suggestions and pull requests are welcome!
 
 I'll try and log all breaking changes, including renaming functions and variables here:
 
-- 10/19: Rename =bespoke-theme.el= to =bespoke-faces-colors.el=
 - 10/19: Moved modeline to its [[https://github.com/mclear-tools/bespoke-modeline][own repo]]
 - 6/13: Normalized all modeline variable names from =bespoke...modeline= to =bespoke...mode-line= for consistency (commit: e119c0a)
 - 6/12: Renamed =bespoke-set-mode-line-height= to =bespoke-set-mode-line-size= (commit: a46b7b5)
