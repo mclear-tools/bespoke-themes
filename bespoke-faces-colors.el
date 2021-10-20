@@ -1,4 +1,4 @@
-;; bespoke-theme.el --- A custom theme  -*- lexical-binding: t; -*-
+;; bespoke-faces-colors.el --- A custom theme  -*- lexical-binding: t; -*-
 ;; Copyright (C) 2020 Colin McLear
 ;; -------------------------------------------------------------------
 ;; Authors: Colin McLear
@@ -211,26 +211,6 @@ subtlety stand out from the mode line and other adjacent faces."
 (defface bespoke-brown nil
   "A brownish accent face"
   :group 'faces)
-
-
-;;;;; Modeline faces
-
-;; (defface bespoke-modeline-default-face nil
-;;   "Default face for the mode line."
-;;   :group 'faces)
-
-;; (defface bespoke-modeline-mod-face nil
-;;   "Mode line face for modified buffers."
-;;   :group 'faces)
-
-;; (defface bespoke-modeline-ro-face nil
-;;   "Mode line face for read-only buffers."
-;;   :group 'faces)
-
-;; (defface bespoke-modeline-inactive-face nil
-;;   "Mode line face for inactive windows."
-;;   :group 'faces)
-
 
 ;;;; Define Theme
 (deftheme bespoke "A custom theme for yak shaving, with light and dark variants")
@@ -1087,10 +1067,10 @@ subtlety stand out from the mode line and other adjacent faces."
                (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'bespoke)
-(provide 'bespoke-theme)
+(provide 'bespoke-faces-colors)
 
 
 ;; Local Variables:
 ;; eval: (when (fboundp 'rainbow-mode) (rainbow-mode 1))
 ;; End:
-;;; bespoke-theme.el ends here
+;;; bespoke-faces-colors.el ends here
