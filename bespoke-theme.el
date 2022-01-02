@@ -300,6 +300,22 @@ subtlety stand out from the mode line and other adjacent faces."
    `(bookmark-menu-bookmark                        ((,class :foreground ,bespoke-salient)))
    `(bookmark-face                                 ((,class :foreground ,bespoke-salient)))
 
+;;;;; Childframes
+;;;;;; Mini-Frame
+   `(mini-popup-background ((,class :background ,bespoke-subtle)))
+   `(mini-popup-border     ((,class :background ,bespoke-subtle)))
+
+;;;;;; Mini-Popup (Childframe)
+   `(mini-popup-background ((,class :background ,bespoke-subtle)))
+   `(mini-popup-border     ((,class :background ,bespoke-subtle)))
+
+;;;;;; Posframe
+
+   `(which-key-posframe                           ((,class :background ,bespoke-subtle)))
+   `(which-key-posframe-border                    ((,class :background ,bespoke-subtle)))
+   `(transient-posframe-border                    ((,class :background ,bespoke-subtle)))
+   `(transient-posframe                           ((,class :foreground ,bespoke-strong :background ,bespoke-subtle)))
+
 ;;;;; Completion/Narrowing
 
 ;;;;;; Company
@@ -390,7 +406,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(selectrum-quick-keys-highlight                ((,class :foreground ,bespoke-popout)))
 
 ;;;;;; Vertico
-   `(vertico-current                               ((,class :weight bold :background ,bespoke-highlight)))
+   `(vertico-current                               ((,class :weight regular :background ,bespoke-highlight)))
 
 ;;;;;; Orderless
 
@@ -687,12 +703,19 @@ subtlety stand out from the mode line and other adjacent faces."
    `(message-mml                                   ((,class :foreground ,bespoke-popout)))
    `(message-separator                             ((,class :foreground ,bespoke-faded)))
 
-;;;;; Mini-Popup (Childframe)
-   `(mini-popup-background ((,class :background ,bespoke-subtle)))
-   `(mini-popup-border     ((,class :background ,bespoke-subtle)))
+;;;;; Meow
+   `(meow-normal-cursor         ((,class :background ,bespoke-yellow)))
+   `(meow-insert-cursor         ((,class :background ,bespoke-critical)))
+   `(meow-keypad-cursor         ((,class :background ,bespoke-brown)))
+   `(meow-motion-cursor         ((,class :background ,bespoke-green)))
+   `(meow-kmacro-cursor         ((,class :background ,bespoke-salient)))
+   `(meow-beacon-fake-selection ((,class :background ,bespoke-modeline)))
+   `(meow-beacon-fake-cursor    ((,class :background ,bespoke-yellow)))
 
 ;;;;; Mode line/Header line
 ;;;;;; Conditional Loading
+   ;; NOTE: these settings are specifically for bespoke-modeline
+   ;; See https://github.com/mclear-tools/bespoke-modeline
    ;; Mode line settings based on position
    (when (fboundp 'bespoke-modeline)
      (when (eq bespoke-modeline-position 'top)
@@ -740,7 +763,7 @@ subtlety stand out from the mode line and other adjacent faces."
                                      :overline nil
                                      :underline nil)))))
 
-   ;; no underline in terminal
+   ;; No underline in terminal
    ;; FIXME: for some reason this seems necessary
    ;; to disable underline in terminal
    (when (not (display-graphic-p))
@@ -1021,13 +1044,6 @@ subtlety stand out from the mode line and other adjacent faces."
    `(term-color-magenta                           ((,class :foreground ,bespoke-popout)))
    `(term-color-red                               ((,class :foreground ,bespoke-critical)))
    `(term-color-yellow                            ((,class :foreground ,bespoke-yellow)))
-
-;;;;; Posframe
-
-   `(which-key-posframe                           ((,class :background ,bespoke-subtle)))
-   `(which-key-posframe-border                    ((,class :background ,bespoke-subtle)))
-   `(transient-posframe-border                    ((,class :background ,bespoke-subtle)))
-   `(transient-posframe                           ((,class :foreground ,bespoke-strong :background ,bespoke-subtle)))
 
 ;;;;; Window Divs
    ;; divide windows more attractively
