@@ -33,7 +33,6 @@
 
 ;;;; Requirements
 (require 'bespoke-themes)
-;; (require 'bespoke-modeline)
 
 (defvar evil-emacs-state-cursor)
 (defvar evil-normal-state-cursor)
@@ -172,7 +171,7 @@ secondary information."
   "Subtle face is used to suggest a physical area on the screen.
 It's main use is for differentiating regions without drawing a
 significant amount of attention. It is also closely related in
-shade to modeline color and to the highlight color."
+shade to the modeline color and to the highlight color."
   :group 'faces)
 
 ;;;;; Accent faces
@@ -264,7 +263,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(link                                          ((,class :foreground ,bespoke-salient)))
    `(region                                        ((,class :background ,bespoke-highlight)))
    `(fringe                                        ((,class :foreground ,bespoke-faded :weight light)))
-   `(highlight                                     ((,class :background ,bespoke-highlight)))
+   `(highlight                                     ((,class :background ,bespoke-subtle)))
    `(lazy-highlight                                ((,class :foreground ,bespoke-green)))
    `(trailing-whitespace                           ((,class :foreground ,bespoke-faded)))
    `(show-paren-match                              ((,class :foreground ,bespoke-yellow :background ,bespoke-green)))
@@ -974,7 +973,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(org-warning                                  ((,class :foreground ,bespoke-popout)))
 
 ;;;;; Outline
-   `(outline-minor-0      ((,class :background ,bespoke-subtle)))
+   `(outline-minor-0      ((,class :background ,bespoke-highlight)))
    `(outline-1            ((,class :inherit ,(if bespoke-set-variable-pitch 'variable-pitch 'default) :weight normal :foreground ,bespoke-green)))
    `(outline-2            ((,class :inherit ,(if bespoke-set-variable-pitch 'variable-pitch 'default) :weight normal :foreground ,bespoke-blue)))
    `(outline-3            ((,class :inherit outline-1)))
