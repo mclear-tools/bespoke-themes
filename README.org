@@ -129,7 +129,9 @@ For dimming non-active windows try [[https://github.com/gonewest818/dimmer.el][d
 
 *** Screenshots:
 
-Note that these all use [[https://github.com/mclear-tools/bespoke-modeline][bespoke-modeline]] 
+Note that these all use
+[[https://github.com/mclear-tools/bespoke-modeline][bespoke-modeline]] and
+settings from my [[https://github.com/mclear-tools/dotemacs][dotemacs]].  
 
 #+BEGIN_HTML
 <div>
