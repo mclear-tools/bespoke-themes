@@ -330,6 +330,14 @@ subtlety stand out from the mode line and other adjacent faces."
    `(company-tooltip-annotation                    ((,class :foreground ,bespoke-faded)))
    `(company-tooltip-annotation-selection          ((,class :foreground ,bespoke-salient)))
 
+;;;;;; Corfu
+   `(corfu-annotations                             ((,class :foreground ,bespoke-faded)))
+   `(corfu-bar                                     ((,class :foreground ,bespoke-modeline)))
+   `(corfu-border                                  ((,class :foreground ,bespoke-subtle)))
+   `(corfu-current                                 ((,class :foreground ,bespoke-popout :background ,bespoke-highlight)))
+   `(corfu-default                                 ((,class :inherit default :background ,bespoke-subtle)))
+   `(corfu-deprecated                              ((,class :foreground ,bespoke-faded)))
+   `(corfu-echo                                    ((,class :inherit default)))
 
 ;;;;;; Counsel
    `(counsel-active-mode                           ((,class :foreground ,bespoke-salient)))
