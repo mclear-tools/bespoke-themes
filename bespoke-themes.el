@@ -68,10 +68,7 @@
 
 ;;;; After Load Theme Hook
 (defvar bespoke-after-load-theme-hook nil
-  "Hook run after a color theme is loaded using `load-theme'.")
-(defadvice load-theme (after run-after-load-theme-hook activate)
-  "Run `after-load-theme-hook'."
-  (run-hooks 'bespoke-after-load-theme-hook))
+  "Hook run after bespoke-theme is loaded using `load-theme'.")
 
 ;;;; Disable Theme Function
 (defun bespoke--disable-all-themes ()
@@ -88,11 +85,14 @@
       (progn
         (bespoke--disable-all-themes)
         (setq bespoke-set-theme 'dark)
-        (load-theme 'bespoke t))
+        (load-theme 'bespoke t)
+        (run-hooks 'bespoke-after-load-theme-hook))
     (progn
       (bespoke--disable-all-themes)
       (setq bespoke-set-theme 'light)
-      (load-theme 'bespoke t))))
+      (load-theme 'bespoke t)
+      (run-hooks 'bespoke-after-load-theme-hook)
+      )))
 
 ;;;; Call Theme Functions
 ;;;###autoload
@@ -101,7 +101,8 @@
   (interactive)
   (bespoke--disable-all-themes)
   (setq bespoke-set-theme 'light)
-  (load-theme 'bespoke t))
+  (load-theme 'bespoke t)
+  (run-hooks 'bespoke-after-load-theme-hook))
 
 ;;;###autoload
 (defun bespoke/dark-theme ()
@@ -109,7 +110,8 @@
   (interactive)
   (bespoke--disable-all-themes)
   (setq bespoke-set-theme 'dark)
-  (load-theme 'bespoke t))
+  (load-theme 'bespoke t)
+  (run-hooks 'bespoke-after-load-theme-hook))
 
 ;;; Provide Theme
 (provide 'bespoke-themes)
