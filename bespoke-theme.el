@@ -266,8 +266,9 @@ subtlety stand out from the mode line and other adjacent faces."
    `(highlight                                     ((,class :background ,bespoke-subtle)))
    `(lazy-highlight                                ((,class :foreground ,bespoke-green)))
    `(trailing-whitespace                           ((,class :foreground ,bespoke-faded)))
-   `(show-paren-match                              ((,class :foreground ,bespoke-yellow :background ,bespoke-green)))
-   `(show-paren-mismatch                           ((,class :foreground ,bespoke-popout :background ,bespoke-critical)))
+   `(secondary-selection                           ((,class :foreground ,bespoke-yellow :background ,bespoke-subtle)))
+   `(show-paren-match                              ((,class :foreground ,bespoke-yellow :weight bold)))
+   `(show-paren-mismatch                           ((,class :foreground ,bespoke-critical :weight bold :box t)))
    `(tooltip nil                                   ((,class :height 0.85)))
 
 ;;;;; Bespoke Faces
