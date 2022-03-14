@@ -1018,6 +1018,17 @@ subtlety stand out from the mode line and other adjacent faces."
    `(outline-7            ((,class :inherit outline-3)))
    `(outline-8            ((,class :inherit outline-4)))
 
+;;;;; Rainbow Delimiters
+   `(rainbow-delimiters-depth-1-face ((,class :foreground ,bespoke-popout     :weight medium)))
+   `(rainbow-delimiters-depth-2-face ((,class :foreground ,bespoke-salient    :weight light)))
+   `(rainbow-delimiters-depth-3-face ((,class :foreground ,bespoke-brown      :weight light)))
+   `(rainbow-delimiters-depth-4-face ((,class :foreground ,bespoke-yellow     :weight light)))
+   `(rainbow-delimiters-depth-5-face ((,class :foreground ,bespoke-green      :weight light)))
+   `(rainbow-delimiters-depth-6-face ((,class :foreground ,bespoke-red        :weight light)))
+   `(rainbow-delimiters-depth-7-face ((,class :foreground ,bespoke-blue       :weight light)))
+   `(rainbow-delimiters-depth-8-face ((,class :foreground ,bespoke-faded      :weight light)))
+   `(rainbow-delimiters-depth-9-face ((,class :foreground ,bespoke-foreground :weight light)))
+
 ;;;;; Search
    `(evil-ex-search                               ((,class :background ,bespoke-popout)))
    `(isearch                                      ((,class :background ,bespoke-popout :foreground ,bespoke-highlight :weight bold)))
