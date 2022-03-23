@@ -1063,6 +1063,10 @@ subtlety stand out from the mode line and other adjacent faces."
    `(speedbar-separator-face                      ((,class :foreground ,bespoke-faded)))
    `(speedbar-tag-face                            ((,class :foreground ,bespoke-faded)))
 
+;;;;; Tabs
+   `(tab-bar-echo-area-tab               ((,class :foreground ,bespoke-faded :underline t :weight bold)))
+   `(tab-bar-echo-area-tab-group-current ((,class :foreground ,bespoke-faded)))
+
 ;;;;; Term
    `(term-bold                                    ((,class :foreground ,bespoke-strong :weight semi-bold)))
    `(term-color-black                             ((,class :foreground ,bespoke-background :background ,bespoke-background)))
