@@ -1065,7 +1065,7 @@ subtlety stand out from the mode line and other adjacent faces."
 
 ;;;;; Term
    `(term-bold                                    ((,class :foreground ,bespoke-strong :weight semi-bold)))
-   `(term-color-black                             ((,class :foregroud  ,bespoke-background :background ,bespoke-background)))
+   `(term-color-black                             ((,class :foreground ,bespoke-background :background ,bespoke-background)))
    `(term-color-white                             ((,class :foreground ,bespoke-foreground :background ,bespoke-foreground)))
    `(term-color-blue                              ((,class :foreground ,bespoke-blue :background ,bespoke-blue)))
    `(term-color-cyan                              ((,class :foreground ,bespoke-salient :background ,bespoke-salient)))
