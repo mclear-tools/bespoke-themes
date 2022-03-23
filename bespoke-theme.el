@@ -565,9 +565,14 @@ subtlety stand out from the mode line and other adjacent faces."
    `(git-gutter-fr:deleted      ((,class :foreground ,bespoke-red)))
    `(git-gutter-fr:modified     ((,class :foreground ,bespoke-popout)))
 
+;;;;; Goggles
+   `(goggles-added   ((,class :background ,bespoke-green)))
+   `(goggles-changed ((,class :background ,bespoke-popout)))
+   `(goggles-removed ((,class :background ,bespoke-red)))
+
 ;;;;; Help(ful)
 
-   `(helpful-heading                               ((,class :inherit ,(if bespoke-set-variable-pitch 'variable-pitch 'default) :foreground ,bespoke-blue :height 1.25)))
+   `(helpful-heading ((,class :inherit ,(if bespoke-set-variable-pitch 'variable-pitch 'default) :foreground ,bespoke-blue :height 1.25)))
 
 
 ;;;;; Highlight-Indentation
@@ -1049,6 +1054,7 @@ subtlety stand out from the mode line and other adjacent faces."
    `(match                                        ((,class :forgeround ,bespoke-popout :weight bold)))
 
 ;;;;; Speed Bar
+
    `(speedbar-button-face                         ((,class :foreground ,bespoke-faded)))
    `(speedbar-directory-face                      ((,class :foreground ,bespoke-foreground :bold t)))
    `(speedbar-file-face                           ((,class :foreground ,bespoke-foreground :background ,bespoke-background)))
