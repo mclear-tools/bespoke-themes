@@ -1059,14 +1059,14 @@ subtlety stand out from the mode line and other adjacent faces."
 
 ;;;;; Term
    `(term-bold                                    ((,class :foreground ,bespoke-strong :weight semi-bold)))
-   `(term-color-black                             ((,class :foregroud  ,bespoke-background)))
-   `(term-color-white                             ((,class :foreground ,bespoke-foreground)))
-   `(term-color-blue                              ((,class :foreground ,bespoke-blue)))
-   `(term-color-cyan                              ((,class :foreground ,bespoke-salient)))
-   `(term-color-green                             ((,class :foreground ,bespoke-green)))
-   `(term-color-magenta                           ((,class :foreground ,bespoke-popout)))
-   `(term-color-red                               ((,class :foreground ,bespoke-critical)))
-   `(term-color-yellow                            ((,class :foreground ,bespoke-yellow)))
+   `(term-color-black                             ((,class :foregroud  ,bespoke-background :background ,bespoke-background)))
+   `(term-color-white                             ((,class :foreground ,bespoke-foreground :background ,bespoke-foreground)))
+   `(term-color-blue                              ((,class :foreground ,bespoke-blue :background ,bespoke-blue)))
+   `(term-color-cyan                              ((,class :foreground ,bespoke-salient :background ,bespoke-salient)))
+   `(term-color-green                             ((,class :foreground ,bespoke-green :background ,bespoke-green)))
+   `(term-color-magenta                           ((,class :foreground ,bespoke-popout :background ,bespoke-popout)))
+   `(term-color-red                               ((,class :foreground ,bespoke-critical :background ,bespoke-critical)))
+   `(term-color-yellow                            ((,class :foreground ,bespoke-yellow :background ,bespoke-yellow)))
 
 ;;;;; Window Divs
    ;; divide windows more attractively
