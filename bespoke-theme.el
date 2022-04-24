@@ -471,7 +471,7 @@ subtlety stand out from the mode line and other adjacent faces."
 
 ;;;;; Dired
 ;;;;;; All The Icons Dired
-   `(all-the-icons-dired-dir-face                  ((,class :forground ,bespoke-salient)))
+   `(all-the-icons-dired-dir-face                  ((,class :foreground ,bespoke-salient)))
 
 ;;;;;; Dired (plus)
    `(diredp-write-priv                             ((,class :foreground ,bespoke-critical)))
@@ -701,9 +701,6 @@ subtlety stand out from the mode line and other adjacent faces."
                                            :style nil)
                                    :overline nil
                                    :underline nil))
-
-
-
 
 ;;;;; Message
    `(message-cited-text                            ((,class :foreground ,bespoke-faded)))

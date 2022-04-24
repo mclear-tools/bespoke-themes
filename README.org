@@ -1,3 +1,6 @@
+*NOTE*: I am no longer actively developing this theme, though its design is now
+part of [[https://github.com/Lambda-Emacs/lambda-themes][Lambda-themes]].  
+
 Bespoke-themes is a set of custom, medium contrast, light and dark themes for Emacs
 (intended for GUI, though basic support in terminal has been added). There is also a
 related, and optional, [[https://github.com/mclear-tools/bespoke-modeline][custom modeline]]. This started as a fork of [[https://github.com/rougier][Nicolas Rougier's]]
